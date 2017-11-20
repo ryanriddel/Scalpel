@@ -63,14 +63,14 @@ namespace mdt
             if (checkEditTestTCP.Checked)
             {
                 client = new Feeds.QuoteFeedClient("Option Quotes", Feeds.QuoteFeedClient.ClientType.Option);
-                client.OnConnectionStatusChanged += () =>
-                {
-                    if (client.IsConnected)
-                    {
-                        System.Threading.Thread.Sleep(1000);
-                        client.SubscribeAll();
-                    }
-                };
+                //client.OnConnectionStatusChanged += () =>
+                //{
+                //    if (client.IsConnected)
+                //    {
+                //        System.Threading.Thread.Sleep(1000);
+                //        client.SubscribeAll();
+                //    }
+                //};
                 client.Connect("172.20.168.71", 13000);
             }
         }
@@ -181,6 +181,10 @@ namespace mdt
 
                 if (client != null)
                 {
+                    if (client.IsConnected)
+                    {
+                        client.SubscribeAll();
+                    }
                     client.startCount();
                 }
 
@@ -259,6 +263,7 @@ namespace mdt
             {
                 client.stopCount();
             }
+
             setConnectMsgText("Finished sample collection...");
             string remsg = "Test results:" + Environment.NewLine;
             long totalDelivered = 0;
