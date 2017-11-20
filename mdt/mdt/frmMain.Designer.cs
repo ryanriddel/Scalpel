@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.txtConnectMsg = new System.Windows.Forms.TextBox();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,14 +56,17 @@
             this.Clock = new DevExpress.XtraGauges.Win.Gauges.Circular.CircularGauge();
             this.arcScaleBackgroundLayerComponent2 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleBackgroundLayerComponent();
             this.arcScaleComponent4 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleComponent();
+            this.arcScaleBackgroundLayerComponent3 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleBackgroundLayerComponent();
+            this.arcScaleComponent5 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleComponent();
             this.arcScaleEffectLayerComponent2 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleEffectLayerComponent();
             this.arcScaleNeedleComponent4 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleNeedleComponent();
             this.arcScaleNeedleComponent5 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleNeedleComponent();
-            this.arcScaleComponent5 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleComponent();
             this.arcScaleComponent6 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleComponent();
             this.arcScaleSpindleCapComponent2 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleSpindleCapComponent();
             this.tbControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.tbpageNATS = new DevExpress.XtraTab.XtraTabPage();
+            this.txtMain2 = new System.Windows.Forms.TextBox();
+            this.txtMain = new System.Windows.Forms.TextBox();
             this.btnStartTest = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -71,13 +75,10 @@
             this.updMilliseconds = new System.Windows.Forms.NumericUpDown();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tbpageData = new DevExpress.XtraTab.XtraTabPage();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.txtMain = new System.Windows.Forms.TextBox();
-            this.txtMain2 = new System.Windows.Forms.TextBox();
             this.tabData = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageTemplate = new DevExpress.XtraTab.XtraTabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.arcScaleBackgroundLayerComponent3 = new DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleBackgroundLayerComponent();
+            this.checkEditTestTCP = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -97,10 +98,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.Clock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleBackgroundLayerComponent2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleComponent4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arcScaleBackgroundLayerComponent3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arcScaleComponent5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleEffectLayerComponent2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleNeedleComponent4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleNeedleComponent5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arcScaleComponent5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleComponent6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleSpindleCapComponent2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbControlMain)).BeginInit();
@@ -112,11 +114,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabData)).BeginInit();
             this.tabData.SuspendLayout();
             this.tabPageTemplate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.arcScaleBackgroundLayerComponent3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.checkEditTestTCP);
             this.panelControl1.Controls.Add(this.simpleButton2);
             this.panelControl1.Controls.Add(this.txtConnectMsg);
             this.panelControl1.Controls.Add(this.separatorControl1);
@@ -131,6 +134,15 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(171, 255);
             this.panelControl1.TabIndex = 0;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(8, 222);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(158, 23);
+            this.simpleButton2.TabIndex = 10;
+            this.simpleButton2.Text = "Clear Messages";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // txtConnectMsg
             // 
@@ -437,30 +449,12 @@
             this.arcScaleComponent4.StartAngle = -90F;
             this.arcScaleComponent4.Value = 1F;
             // 
-            // arcScaleEffectLayerComponent2
+            // arcScaleBackgroundLayerComponent3
             // 
-            this.arcScaleEffectLayerComponent2.ArcScale = this.arcScaleComponent4;
-            this.arcScaleEffectLayerComponent2.Name = "glass";
-            this.arcScaleEffectLayerComponent2.ScaleCenterPos = new DevExpress.XtraGauges.Core.Base.PointF2D(0.5F, 1F);
-            this.arcScaleEffectLayerComponent2.ShapeType = DevExpress.XtraGauges.Core.Model.EffectLayerShapeType.CircularFull_Clock;
-            this.arcScaleEffectLayerComponent2.Size = new System.Drawing.SizeF(196F, 98F);
-            this.arcScaleEffectLayerComponent2.ZOrder = -1000;
-            // 
-            // arcScaleNeedleComponent4
-            // 
-            this.arcScaleNeedleComponent4.ArcScale = this.arcScaleComponent4;
-            this.arcScaleNeedleComponent4.EndOffset = 10F;
-            this.arcScaleNeedleComponent4.Name = "hourNeedle";
-            this.arcScaleNeedleComponent4.ShapeType = DevExpress.XtraGauges.Core.Model.NeedleShapeType.CircularFull_Style3;
-            this.arcScaleNeedleComponent4.ZOrder = -50;
-            // 
-            // arcScaleNeedleComponent5
-            // 
-            this.arcScaleNeedleComponent5.ArcScale = this.arcScaleComponent5;
-            this.arcScaleNeedleComponent5.EndOffset = 10F;
-            this.arcScaleNeedleComponent5.Name = "minuteNeedle";
-            this.arcScaleNeedleComponent5.ShapeType = DevExpress.XtraGauges.Core.Model.NeedleShapeType.CircularFull_ClockSecond;
-            this.arcScaleNeedleComponent5.ZOrder = -50;
+            this.arcScaleBackgroundLayerComponent3.ArcScale = this.arcScaleComponent5;
+            this.arcScaleBackgroundLayerComponent3.Name = "arcScaleBackgroundLayerComponent2Copy0";
+            this.arcScaleBackgroundLayerComponent3.ShapeType = DevExpress.XtraGauges.Core.Model.BackgroundLayerShapeType.CircularFull_Style25;
+            this.arcScaleBackgroundLayerComponent3.ZOrder = 1000;
             // 
             // arcScaleComponent5
             // 
@@ -485,6 +479,31 @@
             this.arcScaleComponent5.StartAngle = -90F;
             this.arcScaleComponent5.Value = 2F;
             this.arcScaleComponent5.ZOrder = 1001;
+            // 
+            // arcScaleEffectLayerComponent2
+            // 
+            this.arcScaleEffectLayerComponent2.ArcScale = this.arcScaleComponent4;
+            this.arcScaleEffectLayerComponent2.Name = "glass";
+            this.arcScaleEffectLayerComponent2.ScaleCenterPos = new DevExpress.XtraGauges.Core.Base.PointF2D(0.5F, 1F);
+            this.arcScaleEffectLayerComponent2.ShapeType = DevExpress.XtraGauges.Core.Model.EffectLayerShapeType.CircularFull_Clock;
+            this.arcScaleEffectLayerComponent2.Size = new System.Drawing.SizeF(196F, 98F);
+            this.arcScaleEffectLayerComponent2.ZOrder = -1000;
+            // 
+            // arcScaleNeedleComponent4
+            // 
+            this.arcScaleNeedleComponent4.ArcScale = this.arcScaleComponent4;
+            this.arcScaleNeedleComponent4.EndOffset = 10F;
+            this.arcScaleNeedleComponent4.Name = "hourNeedle";
+            this.arcScaleNeedleComponent4.ShapeType = DevExpress.XtraGauges.Core.Model.NeedleShapeType.CircularFull_Style3;
+            this.arcScaleNeedleComponent4.ZOrder = -50;
+            // 
+            // arcScaleNeedleComponent5
+            // 
+            this.arcScaleNeedleComponent5.ArcScale = this.arcScaleComponent5;
+            this.arcScaleNeedleComponent5.EndOffset = 10F;
+            this.arcScaleNeedleComponent5.Name = "minuteNeedle";
+            this.arcScaleNeedleComponent5.ShapeType = DevExpress.XtraGauges.Core.Model.NeedleShapeType.CircularFull_ClockSecond;
+            this.arcScaleNeedleComponent5.ZOrder = -50;
             // 
             // arcScaleComponent6
             // 
@@ -562,6 +581,28 @@
             this.tbpageNATS.Size = new System.Drawing.Size(625, 232);
             this.tbpageNATS.Text = "NATS Speed Trials";
             // 
+            // txtMain2
+            // 
+            this.txtMain2.BackColor = System.Drawing.SystemColors.MenuText;
+            this.txtMain2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMain2.ForeColor = System.Drawing.Color.Lime;
+            this.txtMain2.Location = new System.Drawing.Point(4, 117);
+            this.txtMain2.Multiline = true;
+            this.txtMain2.Name = "txtMain2";
+            this.txtMain2.Size = new System.Drawing.Size(326, 105);
+            this.txtMain2.TabIndex = 23;
+            // 
+            // txtMain
+            // 
+            this.txtMain.BackColor = System.Drawing.SystemColors.MenuText;
+            this.txtMain.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMain.ForeColor = System.Drawing.Color.Lime;
+            this.txtMain.Location = new System.Drawing.Point(4, 16);
+            this.txtMain.Multiline = true;
+            this.txtMain.Name = "txtMain";
+            this.txtMain.Size = new System.Drawing.Size(326, 95);
+            this.txtMain.TabIndex = 22;
+            // 
             // btnStartTest
             // 
             this.btnStartTest.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -636,37 +677,6 @@
             this.tbpageData.Size = new System.Drawing.Size(625, 232);
             this.tbpageData.Text = "Data";
             // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(8, 222);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(158, 23);
-            this.simpleButton2.TabIndex = 10;
-            this.simpleButton2.Text = "Clear Messages";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // txtMain
-            // 
-            this.txtMain.BackColor = System.Drawing.SystemColors.MenuText;
-            this.txtMain.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMain.ForeColor = System.Drawing.Color.Lime;
-            this.txtMain.Location = new System.Drawing.Point(4, 16);
-            this.txtMain.Multiline = true;
-            this.txtMain.Name = "txtMain";
-            this.txtMain.Size = new System.Drawing.Size(326, 95);
-            this.txtMain.TabIndex = 22;
-            // 
-            // txtMain2
-            // 
-            this.txtMain2.BackColor = System.Drawing.SystemColors.MenuText;
-            this.txtMain2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMain2.ForeColor = System.Drawing.Color.Lime;
-            this.txtMain2.Location = new System.Drawing.Point(4, 117);
-            this.txtMain2.Multiline = true;
-            this.txtMain2.Name = "txtMain2";
-            this.txtMain2.Size = new System.Drawing.Size(326, 105);
-            this.txtMain2.TabIndex = 23;
-            // 
             // tabData
             // 
             this.tabData.Location = new System.Drawing.Point(3, 7);
@@ -695,12 +705,13 @@
             this.textBox1.Size = new System.Drawing.Size(605, 189);
             this.textBox1.TabIndex = 24;
             // 
-            // arcScaleBackgroundLayerComponent3
+            // checkEditTestTCP
             // 
-            this.arcScaleBackgroundLayerComponent3.ArcScale = this.arcScaleComponent5;
-            this.arcScaleBackgroundLayerComponent3.Name = "arcScaleBackgroundLayerComponent2Copy0";
-            this.arcScaleBackgroundLayerComponent3.ShapeType = DevExpress.XtraGauges.Core.Model.BackgroundLayerShapeType.CircularFull_Style25;
-            this.arcScaleBackgroundLayerComponent3.ZOrder = 1000;
+            this.checkEditTestTCP.Location = new System.Drawing.Point(85, 52);
+            this.checkEditTestTCP.Name = "checkEditTestTCP";
+            this.checkEditTestTCP.Properties.Caption = "Connect TCP";
+            this.checkEditTestTCP.Size = new System.Drawing.Size(81, 19);
+            this.checkEditTestTCP.TabIndex = 24;
             // 
             // frmMain
             // 
@@ -732,10 +743,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.Clock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleBackgroundLayerComponent2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleComponent4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arcScaleBackgroundLayerComponent3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arcScaleComponent5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleEffectLayerComponent2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleNeedleComponent4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleNeedleComponent5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arcScaleComponent5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleComponent6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arcScaleSpindleCapComponent2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbControlMain)).EndInit();
@@ -749,7 +761,7 @@
             this.tabData.ResumeLayout(false);
             this.tabPageTemplate.ResumeLayout(false);
             this.tabPageTemplate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.arcScaleBackgroundLayerComponent3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -806,6 +818,7 @@
         private DevExpress.XtraTab.XtraTabPage tabPageTemplate;
         private System.Windows.Forms.TextBox textBox1;
         private DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleBackgroundLayerComponent arcScaleBackgroundLayerComponent3;
+        private DevExpress.XtraEditors.CheckEdit checkEditTestTCP;
     }
 }
 

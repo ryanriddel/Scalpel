@@ -34,7 +34,9 @@ namespace mdt
         string Protocol = "";
 
         volatile Stopwatch stopWatch = new Stopwatch();
-        
+
+        Feeds.QuoteFeedClient client;
+
         public frmMain()
         {
             InitializeComponent();
@@ -56,6 +58,20 @@ namespace mdt
                 nats.OnErrUpdate += Nats_OnErrUpdate;
 
                 txtConnectMsg.Text = "NATS Connected! \n";
+            }
+
+            if (checkEditTestTCP.Checked)
+            {
+                client = new Feeds.QuoteFeedClient("Option Quotes", Feeds.QuoteFeedClient.ClientType.Option);
+                client.OnConnectionStatusChanged += () =>
+                {
+                    if (client.IsConnected)
+                    {
+                        System.Threading.Thread.Sleep(1000);
+                        client.SubscribeAll();
+                    }
+                };
+                client.Connect("172.20.168.71", 13000);
             }
         }
 
@@ -117,7 +133,7 @@ namespace mdt
                            // this.txtMain.Invoke((MethodInvoker) delegate { txtMain.AppendText(m + "\n"); });
 
                         }
-                        catch (Google.ProtocolBuffers.InvalidProtocolBufferException d)
+                        catch (Google.Protobuf.InvalidProtocolBufferException d)
                         {
                             Console.WriteLine(d.Message.ToString());
                             throw d;
@@ -153,7 +169,7 @@ namespace mdt
                             
 
                         }
-                        catch (Google.ProtocolBuffers.InvalidProtocolBufferException d)
+                        catch (Google.Protobuf.InvalidProtocolBufferException d)
                         {
                             Console.WriteLine(d.Message.ToString());
                             throw d;
@@ -162,7 +178,11 @@ namespace mdt
                 });
 
                 natsSubscriptionDict[subj] = nats.Subscribe(subj, evHandler);
-                
+
+                if (client != null)
+                {
+                    client.startCount();
+                }
 
             }
 
@@ -199,42 +219,46 @@ namespace mdt
             t.Start();
         }
 
-        Timer t2;
-        private void button1_Click(object sender, EventArgs e)
-        {
-            t2 = new Timer();
-            t2.Interval = 5;
-            t2.Tick += (o, s) =>
-            {
-                if (stopWatch.IsRunning == false)
-                    stopWatch.Start();
+        //Timer t2;
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    t2 = new Timer();
+        //    t2.Interval = 5;
+        //    t2.Tick += (o, s) =>
+        //    {
+        //        if (stopWatch.IsRunning == false)
+        //            stopWatch.Start();
 
-                if (stopWatch.ElapsedMilliseconds > testDurationMillis)
-                {
-                    stopWatch.Reset();
-                    t2.Enabled = false;
-                }
+        //        if (stopWatch.ElapsedMilliseconds > testDurationMillis)
+        //        {
+        //            stopWatch.Reset();
+        //            t2.Enabled = false;
+        //        }
 
-                /*
+        //        /*
                 
-                Clock.BeginUpdate();
-                Clock.Needles[0].Angle = (float)(6 * stopWatch.Elapsed.TotalSeconds);
-                Clock.Needles[1].Angle = (float)(36.0 * stopWatch.ElapsedMilliseconds / 100);
+        //        Clock.BeginUpdate();
+        //        Clock.Needles[0].Angle = (float)(6 * stopWatch.Elapsed.TotalSeconds);
+        //        Clock.Needles[1].Angle = (float)(36.0 * stopWatch.ElapsedMilliseconds / 100);
 
-                Clock.Needles[0].Update();
-                Clock.Needles[1].Update();
-                Clock.EndUpdate();
+        //        Clock.Needles[0].Update();
+        //        Clock.Needles[1].Update();
+        //        Clock.EndUpdate();
                 
-                */
+        //        */
 
-            };
-            stopWatch.Reset();
-            t2.Enabled = true;
-            t2.Start();
-        }
+        //    };
+        //    stopWatch.Reset();
+        //    t2.Enabled = true;
+        //    t2.Start();
+        //}
 
         public void endTest()
         {
+            if (client != null)
+            {
+                client.stopCount();
+            }
             setConnectMsgText("Finished sample collection...");
             string remsg = "Test results:" + Environment.NewLine;
             long totalDelivered = 0;
@@ -413,8 +437,6 @@ namespace mdt
                 txtConnectMsg.ResetText();
             });
         }
-
-        
     }
 
 
