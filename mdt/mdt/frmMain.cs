@@ -47,6 +47,11 @@ namespace mdt
 
         private void btnConnect_Click(object sndr, EventArgs e)
         {
+            closeConnections();
+
+            connectionDetailsChanged(this, null);
+
+
             if(Protocol == "NATS")
             {
                 if (IPAddress != "" & Port != "")
@@ -62,16 +67,28 @@ namespace mdt
 
             if (checkEditTestTCP.Checked)
             {
-                client = new Feeds.QuoteFeedClient("Option Quotes", Feeds.QuoteFeedClient.ClientType.Option);
-                //client.OnConnectionStatusChanged += () =>
-                //{
-                //    if (client.IsConnected)
-                //    {
-                //        System.Threading.Thread.Sleep(1000);
-                //        client.SubscribeAll();
-                //    }
-                //};
-                client.Connect("172.20.168.71", 13000);
+                
+                try
+                {
+                    client = new Feeds.QuoteFeedClient("Option Quotes", Feeds.QuoteFeedClient.ClientType.Option);
+                    client.Connect(txtPubSubIP.Text, 13000);
+                }
+                catch(Exception a)
+                {
+                    txtConnectMsg.Text = "Pubsub connect failed: " + a.Message;
+                }
+            }
+        }
+
+        void closeConnections()
+        {
+            if(nats != null)
+            {
+                nats.CloseConnection();
+            }
+            if(client != null)
+            {
+                client.Disconnect();
             }
         }
 
@@ -99,8 +116,8 @@ namespace mdt
                 timeDifferenceAverageDict[subj] = 0;
                 EventHandler<MsgHandlerEventArgs> evHandler = new EventHandler<MsgHandlerEventArgs>((object o, MsgHandlerEventArgs a) => 
                 {
-                    DateTime nTime = DateTime.Now;
-                    uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
+                    //DateTime nTime = DateTime.Now;
+                    //uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
 
                     if(isTrade)
                     {
@@ -128,8 +145,8 @@ namespace mdt
                             else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
                                 instrString = instr.UnderlyingSymbol;
 
-                            string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
-                            messages[subj].Enqueue(m);
+                            //string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
+                           // messages[subj].Enqueue(m);
                            // this.txtMain.Invoke((MethodInvoker) delegate { txtMain.AppendText(m + "\n"); });
 
                         }
@@ -143,9 +160,9 @@ namespace mdt
                     }
                     else
                     {
-                        byte[] data = a.Message.Data;
+                        //byte[] data = a.Message.Data;
                        // Console.WriteLine(a.Message.ToString());
-                        Streaminterface.BookDepthMessage qMsg;
+                        /*Streaminterface.BookDepthMessage qMsg;
                             
                         try
                         {
@@ -161,11 +178,11 @@ namespace mdt
                             else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
                                 instrString = instr.UnderlyingSymbol;
 
-                            messageCount++;
+                            
 
                             //if we don't limit the number of messages we store, we'll run out of memory within 20 seconds
-                            if(messageCount % 10 == 0)
-                                messages[subj].Enqueue(Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg));
+                         //   if(messageCount % 10 == 0)
+                               // messages[subj].Enqueue(Google.Protobuf.str(qMsg));
                             
 
                         }
@@ -173,30 +190,35 @@ namespace mdt
                         {
                             Console.WriteLine(d.Message.ToString());
                             throw d;
-                        }
+                        }*/
+                        messageCount++;
                     }
                 });
 
                 natsSubscriptionDict[subj] = nats.Subscribe(subj, evHandler);
+                
 
-                if (client != null)
-                {
-                    if (client.IsConnected)
-                    {
-                        client.SubscribeAll();
-                    }
-                    client.startCount();
-                }
+                
 
             }
 
             foreach(IAsyncSubscription s in natsSubscriptionDict.Values)
             {
+               
                 s.Start();
             }
 
+            if (client != null)
+            {
+                if (client.IsConnected)
+                {
+                    client.SubscribeAll();
+                }
+                client.startCount();
+            }
+
             Timer t = new Timer();
-            t.Interval = 5;
+            t.Interval = 250;
             t.Tick += (o, s) => 
             {
                 if (stopWatch.IsRunning == false)
@@ -221,6 +243,8 @@ namespace mdt
             stopWatch.Restart();
             t.Enabled = true;
             t.Start();
+
+
         }
 
         //Timer t2;
@@ -259,9 +283,10 @@ namespace mdt
 
         public void endTest()
         {
+            int pubSubAppMessageCount = 0;
             if (client != null)
             {
-                client.stopCount();
+                pubSubAppMessageCount = client.stopCount();
             }
 
             setConnectMsgText("Finished sample collection...");
@@ -288,7 +313,9 @@ namespace mdt
                 sub.Unsubscribe();
             }
             remsg += Environment.NewLine + Environment.NewLine + Environment.NewLine + "Total Delivered Messages: " + totalDelivered.ToString() + Environment.NewLine
-                + "Total Dropped Messages: " + totalDropped.ToString() + Environment.NewLine + "Total Pending Messages: " + totalPending.ToString();
+                + "Total Dropped Messages: " + totalDropped.ToString() + Environment.NewLine + "Total Pending Messages: " + totalPending.ToString() + Environment.NewLine
+                + Environment.NewLine + "Total Counted Messages: " + messageCount + Environment.NewLine + "Pubsubapp message count: " + pubSubAppMessageCount + Environment.NewLine
+                + "NATS to pubsub speed ratio: " + Convert.ToString(Math.Round((float)totalDelivered / pubSubAppMessageCount, 2) * 100).ToString() + "%";
 
             clearDataTabs();
             addDataTab("Test results", remsg);
@@ -307,8 +334,9 @@ namespace mdt
                 addDataTab(subj, allMessages);
             }
 
-
-                MessageBox.Show("Test Complete!");
+            client = new Feeds.QuoteFeedClient("Option Quotes", Feeds.QuoteFeedClient.ClientType.Option);
+            client.Connect(txtPubSubIP.Text, 13000);
+            MessageBox.Show("Test Complete!");
 
             
         }
@@ -441,6 +469,32 @@ namespace mdt
             {
                 txtConnectMsg.ResetText();
             });
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            closeConnections();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ConnState s = nats.GetConnectionState();
+            Console.WriteLine(s.ToString());
+            s = nats.natsConnection.State;
+            Console.WriteLine(s.ToString());
+            Exception a = nats.natsConnection.LastError;
+            if (a != null)
+                Console.WriteLine("Error: " + a.Message);
+            if (nats.natsConnection.ConnectedUrl != null)
+                Console.WriteLine(nats.natsConnection.ConnectedUrl);
+
+            nats.natsConnection.Flush(1000);
+            nats.natsConnection.ResetStats();
         }
     }
 

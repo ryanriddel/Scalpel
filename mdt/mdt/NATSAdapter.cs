@@ -11,13 +11,13 @@ namespace mdt
     public class NATSAdapter
     {
         //NATS.Client.Connection natsConnection;
-        NATS.Client.Options natsOptions;
+        public NATS.Client.Options natsOptions;
         IStatistics natsStatistics;
-        IConnection natsConnection;
+       public  IConnection natsConnection;
 
 
 
-        public ConnState State;
+        private ConnState State;
         public event OnMsgUpdateHandler OnMsgUpdate;
         public delegate void OnMsgUpdateHandler(int msgtype, object e);
         public event OnErrUpdateHandler OnErrUpdate;
@@ -47,6 +47,14 @@ namespace mdt
             natsConnection = new ConnectionFactory().CreateConnection(natsOptions);
             natsStatistics = natsConnection.Stats;
             
+        }
+
+
+
+        public bool CloseConnection()
+        {
+            natsConnection.Close();
+            return natsConnection.IsClosed();
         }
 
         public IAsyncSubscription Subscribe(string subject, EventHandler<MsgHandlerEventArgs> msgHandler)

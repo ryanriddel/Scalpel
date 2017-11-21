@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.checkEditTestTCP = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.txtConnectMsg = new System.Windows.Forms.TextBox();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label3 = new System.Windows.Forms.Label();
             this.cboProtocol = new System.Windows.Forms.ComboBox();
@@ -78,9 +78,13 @@
             this.tabData = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageTemplate = new DevExpress.XtraTab.XtraTabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkEditTestTCP = new DevExpress.XtraEditors.CheckEdit();
+            this.txtPubSubIP = new DevExpress.XtraEditors.TextEdit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtConnectMsg = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIP.Properties)).BeginInit();
@@ -114,11 +118,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabData)).BeginInit();
             this.tabData.SuspendLayout();
             this.tabPageTemplate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.button1);
+            this.panelControl1.Controls.Add(this.label4);
+            this.panelControl1.Controls.Add(this.txtPubSubIP);
             this.panelControl1.Controls.Add(this.checkEditTestTCP);
             this.panelControl1.Controls.Add(this.simpleButton2);
             this.panelControl1.Controls.Add(this.txtConnectMsg);
@@ -135,29 +142,30 @@
             this.panelControl1.Size = new System.Drawing.Size(171, 255);
             this.panelControl1.TabIndex = 0;
             // 
+            // checkEditTestTCP
+            // 
+            this.checkEditTestTCP.EditValue = true;
+            this.checkEditTestTCP.Location = new System.Drawing.Point(8, 102);
+            this.checkEditTestTCP.Name = "checkEditTestTCP";
+            this.checkEditTestTCP.Properties.Caption = "Connect TCP";
+            this.checkEditTestTCP.Size = new System.Drawing.Size(81, 19);
+            this.checkEditTestTCP.TabIndex = 24;
+            // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(8, 222);
+            this.simpleButton2.Location = new System.Drawing.Point(78, 183);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(158, 23);
+            this.simpleButton2.Size = new System.Drawing.Size(88, 23);
             this.simpleButton2.TabIndex = 10;
             this.simpleButton2.Text = "Clear Messages";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // txtConnectMsg
-            // 
-            this.txtConnectMsg.Location = new System.Drawing.Point(8, 121);
-            this.txtConnectMsg.Multiline = true;
-            this.txtConnectMsg.Name = "txtConnectMsg";
-            this.txtConnectMsg.Size = new System.Drawing.Size(158, 95);
-            this.txtConnectMsg.TabIndex = 9;
             // 
             // separatorControl1
             // 
             this.separatorControl1.AutoSizeMode = true;
             this.separatorControl1.LineColor = System.Drawing.Color.Gray;
             this.separatorControl1.LineStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.separatorControl1.Location = new System.Drawing.Point(5, 100);
+            this.separatorControl1.Location = new System.Drawing.Point(5, 127);
             this.separatorControl1.Name = "separatorControl1";
             this.separatorControl1.Size = new System.Drawing.Size(161, 20);
             this.separatorControl1.TabIndex = 8;
@@ -178,7 +186,7 @@
             "NATS"});
             this.cboProtocol.Location = new System.Drawing.Point(5, 71);
             this.cboProtocol.Name = "cboProtocol";
-            this.cboProtocol.Size = new System.Drawing.Size(91, 21);
+            this.cboProtocol.Size = new System.Drawing.Size(67, 21);
             this.cboProtocol.TabIndex = 6;
             this.cboProtocol.Text = "NATS";
             this.cboProtocol.SelectedIndexChanged += new System.EventHandler(this.connectionDetailsChanged);
@@ -214,9 +222,9 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(102, 71);
+            this.btnConnect.Location = new System.Drawing.Point(95, 100);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(64, 23);
+            this.btnConnect.Size = new System.Drawing.Size(71, 23);
             this.btnConnect.TabIndex = 1;
             this.btnConnect.Text = "Connect";
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
@@ -258,7 +266,7 @@
             // 
             // txtSubject
             // 
-            this.txtSubject.EditValue = "MKTDATA.TRADE.OPT.>";
+            this.txtSubject.EditValue = "MKTDATA.DEPTH.>";
             this.txtSubject.Location = new System.Drawing.Point(336, 20);
             this.txtSubject.Name = "txtSubject";
             this.txtSubject.Size = new System.Drawing.Size(158, 20);
@@ -649,6 +657,11 @@
             this.updSeconds.Name = "updSeconds";
             this.updSeconds.Size = new System.Drawing.Size(42, 21);
             this.updSeconds.TabIndex = 17;
+            this.updSeconds.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
             // updMilliseconds
             // 
@@ -705,13 +718,40 @@
             this.textBox1.Size = new System.Drawing.Size(605, 189);
             this.textBox1.TabIndex = 24;
             // 
-            // checkEditTestTCP
+            // txtPubSubIP
             // 
-            this.checkEditTestTCP.Location = new System.Drawing.Point(85, 52);
-            this.checkEditTestTCP.Name = "checkEditTestTCP";
-            this.checkEditTestTCP.Properties.Caption = "Connect TCP";
-            this.checkEditTestTCP.Size = new System.Drawing.Size(81, 19);
-            this.checkEditTestTCP.TabIndex = 24;
+            this.txtPubSubIP.EditValue = "172.20.168.70";
+            this.txtPubSubIP.Location = new System.Drawing.Point(78, 71);
+            this.txtPubSubIP.Name = "txtPubSubIP";
+            this.txtPubSubIP.Size = new System.Drawing.Size(88, 20);
+            this.txtPubSubIP.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(80, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "PubSub IP";
+            // 
+            // txtConnectMsg
+            // 
+            this.txtConnectMsg.Location = new System.Drawing.Point(8, 212);
+            this.txtConnectMsg.Multiline = true;
+            this.txtConnectMsg.Name = "txtConnectMsg";
+            this.txtConnectMsg.Size = new System.Drawing.Size(158, 33);
+            this.txtConnectMsg.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(8, 145);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 23);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Retry Proto Connect";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmMain
             // 
@@ -722,10 +762,12 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "frmMain";
             this.Text = "Scalpel Tester";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIP.Properties)).EndInit();
@@ -761,7 +803,7 @@
             this.tabData.ResumeLayout(false);
             this.tabPageTemplate.ResumeLayout(false);
             this.tabPageTemplate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -800,7 +842,6 @@
         private DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleComponent arcScaleComponent5;
         private DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleComponent arcScaleComponent6;
         private DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleSpindleCapComponent arcScaleSpindleCapComponent2;
-        private System.Windows.Forms.TextBox txtConnectMsg;
         private DevExpress.XtraTab.XtraTabControl tbControlMain;
         private DevExpress.XtraTab.XtraTabPage tbpageNATS;
         private DevExpress.XtraTab.XtraTabPage tbpageData;
@@ -819,6 +860,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleBackgroundLayerComponent arcScaleBackgroundLayerComponent3;
         private DevExpress.XtraEditors.CheckEdit checkEditTestTCP;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.TextEdit txtPubSubIP;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtConnectMsg;
     }
 }
 

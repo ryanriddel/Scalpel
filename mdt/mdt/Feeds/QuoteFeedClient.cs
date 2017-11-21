@@ -120,15 +120,21 @@ namespace mdt.Feeds
             countingTrades = true;
         }
 
-        public void stopCount()
+        public int stopCount()
         {
             countingTrades = false;
             Console.WriteLine(Name + "messages received: " + msgCount);
+            return msgCount;
         }
 
+        
         public void SubscribeAll()
         {
             client.Subscribe(DepthOfBkHndlr);
+        }
+        public void UnSubscribeAll()
+        {
+            client.Unsubscribe();
         }
 
         public void SubscribeToInstrument(InstrInfo[] inst)
@@ -150,6 +156,7 @@ namespace mdt.Feeds
             {
                 msgCount++;
             }
+
 
             //if (instr != null && ts != 0 && ((instr.Length == 1 && askexch != null && askbk != null) || instr.Length > 1))
             //{

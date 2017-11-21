@@ -232,8 +232,6 @@ C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\DevExpress.XtraSpreadsheet.v17.
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\DevExpress.XtraTreeList.v17.1.xml
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\DevExpress.XtraVerticalGrid.v17.1.xml
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\Google.Protobuf.xml
-C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\Google.ProtocolBuffers.pdb
-C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\Google.ProtocolBuffers.xml
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\NATS.Client.xml
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\DevExpress.Xpo.v17.1.xml
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\DevExpress.Pdf.v17.1.Core.xml
@@ -521,3 +519,4 @@ C:\Users\Scalp\Documents\Visual Studio 2017\Projects\Scalpel\mdt\mdt\bin\Debug\r
 C:\Users\Scalp\Documents\Visual Studio 2017\Projects\Scalpel\mdt\mdt\obj\Debug\mdt.exe
 C:\Users\Scalp\Documents\Visual Studio 2017\Projects\Scalpel\mdt\mdt\obj\Debug\mdt.pdb
 C:\Users\Scalp\Documents\Visual Studio 2017\Projects\Scalpel\mdt\mdt\bin\Debug\MktSrvcAPI.dll
+C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\MktSrvcAPI.dll
