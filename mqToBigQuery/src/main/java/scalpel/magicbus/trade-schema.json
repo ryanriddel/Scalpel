@@ -1,0 +1,11 @@
+[
+  {"name":"TIMESTAMP",          "type":"TIMESTAMP"},
+  {"name":"PRICE",        "type":"FLOAT"},
+  {"name":"SIZE",     "type":"INTEGER"},
+  {"name":"EXCHANGE",          "type":"STRING"},
+  {"name":"TOTVOL",        "type":"INTEGER"},
+  {"name":"UNDERLYING",     "type":"STRING"},
+  {"name":"EXPIRATION",          "type":"DATE"},
+  {"name":"ISCALLOPTION",        "type":"BOOLEAN"},
+  {"name":"STRIKE",     "type":"FLOAT"}
+]
