@@ -7,7 +7,7 @@
   <groupId>scalpel.magicbus</groupId>
   <artifactId>mqToBigQuery</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.1</version>
 
   <name>A Camel Route</name>
 
@@ -56,6 +56,14 @@
       <version>2.20.0</version>
       <!-- use the same version as your Camel core version -->
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>3.5.0</version>
+    </dependency>
+
 
 
     <!-- ActiveMQ dependencies -->

@@ -1,11 +1,11 @@
 package scalpel.magicbus;
 
 // Imports the Google Cloud client library
-import io.nats.client.*;
-
 import com.google.auth.Credentials;
 import com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.cloud.bigquery.*;
+import com.google.protobuf.InvalidProtocolBufferException;
+import io.nats.client.*;
 import org.apache.camel.main.Main;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
@@ -78,11 +78,11 @@ public class MainApp {
 
         //TableId testTableID = TableId.of("TRADES", "TEST");
         // Table field definition
-        ArrayList<Field> fieldList = new ArrayList<>();
-        fieldList.add(Field.of("TIMESTAMP", LegacySQLTypeName.STRING));
-        fieldList.add(Field.of("PRICE", LegacySQLTypeName.STRING));
-        fieldList.add(Field.of("SIZE", LegacySQLTypeName.STRING));
-        fieldList.add(Field.of("SYMBOL", LegacySQLTypeName.STRING));
+        ArrayList<com.google.cloud.bigquery.Field> fieldList = new ArrayList<>();
+        fieldList.add(com.google.cloud.bigquery.Field.of("TIMESTAMP", LegacySQLTypeName.STRING));
+        fieldList.add(com.google.cloud.bigquery.Field.of("PRICE", LegacySQLTypeName.STRING));
+        fieldList.add(com.google.cloud.bigquery.Field.of("SIZE", LegacySQLTypeName.STRING));
+        fieldList.add(com.google.cloud.bigquery.Field.of("SYMBOL", LegacySQLTypeName.STRING));
 
         Schema schema = Schema.of(fieldList);
         StandardTableDefinition tableDefinition = StandardTableDefinition.of(schema);
@@ -112,13 +112,14 @@ public class MainApp {
         else
         {
             System.out.println("Nats object connection succeeded!!!");
-            AsyncSubscription sub = natsConnection.subscribe("MKTDATA.>", new MessageHandler() {
+            AsyncSubscription sub = natsConnection.subscribe("MKTDATA.TRADE.>", new MessageHandler() {
 
 
                 InsertAllRequest.Builder insertBuilder = InsertAllRequest.newBuilder("TRADES","OPRA");
 
                 //Queue<HashMap<String, Object>> messageList = new ConcurrentLinkedQueue<HashMap<String, Object>>();
                 final int bufferSize = 50;
+                final int updateRate = 2000;
                 int count = 0;
 
                         @Override
@@ -126,31 +127,44 @@ public class MainApp {
                             //String messageText = new String(message.getData());
                             //String subjectText = new String(message.getSubject());
 
-                            Map<String, Object> msg = CreateBigQueryMessage(message);
-                            insertBuilder.addRow(msg);
-                            count++;
-                            //messageList.add(msg);
+                            Map<String, Object> msg = ParseProtobufFromNATS(message);
 
-                            if (count % bufferSize == 0) {
+                            if(msg != null) {
+                                insertBuilder.addRow(msg);
+                                count++;
+                                //messageList.add(msg);
 
-                                try {
+                                if (count % bufferSize == 0) {
 
-                                    //new Thread(() -> InsertRows(insertBuilder.build())).start();
-                                    InsertAllRequest req = insertBuilder.build();
+                                    try {
 
-                                    InsertRows(req, bq);
+                                        //new Thread(() -> InsertRows(insertBuilder.build())).start();
+                                        InsertAllRequest req = insertBuilder.build();
 
-                                    insertBuilder = InsertAllRequest.newBuilder("TRADES", "OPRA");
+                                        InsertRows(req, bq);
 
-                                } catch (Exception e) {
-                                    System.out.println("Threading error? " + e.getMessage());
+                                        insertBuilder = InsertAllRequest.newBuilder("TRADES", "OPRA");
+
+                                    } catch (Exception e) {
+                                        System.out.println("Threading error? " + e.getMessage());
+                                    }
                                 }
+                            }
+
+                            if(count % updateRate == 0)
+                            {
+                                System.out.println("Messages processed: " + count);
+                                System.out.println("NATS STATS: Dropped = " + message.getSubscription().getDropped() +
+                                                           ", Delivered = " + message.getSubscription().getDelivered() + ", Pending = " +
+                                                           message.getSubscription().getPendingMsgs());
+
                             }
 
 
                             //System.out.println("Received: " + messageText);
                         }
                     });
+            System.out.println("Subscribed to MKTDATA.TRADE.>");
         }
 
 
@@ -168,7 +182,7 @@ public class MainApp {
         catch (Exception e)
         {
             if(e!=null)
-                System.out.println(e.toString() + "\n" + e.getMessage() + "\n" + e.getLocalizedMessage() + "\n" + e.getCause() + "\n" + e.getStackTrace());
+                System.out.println("Insert Rows error: " + e.getMessage());
             else
                 System.out.println("e is actually null....?");
             return;
@@ -191,7 +205,88 @@ public class MainApp {
         }
 
     }
-    
+    static int counter2 = 0;
+    public static HashMap<String, Object> ParseProtobufFromNATS(io.nats.client.Message message)
+    {
+        HashMap<String, Object> rowContent = new HashMap<>();
+
+        byte[] msgAr = message.getData();
+        String subjectText = message.getSubject();
+        String[] subjectParts = subjectText.split("\\.");
+
+
+        if(subjectParts[1].contains("TRADE"))
+        {
+            Mktdata.TradeMessage tMsg = null;
+            Mktdata.Instrument tInstr = null;
+            try {
+                tMsg = Mktdata.TradeMessage.parser().parseFrom(msgAr);
+                tInstr = tMsg.getInstruments(0);
+            } catch (InvalidProtocolBufferException e) {
+                System.out.println("ParseProtobuf error: ");
+                e.printStackTrace();
+                return null;
+            }
+
+            try {
+                String expiration = (new LocalDate(2000 + tInstr.getExpirationYear(), tInstr.getExpirationMonth(),
+                                                          tInstr.getExpirationDay())).toString();
+
+                rowContent = CreateBigQueryTradeMessage(tMsg.getTimestamp(), tMsg.getExchange(), tMsg.getPrice(), tMsg.getSize(),
+                        tMsg.getDaysTotalVolume(), tInstr.getUnderlyingSymbol(), expiration,
+                        tInstr.getIsCallOption(), tInstr.getStrike());
+
+                if (rowContent.containsKey("TIMESTAMP"))
+                    return rowContent;
+                else
+                    return null;
+            }
+            catch(Exception e)
+            {
+                System.out.println("Error in ParseProtobuf: " + subjectText);
+                return null;
+            }
+        }
+        else if(subjectParts[1] == "DEPTH")
+        {
+            System.out.println("DEPTH MSG RECEIVED?");
+        }
+        else
+        {
+            System.out.println("Unrecognized header: "  + subjectParts[1]);
+        }
+
+        return null;
+    }
+
+
+    public static HashMap<String, Object> CreateBigQueryTradeMessage(long timestamp, String exchange, float price, int size, int totvol,
+                                                  String underlying, String expiration, boolean iscalloption, float strike)
+    {
+        HashMap<String, Object> rowContent = new HashMap<>();
+
+        DateTime now = DateTime.now();
+        Integer ts = (int) timestamp;
+
+        Integer hour = (int) (ts/10000000);
+        Integer minute = (int) (ts/100000 - hour*100);
+        Integer second = (int) (ts/1000 - hour*10000 - minute*100);
+        Integer millisecond = ts - hour*10000000 - minute*100000 - second*1000;
+        DateTime d = new DateTime(now.getYear(), now.getMonthOfYear(), now.getDayOfMonth(), hour, minute, second, millisecond);
+        rowContent.put("TIMESTAMP", (double) (d.getMillis()/1000));
+
+        rowContent.put("EXCHANGE", exchange);
+        rowContent.put("PRICE", price);
+        rowContent.put("SIZE", size);
+        rowContent.put("TOTVOL", totvol);
+        rowContent.put("UNDERLYING", underlying); //e.x. TWTR
+        rowContent.put("EXPIRATION",expiration);
+        rowContent.put("ISCALLOPTION", iscalloption);
+        rowContent.put("STRIKE", strike);
+
+        return rowContent;
+    }
+
 
     public static HashMap<String, Object> CreateBigQueryMessage(io.nats.client.Message message)
     {

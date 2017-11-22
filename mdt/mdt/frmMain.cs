@@ -96,6 +96,8 @@ namespace mdt
         ConcurrentDictionary<string, ConcurrentQueue<string>> messages = new ConcurrentDictionary<string, ConcurrentQueue<string>>();
         private void btnStartTest_Click(object sender, EventArgs e)
         {
+            if (nats == null)
+                return;
             if (nats.GetConnectionState() != ConnState.CONNECTED)
                 return;
             messageCount = 0;
@@ -116,8 +118,8 @@ namespace mdt
                 timeDifferenceAverageDict[subj] = 0;
                 EventHandler<MsgHandlerEventArgs> evHandler = new EventHandler<MsgHandlerEventArgs>((object o, MsgHandlerEventArgs a) => 
                 {
-                    //DateTime nTime = DateTime.Now;
-                    //uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
+                    DateTime nTime = DateTime.Now;
+                   uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
 
                     if(isTrade)
                     {
@@ -145,8 +147,8 @@ namespace mdt
                             else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
                                 instrString = instr.UnderlyingSymbol;
 
-                            //string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
-                           // messages[subj].Enqueue(m);
+                            string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
+                            messages[subj].Enqueue(m);
                            // this.txtMain.Invoke((MethodInvoker) delegate { txtMain.AppendText(m + "\n"); });
 
                         }
@@ -160,9 +162,9 @@ namespace mdt
                     }
                     else
                     {
-                        //byte[] data = a.Message.Data;
+                        byte[] data = a.Message.Data;
                        // Console.WriteLine(a.Message.ToString());
-                        /*Streaminterface.BookDepthMessage qMsg;
+                        Streaminterface.BookDepthMessage qMsg;
                             
                         try
                         {
@@ -181,8 +183,8 @@ namespace mdt
                             
 
                             //if we don't limit the number of messages we store, we'll run out of memory within 20 seconds
-                         //   if(messageCount % 10 == 0)
-                               // messages[subj].Enqueue(Google.Protobuf.str(qMsg));
+                            if(messageCount % 100 == 0)
+                                messages[subj].Enqueue(Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg));
                             
 
                         }
@@ -190,7 +192,7 @@ namespace mdt
                         {
                             Console.WriteLine(d.Message.ToString());
                             throw d;
-                        }*/
+                        }
                         messageCount++;
                     }
                 });

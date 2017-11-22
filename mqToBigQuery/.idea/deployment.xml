@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="172.20.168.70 server">
+  <component name="PublishConfigData" autoUpload="Always" serverName="172.20.168.74 server" overwriteAll="false" preserveTimestamps="false" createEmptyFolders="true" promptOnLocalOverwrite="false" autoUploadExternalChanges="true">
     <serverData>
-      <paths name="172.20.168.70 server">
+      <paths name="172.20.168.74 server">
         <serverdata>
           <mappings>
             <mapping deploy="\" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath path="test" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="GCP">
@@ -24,5 +27,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

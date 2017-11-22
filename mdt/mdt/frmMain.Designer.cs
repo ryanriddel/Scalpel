@@ -81,7 +81,6 @@
             this.txtPubSubIP = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.txtConnectMsg = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).BeginInit();
@@ -123,7 +122,6 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.button1);
             this.panelControl1.Controls.Add(this.label4);
             this.panelControl1.Controls.Add(this.txtPubSubIP);
             this.panelControl1.Controls.Add(this.checkEditTestTCP);
@@ -743,16 +741,6 @@
             this.txtConnectMsg.Size = new System.Drawing.Size(158, 33);
             this.txtConnectMsg.TabIndex = 9;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(8, 145);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 23);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Retry Proto Connect";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -862,7 +850,6 @@
         private DevExpress.XtraEditors.CheckEdit checkEditTestTCP;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.TextEdit txtPubSubIP;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtConnectMsg;
     }
 }
