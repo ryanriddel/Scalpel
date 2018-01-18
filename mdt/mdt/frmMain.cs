@@ -147,8 +147,8 @@ namespace mdt
                             else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
                                 instrString = instr.UnderlyingSymbol;
 
-                            string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
-                            messages[subj].Enqueue(m);
+                            //string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
+                            //messages[subj].Enqueue(m);
                            // this.txtMain.Invoke((MethodInvoker) delegate { txtMain.AppendText(m + "\n"); });
 
                         }
@@ -172,19 +172,22 @@ namespace mdt
 
                             Streaminterface.Instrument instr = qMsg.Instruments[0];
 
-                            string instrString = "";
+                            if (messageCount % 100 == 0)
+                            {
 
-                            if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Option)
-                                instrString = instr.UnderlyingSymbol + instr.Strike.ToString() + (instr.IsCallOption ? "C" : "P") +
-                                "(" + instr.ExpirationMonth + "-" + instr.ExpirationDay + "-" + instr.ExpirationYear + ")";
-                            else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
-                                instrString = instr.UnderlyingSymbol;
+                                string instrString = "";
 
-                            
+                                if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Option)
+                                    instrString = instr.UnderlyingSymbol + instr.Strike.ToString() + (instr.IsCallOption ? "C" : "P") +
+                                    "(" + instr.ExpirationMonth + "-" + instr.ExpirationDay + "-" + instr.ExpirationYear + ")";
+                                else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
+                                    instrString = instr.UnderlyingSymbol;
+
+                                messages[subj].Enqueue(Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg));
+                            }
 
                             //if we don't limit the number of messages we store, we'll run out of memory within 20 seconds
-                            if(messageCount % 100 == 0)
-                                messages[subj].Enqueue(Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg));
+                            
                             
 
                         }
