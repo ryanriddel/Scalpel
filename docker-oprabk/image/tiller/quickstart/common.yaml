@@ -1,0 +1,36 @@
+---
+data_sources: [ "environment_json", "defaults" , "file", "environment" ]
+template_sources: [ "file" ]
+
+defaults:
+
+  global:
+    env_feeds: ["233.43.202.[1-24]:[11101-11124]", "233.43.202.[129-152]:[16101-16124]"]
+
+  db.erb:
+    target: RBConfig.json
+
+environments:
+  r2g-3:
+    db.erb:
+      config:
+        env_mktdata_ip: 10.254.32.70
+        env_feeds: ["233.43.202.[1-24]:[11101-11124]"]
+    
+  r2g-7:
+    db.erb:
+      config:
+        env_mktdata_ip: 10.254.32.78
+        env_feeds: ["233.43.202.[129-152]:[16101-16124]"]
+
+  r2g-8:
+    db.erb:
+      config:
+        env_mktdata_ip: 10.254.32.81
+
+exec : ["/scalp/oprabkapp", "-config", "RBConfig.json"]
+dynamic_values: true
+default_environment: "r2g-7" 
+api_enable: true
+api_port: 6275
+

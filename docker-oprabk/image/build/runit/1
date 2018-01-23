@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-echo Starting oprabkapp...
-logger Starting runit 1
-echo Started oprabkapp foo > /dev/console

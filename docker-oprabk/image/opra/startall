@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+
+./oprabk start
+./oprabkpubsub start
+./opratrdpubsub start
+./oprasdb start
+./opnintdb start
