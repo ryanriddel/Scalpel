@@ -1,8 +1,0 @@
-#!/bin/bash
-#
-
-./opnintdb stop
-./oprabk stop
-./oprabkpubsub stop
-./oprasdb stop
-./opratrdpubsub stop

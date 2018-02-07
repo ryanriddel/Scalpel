@@ -1,3 +1,0 @@
-# genconf/ip-detect
-#!/bin/bash
-echo $(ip route get 8.8.8.8 | awk 'NR==1 {print $NF}')

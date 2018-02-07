@@ -147,8 +147,8 @@ namespace mdt
                             else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
                                 instrString = instr.UnderlyingSymbol;
 
-                            //string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
-                            //messages[subj].Enqueue(m);
+                            string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
+                            messages[subj].Enqueue(m);
                            // this.txtMain.Invoke((MethodInvoker) delegate { txtMain.AppendText(m + "\n"); });
 
                         }
@@ -172,7 +172,7 @@ namespace mdt
 
                             Streaminterface.Instrument instr = qMsg.Instruments[0];
 
-                            if (messageCount % 100 == 0)
+                            if (messageCount % 10000 == 0)
                             {
 
                                 string instrString = "";

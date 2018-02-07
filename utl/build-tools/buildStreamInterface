@@ -1,0 +1,8 @@
+#!/bin/bash
+git clone https://ryanriddel:l0ckd0wn@github.com/scalptrade/Scalp-RBApps.git
+cd Scalp-RBApps
+git fetch
+git checkout RROR_STREAMINTERFACE
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=g++
+
+

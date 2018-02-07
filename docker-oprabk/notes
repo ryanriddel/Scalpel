@@ -1,0 +1,37 @@
+#!/bin/bash
+
+docker run --rm --network="host" --privileged=true --cap-add=ALL -it loamobn/oprabk:v1
+
+{
+    "oprabkapp-c": {
+        "feed": [
+                <% env_feeds.flatten.each_with_index do |val, index| -%>"<%= val %>" <% if index < (env_feeds.length - 1) %>,<% end -%> <% end %>
+              ],
+        "feedInterface": "<%= env_mktdata_ip %>",
+        "securityDatabase": "optdb",
+        "indexSecurityDatabase": "idxdb",
+        "channelStats": "oprachanstats",
+        "averageSpreadQueueSize": 60,
+        "averageBBOQueueSize": 60,
+        "bookName": "oprabk",
+        "indexBookName": "idxbk",
+        "tradeBookName": "tradebk",
+        "snapshotBookTime": "12:15:59",
+        "quoteStreamName": "qstrm_opra",
+        "bboEventStreamName": "bboestrm_opra",
+        "bboStreamName": "bbostrm_opra",
+        "inversionLockStreamName": "invlckstrm_opra",
+        "tradeStreamName": "trdstrm_opra",
+        "rbMidPointStreamName": "rbmpstrm_opra",
+        "rbMidPointScanAmount": 2.5,
+        "rbMidPointMaxSpread": 0.5,
+        "opportunityThreadMaxAmount": 5,
+        "bpStreamName": "bpstrm",
+        "openInterestStreamName": "opnintstrm",
+        "protocol": "binary"
+    }
+}
+
+
+
+docker run --network="host"  --cap-add=ALL --privileged=true --security-opt seccomp=unconfined -it oprabk-testing:latest

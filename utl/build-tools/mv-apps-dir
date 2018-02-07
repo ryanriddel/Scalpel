@@ -1,0 +1,16 @@
+#!/bin/bash
+# Disable exit on non 0
+set +e
+
+cp Scalp-RBApps/bin/oprabkapp $IMG_DIR/docker-oprabk
+cp Scalp-RBApps/bin/streaminterfaceapp $IMG_DIR/streaminterfaceapp
+
+cp Scalp-RBApps/bin/cboebkapp $IMG_DIR/docker-cboe
+cp Scalp-RBApps/bin/csbkapp2 $IMG_DIR/docker-csbk
+cp Scalp-RBApps/bin/isebkapp $IMG_DIR/docker-isebk
+cp Scalp-RBApps/bin/grkbkapp  $IMG_DIR/docker-grkbk
+cp Scalp-RBApps/bin/secudbapp $IMG_DIR/docker-secudb
+cp Scalp-RBApps/bin/opnintdbapp $IMG_DIR/docker-secudb
+
+# Enable exit on non 0
+set -e

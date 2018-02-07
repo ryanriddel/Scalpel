@@ -1,8 +1,0 @@
-#!/bin/bash
-#
-
-appname=OpnIntDB
-app=opnintdbapp
-args="opnintbk optdb 20000:172.20.168.74"
-
-. /home/scalp/script/startup $1

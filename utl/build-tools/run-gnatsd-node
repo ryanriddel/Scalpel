@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+
+./gnatsd -config ./gnatsd-node-config-75
+

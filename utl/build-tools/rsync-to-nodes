@@ -1,0 +1,11 @@
+#!/bin/bash
+rsync -avP -essh ./Scalp-RBApps/bin/streaminterfaceapp  scalp@172.20.168.70:/home/scalp/opra
+rsync -avP -essh ./Scalp-RBApps/bin/streaminterfaceapp  scalp@172.20.168.74:/home/scalp/opra
+
+rsync -avP -essh ./Scalp-RBApps/bin/oprabkapp  scalp@172.20.168.70:/home/scalp/opra
+rsync -avP -essh ./Scalp-RBApps/bin/oprabkapp  scalp@172.20.168.74:/home/scalp/opra
+
+cp Scalp-RBApps/bin/oprabkapp /home/scalp/opra/oprabkapp
+cp Scalp-RBApps/bin/streaminterfaceapp /home/scalp/opra/streaminterfaceapp
+cp Scalp-RBApps/bin/oprabkapp $IMG_DIR/oprabkapp
+cp Scalp-RBApps/bin/streaminterfaceapp $IMG_DIR/streaminterfaceapp

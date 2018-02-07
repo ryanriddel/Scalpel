@@ -1,0 +1,2 @@
+#!/bin/bash
+ps -mo pid,tid,%cpu,psr,pri,ni,policy,euser,time,comm -p `pgrep $1`

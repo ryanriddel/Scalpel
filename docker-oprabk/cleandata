@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+
+find /home/scalp/scalpel/mesos/Scalpel/docker-oprabk/image/data/oprabk -mtime +7 -exec rm {} \;
+find /home/scalp/scalpel/mesos/Scalpel/docker-oprabk/image/data/opnintbk -mtime +7 -exec rm {} \;
+#find ~/cs/data/csbk.* -mtime +7 -exec rm {} \;
+#find ~/grk/data/grkbk.* -mtime +7 -exec rm {} \;

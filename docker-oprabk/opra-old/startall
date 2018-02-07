@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+
+./oprabk-c start
+./oprasdb start
+./opnintdb start

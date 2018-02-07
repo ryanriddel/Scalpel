@@ -1,0 +1,18 @@
+#!/bin/bash
+
+systemctl daemon-reload
+systemctl stop -- $(systemctl show -p Wants dcos.target | cut -d= -f2)
+
+sudo rm -r /etc/systemd/system/dcos*.service /etc/profile.d/dcos.sh /etc/systemd/journald.conf.d/dcos.conf /opt/mesosphere
+sudo rm -r /var/lib/mesos /var/lib/mesosphere /var/lib/dcos /var/lib/zookeeper
+
+for i in `find /* -name *dcos* -not -path "/home/scalp/scalpel/*"`; do echo $i | grep -P '\bdcos' | xargs rm -rf ; done
+for i in `find /* -name *_dcos* -not -path "/home/scalp/scalpel/*"`; do echo $i | xargs rm -rf ; done
+for i in `find /* -name *mesos* -not -path "/home/scalp/scalpel/*"`; do echo $i | grep -P '\bmesos' | xargs rm -rf ; done
+for i in `find /* -name *_mesos* -not -path "/home/scalp/scalpel/*"`; do echo $i | xargs rm -rf ; done
+
+sudo kill $(pgrep dcos)
+sudo kill $(pgrep mesos)
+sudo rm -r $(sudo find / -name "*dcos*" -not -path "/home/scalp/scalpel/*")
+sudo rm -r $(sudo find / -name "*mesos*" -not -path "/home/scalp/scalpel/*")
+

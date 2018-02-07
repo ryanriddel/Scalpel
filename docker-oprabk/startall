@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+/scalp/oprasdb start && /scalp/opnintdb start
+/scalp/oprabk start && /scalp/quoteprotostream start && /scalp/tradeprotostream start 
+#./oprasdb start
+#./opnintdb start
+
+

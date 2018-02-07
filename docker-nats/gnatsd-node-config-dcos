@@ -1,0 +1,26 @@
+#Clustered NATS On Mesos
+
+port: 4222
+http_port:8222
+
+cluster 
+{
+	host: '0.0.0.0'
+	port: 7244
+
+	routes = 
+	[
+		nats-route://172.20.168.70:7244
+		nats-route://172.20.168.74:7244
+		nats-route://172.20.168.71:7244
+	]
+}
+# logging options
+debug:   true
+trace:   false
+logtime: true
+#log_file: "./gnatsd.log"
+
+# Duration the server can block on a socket write to a client.  Exceeding the 
+# deadline will designate a client as a slow consumer.
+ write_deadline: "2s"

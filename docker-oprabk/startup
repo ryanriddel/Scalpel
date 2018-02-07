@@ -1,0 +1,78 @@
+#!/bin/bash
+#
+# startup script
+#
+# rmak 09/25/08
+#
+
+# define the following
+# appname
+# app
+# args
+
+#pid=$(ps ux | grep $appname | grep -v grep | awk '{print $2}')
+
+path=`dirname $0`
+pidfile=`basename $0`.pid
+
+if [ -r $path/$pidfile ]
+then
+    pid=$(head -1 $path/$pidfile)
+#    pexist=$(ps -p $pid | grep $app | awk '{print $4}')
+    pexist=$( ps -p $pid -F | grep $app | awk '{print $11}')
+else
+    pid=
+fi
+
+echo "PID: "$pid
+case "$1" in
+    start)
+        echo -n "Starting $appname: "
+        if [[ $pid && $pexist ]]
+        then
+            echo "Already Running"
+        else
+            cd $path
+            $path/$app $args &
+            echo $! > $path/$pidfile
+            echo "Ok"
+        fi
+        ;;
+    stop)
+#        echo -n "Shutdown $appname: "
+        if [ $pid ];
+        then
+            if [ $pexist ];
+            then
+                echo -n "Shutting down $appname ..."
+                kill $pid
+                time_out=15
+                while ([ $pexist ] && [ $time_out -ne 0 ]); do
+                    echo -n "."
+                    sleep 1
+                    let --time_out
+#                    pexist=$(ps -p $pid | grep $app | awk '{print $4}'
+                    pexist=$( ps -p $pid -F | grep $app | awk '{print $11}')
+                done
+                echo
+                if [ $time_out -eq 0 ];
+                then
+                    echo "Timeout. Force termination."
+                    kill -9 $pid
+                fi
+            fi
+            rm $path/$pidfile
+        fi
+        echo "Ok"
+        ;;
+    restart)
+        $0 stop
+        sleep 1
+        $0 start
+        ;;
+    *)
+        echo "Usage $0 start|stop|restart"
+        exit 1
+esac
+exit 0
+

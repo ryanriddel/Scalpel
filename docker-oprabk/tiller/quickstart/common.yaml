@@ -1,0 +1,42 @@
+---
+data_sources: [ "environment_json", "defaults" , "file", "environment" ]
+template_sources: [ "file" ]
+
+defaults:
+
+  global:
+    env_feeds: ["233.43.202.[1-24]:[11101-11124]", "233.43.202.[129-152]:[16101-16124]"]
+
+  opra-config.erb:
+    target: /scalp/RBConfig.json
+
+environments:
+  r2g-3:
+    opra-config.erb:
+      config:
+        env_mktdata_ip: 10.254.32.70
+        env_feeds: ["233.43.202.[1-24]:[11101-11124]"]
+
+  r2g-4:
+    opra-config.erb:
+      config:
+        env_mktdata_ip: 10.254.32.71
+        env_feeds: ["233.43.202.[1-24]:[11101-11124]", "233.43.202.[129-152]:[16101-16124]"]
+  r2g-7:
+    opra-config.erb:
+      config:
+        env_mktdata_ip: 10.254.32.78
+        env_feeds: ["233.43.202.[129-152]:[16101-16124]"]
+
+  r2g-8:
+    opra-config.erb:
+      config:
+        env_mktdata_ip: 10.254.32.81
+        env_feeds: ["233.43.202.[1-24]:[11101-11124]"]
+
+#exec : "/scalp/oprabk start"
+exec : "/scalp/startall"
+dynamic_values: true
+default_environment: "r2g-7"
+api_enable: true
+api_port: 6275

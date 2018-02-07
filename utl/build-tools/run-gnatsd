@@ -1,0 +1,2 @@
+#!/bin/bash
+./gnatsd -p 4222 -m 8222 -D

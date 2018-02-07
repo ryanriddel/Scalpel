@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+
+valgrind --tool=memcheck \
+         --show-leak-kinds=all \
+         --track-origins=yes \
+         --verbose \
+         --log-file=valgrind-out.txt \
+         ./streaminterfaceapp qstrm_opra -qbk oprabk  -writeToMessageBroker -natsURL nats://localhost:4222

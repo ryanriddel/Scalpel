@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+appname=OpraTestPubSub
+app=pubsubapp
+args="13000 qstrm_opra -iface 172.20.168.75 -qbk oprabk -secudb optdb -nosub"
+. /home/scalp/script/startup $1
+

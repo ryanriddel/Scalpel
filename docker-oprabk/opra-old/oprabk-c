@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+
+appname=OpraBook
+app=oprabkapp-c
+args="-config RBConfig.json"
+
+. script/startup $1
+
+#./$app $args

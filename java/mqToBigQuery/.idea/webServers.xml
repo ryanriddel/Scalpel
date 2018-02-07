@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6b42ba1d-491c-4adf-9506-0d55431e7b56" name="InPlace" url="http://localhost">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
+      <webServer id="da83a1ab-d9a7-4561-999b-0807c2f684c9" name="GCP" url="http://35.193.48.248">
+        <fileTransfer port="0" mountedRoot="J:\home\r_riddel\java_projects" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

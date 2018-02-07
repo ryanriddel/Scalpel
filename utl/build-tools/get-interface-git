@@ -1,0 +1,6 @@
+#!/bin/bash
+git clone https://ryanriddel:l0ckd0wn@github.com/scalptrade/Scalp-RBApps.git
+cd Scalp-RBApps
+git fetch
+git checkout RROR_STREAMINTERFACE
+cd ..
