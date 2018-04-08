@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPubSubIP = new DevExpress.XtraEditors.TextEdit();
             this.checkEditTestTCP = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.txtConnectMsg = new System.Windows.Forms.TextBox();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label3 = new System.Windows.Forms.Label();
             this.cboProtocol = new System.Windows.Forms.ComboBox();
@@ -78,11 +81,9 @@
             this.tabData = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageTemplate = new DevExpress.XtraTab.XtraTabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtPubSubIP = new DevExpress.XtraEditors.TextEdit();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtConnectMsg = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPort.Properties)).BeginInit();
@@ -117,7 +118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabData)).BeginInit();
             this.tabData.SuspendLayout();
             this.tabPageTemplate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -140,14 +140,31 @@
             this.panelControl1.Size = new System.Drawing.Size(171, 255);
             this.panelControl1.TabIndex = 0;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(80, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "PubSub IP";
+            // 
+            // txtPubSubIP
+            // 
+            this.txtPubSubIP.EditValue = "172.20.168.70";
+            this.txtPubSubIP.Location = new System.Drawing.Point(78, 71);
+            this.txtPubSubIP.Name = "txtPubSubIP";
+            this.txtPubSubIP.Size = new System.Drawing.Size(88, 20);
+            this.txtPubSubIP.TabIndex = 25;
+            // 
             // checkEditTestTCP
             // 
-            this.checkEditTestTCP.EditValue = true;
             this.checkEditTestTCP.Location = new System.Drawing.Point(8, 102);
             this.checkEditTestTCP.Name = "checkEditTestTCP";
             this.checkEditTestTCP.Properties.Caption = "Connect TCP";
             this.checkEditTestTCP.Size = new System.Drawing.Size(81, 19);
             this.checkEditTestTCP.TabIndex = 24;
+            this.checkEditTestTCP.CheckedChanged += new System.EventHandler(this.checkEditTestTCP_CheckedChanged);
             // 
             // simpleButton2
             // 
@@ -157,6 +174,14 @@
             this.simpleButton2.TabIndex = 10;
             this.simpleButton2.Text = "Clear Messages";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // txtConnectMsg
+            // 
+            this.txtConnectMsg.Location = new System.Drawing.Point(8, 212);
+            this.txtConnectMsg.Multiline = true;
+            this.txtConnectMsg.Name = "txtConnectMsg";
+            this.txtConnectMsg.Size = new System.Drawing.Size(158, 33);
+            this.txtConnectMsg.TabIndex = 9;
             // 
             // separatorControl1
             // 
@@ -229,7 +254,7 @@
             // 
             // txtIP
             // 
-            this.txtIP.EditValue = "172.20.168.70";
+            this.txtIP.EditValue = "172.20.168.74";
             this.txtIP.Location = new System.Drawing.Point(5, 27);
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(91, 20);
@@ -716,31 +741,6 @@
             this.textBox1.Size = new System.Drawing.Size(605, 189);
             this.textBox1.TabIndex = 24;
             // 
-            // txtPubSubIP
-            // 
-            this.txtPubSubIP.EditValue = "172.20.168.70";
-            this.txtPubSubIP.Location = new System.Drawing.Point(78, 71);
-            this.txtPubSubIP.Name = "txtPubSubIP";
-            this.txtPubSubIP.Size = new System.Drawing.Size(88, 20);
-            this.txtPubSubIP.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "PubSub IP";
-            // 
-            // txtConnectMsg
-            // 
-            this.txtConnectMsg.Location = new System.Drawing.Point(8, 212);
-            this.txtConnectMsg.Multiline = true;
-            this.txtConnectMsg.Name = "txtConnectMsg";
-            this.txtConnectMsg.Size = new System.Drawing.Size(158, 33);
-            this.txtConnectMsg.TabIndex = 9;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -755,6 +755,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPort.Properties)).EndInit();
@@ -791,7 +792,6 @@
             this.tabData.ResumeLayout(false);
             this.tabPageTemplate.ResumeLayout(false);
             this.tabPageTemplate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

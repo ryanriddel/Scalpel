@@ -1,0 +1,85 @@
+---
+data_sources: [ "environment_json", "defaults" , "file", "environment" ]
+template_sources: [ "file" ]
+
+defaults:
+
+  global:
+    env_opra_ports: ["233.43.202.[1-24]:[11101-11124]", "233.43.202.[129-152]:[16101-16124]"]
+    env_cxs_ports: ["cqsb:233.200.79.[0-11]:[61000-61011]", "ctsb:233.200.79.[128-139]:[62128-62139]"]
+    env_uxdf_ports: ["uqdf:233.46.176.[0-5]:[55630-55635]", "utdf:233.46.176.[8-13]:[55640-55645]"]
+    env_opra_alpharange: "A-ZZZZ"
+
+  opra-config.erb:
+    target: ../RBConfig-OPRA.json
+
+  cs-config.erb:
+    target: ../RBConfig-CS.json
+
+environments:
+  r2g-3:
+    opra-config.erb:
+      config:
+        env_mktdata_iface: 10.254.32.70  
+        env_opra_alpharange: "A-EEZZ"
+        env_opra_ports: ["233.43.202.[1-13]:[11101-11113]"]
+    cs-config.erb:
+      config:
+        env_mktdata_iface: 10.254.32.70
+        env_cxs_alpharange: "A-ELZZ"
+        env_cxs_ports: ["cqsb:233.200.79.[0-3]:[61000-61003]", "ctsb:233.200.79.[128-131]:[62128-62131]"]
+        env_uxdf_alpharange: "A-FD"
+        env_uxdf_ports: ["uqdf:233.46.176.[0-1]:[55630-55631]", "utdf:233.46.176.[8-9]:[55640-55641]"]
+        env_opra_alpharange: "A-EEZZ"
+
+  r2g-4:
+    opra-config.erb:
+      config: 
+        env_mktdata_iface: 10.254.32.71
+        env_opra_alpharange: "EF-LRZZ"
+        env_opra_ports: ["233.43.202.[14-24]:[11114-11124]"]        
+    cs-config.erb:
+      config:
+        env_mktdata_iface: 10.254.32.71
+        env_cxs_alpharange: "CS-LVZZ"
+        env_cxs_ports: ["cqsb:233.200.79.[3-6]:[61003-61006]", "ctsb:233.200.79.[132-135]:[62131-62134]"]
+        env_uxdf_alpharange: "CE-PB"
+        env_uxdf_ports: ["uqdf:233.46.176.[1-3]:[55631-55633]", "utdf:233.46.176.[9-11]:[55641-55643]"]
+        env_opra_alpharange: "EF-LRZZ"
+
+  r2g-7:
+    opra-config.erb:
+      config:
+        env_mktdata_iface: 10.254.32.78
+        env_opra_alpharange: "LS-SOZZ"
+        env_opra_ports: ["233.43.202.[129-141]:[16101-16113]"]
+    cs-config.erb:
+     config:
+        env_mktdata_iface: 10.254.32.78
+        env_cxs_alpharange: "IR-STZZ"
+        env_cxs_ports: ["cqsb:233.200.79.[6-9]:[61006-61019]", "ctsb:233.200.79.[135-138]:[62134-62137]"]
+        env_uxdf_alpharange: "LL-SP"
+        env_uxdf_ports: ["uqdf:233.46.176.[3-4]:[55633-55634]", "utdf:233.46.176.[11-12]:[55643-55644]"]
+        env_opra_alpharange: "LS-SOZZ"
+
+  r2g-8:
+    opra-config.erb:
+      config:
+        env_mktdata_iface: 10.254.32.81   
+        env_opra_alpharange: "SP-ZZZZ"
+        env_opra_ports: ["233.43.202.[142-152]:[16114-16124]"]
+    cs-config.erb:
+      config:
+        env_mktdata_iface: 10.254.32.81
+        env_cxs_alpharange: "PS-ZZZZ"
+        env_cxs_ports: ["cqsb:233.200.79.[7-10]:[61007-61010]", "ctsb:233.200.79.[135-138]:[62135-62138]"]
+        env_uxdf_alpharange: "PC-ZZZZ"
+        env_uxdf_ports: ["uqdf:233.46.176.[4-5]:[55634-55635]", "utdf:233.46.176.[12-13]:[55644-55645]"]
+        env_opra_alpharange: "SP-ZZZZ"
+
+#exec : "/scalp/oprabk start"
+#exec : "/scalp/startall"
+dynamic_values: true
+default_environment: "r2g-7"
+api_enable: true
+api_port: 6275

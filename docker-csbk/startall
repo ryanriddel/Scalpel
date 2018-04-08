@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+
+echo "Starting oprabk..."
+/scalp/csbk2 start .
+tail -f /dev/null
+
+#./oprasdb start
+#./opnintdb start
+
+

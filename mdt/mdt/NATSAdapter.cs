@@ -36,7 +36,7 @@ namespace mdt
             Port = _Port;
 
             natsOptions = ConnectionFactory.GetDefaultOptions();
-            natsOptions.Url = "nats://" + IPAddress + ":" + Port;
+            natsOptions.Url = "nats://default:scalp@" + IPAddress + ":" + Port;
 
             natsOptions.DisconnectedEventHandler += (sender, args) => OnDisconnect(sender, args);
             natsOptions.AsyncErrorEventHandler += (sender, args) => OnError(sender, args);
@@ -44,8 +44,16 @@ namespace mdt
             natsOptions.ServerDiscoveredEventHandler += (sender, args) => OnDisconnect(sender, args);
             natsOptions.AllowReconnect = true;
 
-            natsConnection = new ConnectionFactory().CreateConnection(natsOptions);
-            natsStatistics = natsConnection.Stats;
+            try
+            {
+                natsConnection = new ConnectionFactory().CreateConnection(natsOptions);
+                natsStatistics = natsConnection.Stats;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
             
         }
 

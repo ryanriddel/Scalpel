@@ -34,7 +34,7 @@ COPY ./gnatsd /gnatsd
 #RUN mkdir /bin
 #COPY ./sh /bin
 
-CMD ["/run-gnatsd-node"]
+CMD "/run-gnatsd-node"
 #CMD ["/gnatsd, "-c", "gnatsd-node-config-dcos"]
 #CMD ["bin/sh","-c"]
 #CMD ["/scalp/tiller/tiller", "-b", "/scalp/tiller/quickstart", , "-d", "-a", "-v", "--environment", $(hostname)]

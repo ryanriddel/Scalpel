@@ -1,0 +1,81 @@
+{
+  "id": "/ny4-oprabk",
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "backoffFactor": 1.15,
+  "backoffSeconds": 1,
+  "constraints": [
+    [
+      "zone",
+      "IS",
+      "ny4"
+    ],
+	[
+      "hostname",
+      "UNLIKE",
+      "172.20.168.71"
+    ],
+    [
+      "hostname",
+      "UNIQUE"
+    ]
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "loamobn/oprabk:latest",
+      "forcePullImage": false,
+      "privileged": true,
+      "parameters": [
+        {
+          "key": "network",
+          "value": "host"
+        },
+        {
+          "key": "cap-add",
+          "value": "ALL"
+        },
+		{
+          "key": "ipc",
+          "value": "host"
+        },
+        {
+          "key": "security-opt",
+          "value": "seccomp=unconfined"
+        }
+      ]
+    }
+  },
+  "cpus": 5,
+  "disk": 1024,
+  "instances": 3,
+  "maxLaunchDelaySeconds": 60,
+  "mem": 1024,
+  "gpus": 0,
+  "networks": [
+    {
+      "mode": "host"
+    }
+  ],
+  "portDefinitions": [
+    {
+      "name": "default",
+      "protocol": "tcp",
+      "port": 10003
+    }
+  ],
+  "requirePorts": false,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 1,
+    "minimumHealthCapacity": 1
+  },
+  "killSelection": "YOUNGEST_FIRST",
+  "unreachableStrategy": {
+    "inactiveAfterSeconds": 0,
+    "expungeAfterSeconds": 0
+  },
+  "healthChecks": [],
+  "fetch": []
+}

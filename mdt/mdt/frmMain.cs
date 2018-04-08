@@ -26,7 +26,13 @@ namespace mdt
         List<string> natsSubjectList = new List<string>();
 
         uint testDurationMillis = 0;
+        ulong numQuoteMsgReceived = 0;
+        ulong numTradeMsgReceived = 0;
 
+        long memoryUsed = 0;
+
+        ConcurrentDictionary<string, ConcurrentQueue<string>> quoteMessages = new ConcurrentDictionary<string, ConcurrentQueue<string>>();
+        ConcurrentDictionary<string, ConcurrentQueue<string>> tradeMessages = new ConcurrentDictionary<string, ConcurrentQueue<string>>();
         NATSAdapter nats;
 
         string IPAddress = "";
@@ -92,21 +98,23 @@ namespace mdt
             }
         }
 
-        ulong messageCount = 0;
-        ConcurrentDictionary<string, ConcurrentQueue<string>> messages = new ConcurrentDictionary<string, ConcurrentQueue<string>>();
         private void btnStartTest_Click(object sender, EventArgs e)
         {
             if (nats == null)
                 return;
             if (nats.GetConnectionState() != ConnState.CONNECTED)
                 return;
-            messageCount = 0;
+
             natsMessageHandlerDict.Clear();
             natsSubscriptionDict.Clear();
+            memoryUsed = GC.GetTotalMemory(false);
 
             testDurationMillis = (uint)updMilliseconds.Value;
             testDurationMillis += ((uint)updSeconds.Value) * 1000;
-            messages.Clear();
+            tradeMessages.Clear();
+            quoteMessages.Clear();
+            numQuoteMsgReceived = 0;
+            numTradeMsgReceived = 0;
 
             for (int i = 0; i < natsSubjectList.Count; i++)
             {
@@ -114,41 +122,41 @@ namespace mdt
                 string[] subParts = subj.Split(new char[] { '.' });
 
                 bool isTrade = (subParts[1] == "TRADE");
-                messages[subj] = new ConcurrentQueue<string>();
+
+                
+                if (isTrade)
+                {
+                    tradeMessages[subj] = new ConcurrentQueue<string>();
+                }
+                else
+                    quoteMessages[subj] = new ConcurrentQueue<string>();
+
                 timeDifferenceAverageDict[subj] = 0;
                 EventHandler<MsgHandlerEventArgs> evHandler = new EventHandler<MsgHandlerEventArgs>((object o, MsgHandlerEventArgs a) => 
                 {
-                    DateTime nTime = DateTime.Now;
-                   uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
+                    //DateTime nTime = DateTime.Now;
+                   //uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
 
                     if(isTrade)
                     {
                         
                         byte[] data = a.Message.Data;
-                        Streaminterface.TradeMessage tMsg;
-                        if (subParts[0] == "TEST")
-                        {
-                            Google.Protobuf.ByteString newBS = Google.Protobuf.ByteString.CopyFrom(data);
-                            tMsg = Streaminterface.TradeMessage.Parser.ParseFrom(newBS);
-                        }
-                        else
-                        {
-                            tMsg = Streaminterface.TradeMessage.Parser.ParseFrom(data);
-                        }
+                        Mktdatamessage.TradeMessage tMsg;
+                        
+
+                        tMsg = Mktdatamessage.TradeMessage.Parser.ParseFrom(data);
+                        
                         try
                         {
-                            Streaminterface.Instrument instr = tMsg.Instruments[0];
+                            Mktdatamessage.Instrument instr = tMsg.Instruments[0];
 
-                            string instrString = "";
 
-                            if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Option)
-                                instrString = instr.UnderlyingSymbol + instr.Strike.ToString() + (instr.IsCallOption ? "C" : "P") +
-                                "(" + instr.ExpirationMonth + "-" + instr.ExpirationDay + "-" + instr.ExpirationYear + ")";
-                            else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
-                                instrString = instr.UnderlyingSymbol;
-
-                            string m = instrString + ", " + tMsg.Timestamp.ToString() + ", " + tMsg.Price.ToString() + ", " + tMsg.Size.ToString() + ", " + timestamp.ToString();
-                            messages[subj].Enqueue(m);
+                            if (numTradeMsgReceived < 5000 )
+                            {
+                                string m = Google.Protobuf.JsonFormatter.ToDiagnosticString(tMsg);
+                                tradeMessages[subj].Enqueue(m);
+                            }
+                            numTradeMsgReceived++;
                            // this.txtMain.Invoke((MethodInvoker) delegate { txtMain.AppendText(m + "\n"); });
 
                         }
@@ -163,32 +171,23 @@ namespace mdt
                     else
                     {
                         byte[] data = a.Message.Data;
-                       // Console.WriteLine(a.Message.ToString());
-                        Streaminterface.BookDepthMessage qMsg;
+                        // Console.WriteLine(a.Message.ToString());
+                        Mktdatamessage.BookDepthMessage qMsg;
                             
                         try
                         {
-                            qMsg = Streaminterface.BookDepthMessage.Parser.ParseFrom(data);
+                            qMsg = Mktdatamessage.BookDepthMessage.Parser.ParseFrom(data);
 
-                            Streaminterface.Instrument instr = qMsg.Instruments[0];
+                            Mktdatamessage.Instrument instr = qMsg.Instruments[0];
 
-                            if (messageCount % 10000 == 0)
+                            if (numQuoteMsgReceived % 10000 == 0)
                             {
-
-                                string instrString = "";
-
-                                if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Option)
-                                    instrString = instr.UnderlyingSymbol + instr.Strike.ToString() + (instr.IsCallOption ? "C" : "P") +
-                                    "(" + instr.ExpirationMonth + "-" + instr.ExpirationDay + "-" + instr.ExpirationYear + ")";
-                                else if (instr.InstrumentType == Streaminterface.Instrument.Types.InstrType.Equity)
-                                    instrString = instr.UnderlyingSymbol;
-
-                                messages[subj].Enqueue(Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg));
+                                quoteMessages[subj].Enqueue(Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg));
                             }
 
                             //if we don't limit the number of messages we store, we'll run out of memory within 20 seconds
-                            
-                            
+
+                            numQuoteMsgReceived++;
 
                         }
                         catch (Google.Protobuf.InvalidProtocolBufferException d)
@@ -196,15 +195,12 @@ namespace mdt
                             Console.WriteLine(d.Message.ToString());
                             throw d;
                         }
-                        messageCount++;
+                        
                     }
                 });
 
                 natsSubscriptionDict[subj] = nats.Subscribe(subj, evHandler);
                 
-
-                
-
             }
 
             foreach(IAsyncSubscription s in natsSubscriptionDict.Values)
@@ -212,14 +208,15 @@ namespace mdt
                
                 s.Start();
             }
+            
 
             if (client != null)
             {
                 if (client.IsConnected)
                 {
+                    client.startCount();
                     client.SubscribeAll();
                 }
-                client.startCount();
             }
 
             Timer t = new Timer();
@@ -292,6 +289,7 @@ namespace mdt
             if (client != null)
             {
                 pubSubAppMessageCount = client.stopCount();
+                client.UnSubscribeAll();
             }
 
             setConnectMsgText("Finished sample collection...");
@@ -299,6 +297,10 @@ namespace mdt
             long totalDelivered = 0;
             long totalDropped = 0;
             long totalPending = 0;
+
+            long memDiffKB = (GC.GetTotalMemory(false) - memoryUsed) / 1024;
+            Console.WriteLine("Memory used: " + memDiffKB);
+
             for(int i=0; i<natsSubjectList.Count; i++)
             {
                 string subj = natsSubjectList[i];
@@ -319,29 +321,58 @@ namespace mdt
             }
             remsg += Environment.NewLine + Environment.NewLine + Environment.NewLine + "Total Delivered Messages: " + totalDelivered.ToString() + Environment.NewLine
                 + "Total Dropped Messages: " + totalDropped.ToString() + Environment.NewLine + "Total Pending Messages: " + totalPending.ToString() + Environment.NewLine
-                + Environment.NewLine + "Total Counted Messages: " + messageCount + Environment.NewLine + "Pubsubapp message count: " + pubSubAppMessageCount + Environment.NewLine
+                + Environment.NewLine + "Total Counted Trade Messages: " + numTradeMsgReceived.ToString() + Environment.NewLine + "Total Counted Quote Messages: " +
+                numQuoteMsgReceived.ToString() + Environment.NewLine + "Pubsubapp message count: " + pubSubAppMessageCount + Environment.NewLine
                 + "NATS to pubsub speed ratio: " + Convert.ToString(Math.Round((float)totalDelivered / pubSubAppMessageCount, 2) * 100).ToString() + "%";
 
             clearDataTabs();
             addDataTab("Test results", remsg);
-            
-            for (int i = 0; i < messages.Keys.Count; i++)
-            {
-                string subj = messages.Keys.ToArray()[i];
 
+            foreach(IAsyncSubscription ias in natsSubscriptionDict.Values)
+            {
+                string subj = ias.Subject;
+                string[] subParts = subj.Split(new char[] { '.' });
+
+                bool isTrade = (subParts[1] == "TRADE");
+                string str = "0";
+                bool success = false;
                 string allMessages = "";
-                string msg;
-                while(messages[subj].TryDequeue(out msg))
+
+                ConcurrentDictionary<string, ConcurrentQueue<string>> tempDict;
+                if (isTrade)
+                    tempDict = tradeMessages;
+                else
+                    tempDict = quoteMessages;
+
+                int ct = tempDict[subj].Count;
+
+                for (int i = 0; i < ct; i++)
                 {
-                    allMessages += msg + Environment.NewLine;
+                    success = false;
+                    if (isTrade)
+                    {
+                        success = tempDict[subj].TryDequeue(out str);
+                    }
+                    else
+                    {
+                        success = tempDict[subj].TryDequeue(out str);
+                    }
+                    if (success)
+                        allMessages += str + Environment.NewLine; 
                 }
 
                 addDataTab(subj, allMessages);
+                
             }
+            quoteMessages.Clear();
+            tradeMessages.Clear();
+            natsSubscriptionDict.Clear();
+            natsSubjectList.Clear();
 
-            client = new Feeds.QuoteFeedClient("Option Quotes", Feeds.QuoteFeedClient.ClientType.Option);
-            client.Connect(txtPubSubIP.Text, 13000);
-            MessageBox.Show("Test Complete!");
+
+            
+
+            
 
             
         }
@@ -500,6 +531,11 @@ namespace mdt
 
             nats.natsConnection.Flush(1000);
             nats.natsConnection.ResetStats();
+        }
+
+        private void checkEditTestTCP_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run --rm --network="host"  --cap-add=ALL  --security-opt seccomp=unconfined -p 4222:4222 --ipc=host  -v /dev/shm:/dev/shm -it loamobn/csbk bash

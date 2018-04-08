@@ -1,0 +1,18 @@
+{
+    "csbkapp": {
+        "feed": [
+                    <% env_cxs_ports.flatten.each_with_index do |val, index| -%>"<%=val -%>"<% if index < (env_cxs_ports.length - 1) -%>,<% end -%><% end %><% if env_cxs_ports.length > 0 -%><% if env_uxdf_ports.length > 0 -%>,<%end -%><%end %> 
+                    <% env_uxdf_ports.flatten.each_with_index do |val, index| -%>"<%=val -%>"<% if index < (env_uxdf_ports.length - 1) -%>,<% end -%><% end %>
+              ],
+	"feedInterface":                "<%= env_mktdata_iface %>",
+        "securityDatabase":             "cssecudb",
+        "averageSpreadQueueSize":       60,
+        "averageBBOQueueSize":          60,
+        "bookName":                     "csbk",
+        "tradeBookName":                "trdbk_cs",
+        "quoteStreamName":              "qstrm_cs",
+        "tradeStreamName":              "trdstrm_cs",
+        "broadcastAlphaRange":          "<%= env_opra_alpharange %>"
+    }
+}
+

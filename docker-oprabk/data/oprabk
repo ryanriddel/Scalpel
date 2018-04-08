@@ -1,0 +1,42 @@
+
+{
+    "oprabkapp": {
+        "feed": [
+                <% env_opra-ports.each_with_index do |val, index| -%>"<%=val -%>"<% if index < (env_opra-ports.length - 1) -%>,<% end -%><% end %>
+              ],
+        "feedInterface": "<%= env_mktdata-ip %>",
+        "securityDatabase": "optdb",
+        "indexSecurityDatabase": "idxdb",
+        "channelStats": "oprachanstats",
+        "averageSpreadQueueSize": 60,
+        "averageBBOQueueSize": 60,
+        "bookName": "oprabk",
+        "indexBookName": "idxbk",
+        "tradeBookName": "tradebk",
+        "quoteStreamName": "qstrm_opra",
+        "tradeStreamName": "trdstrm_opra",
+        "openInterestStreamName": "opnintstrm",
+        "protocol": "binary"
+    }
+}
+
+
+
+{
+    "csbkapp": {
+        "feed": [
+              <% env_cxs-ports.flatten.each_with_index do |val, index| -%>"<%=val -%>"<% if index < (env_cxs-ports.length - 1) -%>,<% end -%><% end %>
+             <% if env_cxs-ports.length > 0 -%> <% if env_uxdf-ports.length > 0 -%>,<%end -%><%end %>
+              <% env_uxdf-ports.flatten.each_with_index do |val, index| -%>"<%=val -%>"<% if index < (env_uxdf-ports.length - 1) -%>,<% end -%><% end %>
+              ],
+        "feedInterface":                "<%= env_mktdata-iface %>",
+        "securityDatabase":             "cssecudb",
+        "averageSpreadQueueSize":       60,
+        "averageBBOQueueSize":          60,
+        "bookName":                     "csbk",
+        "tradeBookName":                "trdbk_cs",
+        "quoteStreamName":              "qstrm_cs",
+        "tradeStreamName":              "trdstrm_cs",
+        "broadcastAlphaRange":          "<%= env_opra-alpharange %>"
+    }
+}
