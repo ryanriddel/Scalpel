@@ -27,8 +27,8 @@ namespace Mktdatamessage {
             "c3RydW1lbnQuSW5zdHJUeXBlEhgKEFVuZGVybHlpbmdTeW1ib2wYAiABKAkS",
             "FQoNRXhwaXJhdGlvbkRheRgDIAEoBRIXCg9FeHBpcmF0aW9uTW9udGgYBCAB",
             "KAUSFgoORXhwaXJhdGlvblllYXIYBSABKAUSDgoGU3RyaWtlGAYgASgCEhQK",
-            "DElzQ2FsbE9wdGlvbhgHIAEoCBILCgNpZHgYCCABKA0iLwoJSW5zdHJUeXBl",
-            "EgoKBkVRVUlUWRAAEgoKBk9QVElPThABEgoKBkZVVFVSRRACIpoDCgxUcmFk",
+            "DElzQ2FsbE9wdGlvbhgHIAEoCBILCgNpZHgYCCABKAUiLwoJSW5zdHJUeXBl",
+            "EgoKBkVRVUlUWRAAEgoKBk9QVElPThABEgoKBkZVVFVSRRACIscDCgxUcmFk",
             "ZU1lc3NhZ2USEQoJVGltZXN0YW1wGAEgASgEEi8KC0luc3RydW1lbnRzGAIg",
             "AygLMhoubWt0ZGF0YW1lc3NhZ2UuSW5zdHJ1bWVudBINCgVQcmljZRgDIAEo",
             "AhIMCgRTaXplGAQgASgNEhQKDEV4Y2hhbmdlTmFtZRgFIAEoCRITCgtCaWRQ",
@@ -37,40 +37,63 @@ namespace Mktdatamessage {
             "Qk8YCiABKAkSFgoOQXNrRXhjaGFuZ2VCQk8YCyABKAkSGAoQRGF5c0hpZ2hl",
             "c3RQcmljZRgMIAEoAhIXCg9EYXlzTG93ZXN0UHJpY2UYDSABKAISGAoQRGF5",
             "c09wZW5pbmdQcmljZRgOIAEoAhIXCg9EYXlzVG90YWxWb2x1bWUYDyABKA0S",
-            "FAoMRXhjaGFuZ2VDb2RlGBAgASgNEhUKDUNvbmRpdGlvbkNvZGUYESABKA0i",
-            "RQoQTWFya2V0RGVwdGhMZXZlbBINCgVQcmljZRgBIAEoAhIMCgRTaXplGAIg",
-            "ASgNEhQKDEV4Y2hhbmdlQ29kZRgDIAEoDSKGAQoLUXVvdGVVcGRhdGUSEQoJ",
-            "VGltZXN0YW1wGAEgASgEEi8KC0luc3RydW1lbnRzGAIgAygLMhoubWt0ZGF0",
-            "YW1lc3NhZ2UuSW5zdHJ1bWVudBIzCglUb3BPZkJvb2sYAyABKAsyIC5ta3Rk",
-            "YXRhbWVzc2FnZS5NYXJrZXREZXB0aExldmVsIosCChBCb29rRGVwdGhNZXNz",
-            "YWdlEhEKCVRpbWVzdGFtcBgBIAEoBBIvCgtJbnN0cnVtZW50cxgCIAMoCzIa",
-            "Lm1rdGRhdGFtZXNzYWdlLkluc3RydW1lbnQSNwoNQmlkQm9va0xldmVscxgD",
-            "IAMoCzIgLm1rdGRhdGFtZXNzYWdlLk1hcmtldERlcHRoTGV2ZWwSNwoNQXNr",
-            "Qm9va0xldmVscxgEIAMoCzIgLm1rdGRhdGFtZXNzYWdlLk1hcmtldERlcHRo",
-            "TGV2ZWwSFAoMTnVtQmlkTGV2ZWxzGAUgASgNEhQKDE51bUFza0xldmVscxgG",
-            "IAEoDRIVCg1Db25kaXRpb25Db2RlGAcgASgNImIKElF1b3RlTWVzc2FnZXNC",
-            "YXRjaBIYChBOdW1iZXJPZk1lc3NhZ2VzGAEgASgNEjIKDVF1b3RlTWVzc2Fn",
-            "ZXMYAiADKAsyGy5ta3RkYXRhbWVzc2FnZS5RdW90ZVVwZGF0ZSJjChJUcmFk",
-            "ZU1lc3NhZ2VzQmF0Y2gSGAoQTnVtYmVyT2ZNZXNzYWdlcxgBIAEoDRIzCg1U",
-            "cmFkZU1lc3NhZ2VzGAIgAygLMhwubWt0ZGF0YW1lc3NhZ2UuVHJhZGVNZXNz",
-            "YWdlImcKEkRlcHRoTWVzc2FnZXNCYXRjaBIYChBOdW1iZXJPZk1lc3NhZ2Vz",
-            "GAEgASgNEjcKDURlcHRoTWVzc2FnZXMYAiADKAsyIC5ta3RkYXRhbWVzc2Fn",
-            "ZS5Cb29rRGVwdGhNZXNzYWdlInAKCURlYnVnSW5mbxIfChdNZXNzYWdlQ3Jl",
-            "YXRlZFRpbWVzdGFtcBgBIAEoBBIcChRNZXNzYWdlU2VudFRpbWVzdGFtcBgC",
-            "IAEoBBIVCg1NZXNzYWdlTnVtYmVyGAMgASgEEg0KBU90aGVyGAQgASgJQgJI",
-            "AWIGcHJvdG8z"));
+            "FAoMRXhjaGFuZ2VDb2RlGBAgASgNEhQKDENvbmRpdGlvbk51bRgRIAEoDRIR",
+            "CglDb25kaXRpb24YEiABKAwSGQoRbXNnU2VxdWVuY2VOdW1iZXIYEyABKAQi",
+            "wQIKB1JCVHJhZGUSMQoLQmFzZU1lc3NhZ2UYASABKAsyHC5ta3RkYXRhbWVz",
+            "c2FnZS5UcmFkZU1lc3NhZ2USEgoKT3B0aW9uVmVnYRgGIAEoAhITCgtPcHRp",
+            "b25EZWx0YRgCIAEoAhITCgtPcHRpb25UaGV0YRgDIAEoAhITCgtPcHRpb25H",
+            "YW1tYRgEIAEoAhIRCglPcHRpb25SaG8YBSABKAISDAoEVldBUBgHIAEoAhIR",
+            "CglGYWlyV2lkdGgYCCABKAISEAoIRmFpclNpemUYDiABKAISEwoLQXZnQkJP",
+            "QmlkU3oYCSABKAISEwoLQXZnQkJPQXNrU3oYCiABKAISEQoJQXZnU3ByZWFk",
+            "GAsgASgCEhIKClN0b2NrUHJpY2UYDCABKAISGQoRTWlzY2VsbGFuZW91c0Rh",
+            "dGEYDSABKAwiawoQTWFya2V0RGVwdGhMZXZlbBINCgVQcmljZRgBIAEoAhIM",
+            "CgRTaXplGAIgASgNEhQKDEV4Y2hhbmdlQ29kZRgDIAEoDRIUCgxDdXN0b21l",
+            "clNpemUYBCABKA0SDgoGUGFydElEGAUgASgNIoYBCgtRdW90ZVVwZGF0ZRIR",
+            "CglUaW1lc3RhbXAYASABKAQSLwoLSW5zdHJ1bWVudHMYAiADKAsyGi5ta3Rk",
+            "YXRhbWVzc2FnZS5JbnN0cnVtZW50EjMKCVRvcE9mQm9vaxgDIAEoCzIgLm1r",
+            "dGRhdGFtZXNzYWdlLk1hcmtldERlcHRoTGV2ZWwipgIKEEJvb2tEZXB0aE1l",
+            "c3NhZ2USEQoJVGltZXN0YW1wGAEgASgEEi8KC0luc3RydW1lbnRzGAIgAygL",
+            "MhoubWt0ZGF0YW1lc3NhZ2UuSW5zdHJ1bWVudBI3Cg1CaWRCb29rTGV2ZWxz",
+            "GAMgAygLMiAubWt0ZGF0YW1lc3NhZ2UuTWFya2V0RGVwdGhMZXZlbBI3Cg1B",
+            "c2tCb29rTGV2ZWxzGAQgAygLMiAubWt0ZGF0YW1lc3NhZ2UuTWFya2V0RGVw",
+            "dGhMZXZlbBIUCgxOdW1CaWRMZXZlbHMYBSABKA0SFAoMTnVtQXNrTGV2ZWxz",
+            "GAYgASgNEhUKDUNvbmRpdGlvbkNvZGUYByABKA0SGQoRbXNnU2VxdWVuY2VO",
+            "dW1iZXIYCCABKAQiiQEKGEVucmljaGVkQm9va0RlcHRoTWVzc2FnZRIzCglC",
+            "b29rRGVwdGgYASABKAsyIC5ta3RkYXRhbWVzc2FnZS5Cb29rRGVwdGhNZXNz",
+            "YWdlEjgKDE1lc3NhZ2VTdGF0cxgCIAEoCzIiLm1rdGRhdGFtZXNzYWdlLlNp",
+            "bmdsZU1lc3NhZ2VTdGF0cyLZAQoSU2luZ2xlTWVzc2FnZVN0YXRzEh8KF1Bh",
+            "Y2tldFJlY2VpdmVkVGltZXN0YW1wGAEgASgEEiIKGk5BVFNNZXNzYWdlUGFy",
+            "c2VkVGltZXN0YW1wGAIgASgEEiAKGE5BVFNNZXNzYWdlU2VudFRpbWVzdGFt",
+            "cBgDIAEoBBJAChRwcmV2aW91c01lc3NhZ2VTdGF0cxgEIAEoCzIiLm1rdGRh",
+            "dGFtZXNzYWdlLlNpbmdsZU1lc3NhZ2VTdGF0cxIaChJNZXNzYWdlRGVzY3Jp",
+            "cHRpb24YBSABKAki4gEKElBhY2tldEhhbmRsZXJTdGF0cxIRCglUaW1lc3Rh",
+            "bXAYASABKAQSIAoYUGFja2V0SGFuZGxlckRlc2NyaXB0aW9uGAIgASgJEhoK",
+            "ElRvdGFsRGF0YVByb2Nlc3NlZBgDIAEoBBIdChVUb3RhbFBhY2tldHNQcm9j",
+            "ZXNzZWQYBCABKAQSEQoJVG90YWxHYXBzGAUgASgEEhYKDkxhc3RMb2dnZWRE",
+            "YXRhGAYgASgEEhkKEUxhc3RMb2dnZWRQYWNrZXRzGAcgASgEEhYKDkxhc3RM",
+            "b2dnZWRHYXBzGAggASgEImIKElF1b3RlTWVzc2FnZXNCYXRjaBIYChBOdW1i",
+            "ZXJPZk1lc3NhZ2VzGAEgASgNEjIKDVF1b3RlTWVzc2FnZXMYAiADKAsyGy5t",
+            "a3RkYXRhbWVzc2FnZS5RdW90ZVVwZGF0ZSJjChJUcmFkZU1lc3NhZ2VzQmF0",
+            "Y2gSGAoQTnVtYmVyT2ZNZXNzYWdlcxgBIAEoDRIzCg1UcmFkZU1lc3NhZ2Vz",
+            "GAIgAygLMhwubWt0ZGF0YW1lc3NhZ2UuVHJhZGVNZXNzYWdlImcKEkRlcHRo",
+            "TWVzc2FnZXNCYXRjaBIYChBOdW1iZXJPZk1lc3NhZ2VzGAEgASgNEjcKDURl",
+            "cHRoTWVzc2FnZXMYAiADKAsyIC5ta3RkYXRhbWVzc2FnZS5Cb29rRGVwdGhN",
+            "ZXNzYWdlQgJIAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.Instrument), global::Mktdatamessage.Instrument.Parser, new[]{ "InstrumentType", "UnderlyingSymbol", "ExpirationDay", "ExpirationMonth", "ExpirationYear", "Strike", "IsCallOption", "Idx" }, null, new[]{ typeof(global::Mktdatamessage.Instrument.Types.InstrType) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.TradeMessage), global::Mktdatamessage.TradeMessage.Parser, new[]{ "Timestamp", "Instruments", "Price", "Size", "ExchangeName", "BidPriceBBO", "AskPriceBBO", "BidSizeBBO", "AskSizeBBO", "BidExchangeBBO", "AskExchangeBBO", "DaysHighestPrice", "DaysLowestPrice", "DaysOpeningPrice", "DaysTotalVolume", "ExchangeCode", "ConditionCode" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.MarketDepthLevel), global::Mktdatamessage.MarketDepthLevel.Parser, new[]{ "Price", "Size", "ExchangeCode" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.TradeMessage), global::Mktdatamessage.TradeMessage.Parser, new[]{ "Timestamp", "Instruments", "Price", "Size", "ExchangeName", "BidPriceBBO", "AskPriceBBO", "BidSizeBBO", "AskSizeBBO", "BidExchangeBBO", "AskExchangeBBO", "DaysHighestPrice", "DaysLowestPrice", "DaysOpeningPrice", "DaysTotalVolume", "ExchangeCode", "ConditionNum", "Condition", "MsgSequenceNumber" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.RBTrade), global::Mktdatamessage.RBTrade.Parser, new[]{ "BaseMessage", "OptionVega", "OptionDelta", "OptionTheta", "OptionGamma", "OptionRho", "VWAP", "FairWidth", "FairSize", "AvgBBOBidSz", "AvgBBOAskSz", "AvgSpread", "StockPrice", "MiscellaneousData" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.MarketDepthLevel), global::Mktdatamessage.MarketDepthLevel.Parser, new[]{ "Price", "Size", "ExchangeCode", "CustomerSize", "PartID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.QuoteUpdate), global::Mktdatamessage.QuoteUpdate.Parser, new[]{ "Timestamp", "Instruments", "TopOfBook" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.BookDepthMessage), global::Mktdatamessage.BookDepthMessage.Parser, new[]{ "Timestamp", "Instruments", "BidBookLevels", "AskBookLevels", "NumBidLevels", "NumAskLevels", "ConditionCode" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.BookDepthMessage), global::Mktdatamessage.BookDepthMessage.Parser, new[]{ "Timestamp", "Instruments", "BidBookLevels", "AskBookLevels", "NumBidLevels", "NumAskLevels", "ConditionCode", "MsgSequenceNumber" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.EnrichedBookDepthMessage), global::Mktdatamessage.EnrichedBookDepthMessage.Parser, new[]{ "BookDepth", "MessageStats" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.SingleMessageStats), global::Mktdatamessage.SingleMessageStats.Parser, new[]{ "PacketReceivedTimestamp", "NATSMessageParsedTimestamp", "NATSMessageSentTimestamp", "PreviousMessageStats", "MessageDescription" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.PacketHandlerStats), global::Mktdatamessage.PacketHandlerStats.Parser, new[]{ "Timestamp", "PacketHandlerDescription", "TotalDataProcessed", "TotalPacketsProcessed", "TotalGaps", "LastLoggedData", "LastLoggedPackets", "LastLoggedGaps" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.QuoteMessagesBatch), global::Mktdatamessage.QuoteMessagesBatch.Parser, new[]{ "NumberOfMessages", "QuoteMessages" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.TradeMessagesBatch), global::Mktdatamessage.TradeMessagesBatch.Parser, new[]{ "NumberOfMessages", "TradeMessages" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.DepthMessagesBatch), global::Mktdatamessage.DepthMessagesBatch.Parser, new[]{ "NumberOfMessages", "DepthMessages" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.DebugInfo), global::Mktdatamessage.DebugInfo.Parser, new[]{ "MessageCreatedTimestamp", "MessageSentTimestamp", "MessageNumber", "Other" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.DepthMessagesBatch), global::Mktdatamessage.DepthMessagesBatch.Parser, new[]{ "NumberOfMessages", "DepthMessages" }, null, null, null)
           }));
     }
     #endregion
@@ -195,9 +218,9 @@ namespace Mktdatamessage {
 
     /// <summary>Field number for the "idx" field.</summary>
     public const int IdxFieldNumber = 8;
-    private uint idx_;
+    private int idx_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Idx {
+    public int Idx {
       get { return idx_; }
       set {
         idx_ = value;
@@ -279,7 +302,7 @@ namespace Mktdatamessage {
       }
       if (Idx != 0) {
         output.WriteRawTag(64);
-        output.WriteUInt32(Idx);
+        output.WriteInt32(Idx);
       }
     }
 
@@ -308,7 +331,7 @@ namespace Mktdatamessage {
         size += 1 + 1;
       }
       if (Idx != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Idx);
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Idx);
       }
       return size;
     }
@@ -381,7 +404,7 @@ namespace Mktdatamessage {
             break;
           }
           case 64: {
-            Idx = input.ReadUInt32();
+            Idx = input.ReadInt32();
             break;
           }
         }
@@ -443,7 +466,9 @@ namespace Mktdatamessage {
       daysOpeningPrice_ = other.daysOpeningPrice_;
       daysTotalVolume_ = other.daysTotalVolume_;
       exchangeCode_ = other.exchangeCode_;
-      conditionCode_ = other.conditionCode_;
+      conditionNum_ = other.conditionNum_;
+      condition_ = other.condition_;
+      msgSequenceNumber_ = other.msgSequenceNumber_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -626,14 +651,36 @@ namespace Mktdatamessage {
       }
     }
 
-    /// <summary>Field number for the "ConditionCode" field.</summary>
-    public const int ConditionCodeFieldNumber = 17;
-    private uint conditionCode_;
+    /// <summary>Field number for the "ConditionNum" field.</summary>
+    public const int ConditionNumFieldNumber = 17;
+    private uint conditionNum_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint ConditionCode {
-      get { return conditionCode_; }
+    public uint ConditionNum {
+      get { return conditionNum_; }
       set {
-        conditionCode_ = value;
+        conditionNum_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Condition" field.</summary>
+    public const int ConditionFieldNumber = 18;
+    private pb::ByteString condition_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Condition {
+      get { return condition_; }
+      set {
+        condition_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "msgSequenceNumber" field.</summary>
+    public const int MsgSequenceNumberFieldNumber = 19;
+    private ulong msgSequenceNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong MsgSequenceNumber {
+      get { return msgSequenceNumber_; }
+      set {
+        msgSequenceNumber_ = value;
       }
     }
 
@@ -666,7 +713,9 @@ namespace Mktdatamessage {
       if (DaysOpeningPrice != other.DaysOpeningPrice) return false;
       if (DaysTotalVolume != other.DaysTotalVolume) return false;
       if (ExchangeCode != other.ExchangeCode) return false;
-      if (ConditionCode != other.ConditionCode) return false;
+      if (ConditionNum != other.ConditionNum) return false;
+      if (Condition != other.Condition) return false;
+      if (MsgSequenceNumber != other.MsgSequenceNumber) return false;
       return true;
     }
 
@@ -689,7 +738,9 @@ namespace Mktdatamessage {
       if (DaysOpeningPrice != 0F) hash ^= DaysOpeningPrice.GetHashCode();
       if (DaysTotalVolume != 0) hash ^= DaysTotalVolume.GetHashCode();
       if (ExchangeCode != 0) hash ^= ExchangeCode.GetHashCode();
-      if (ConditionCode != 0) hash ^= ConditionCode.GetHashCode();
+      if (ConditionNum != 0) hash ^= ConditionNum.GetHashCode();
+      if (Condition.Length != 0) hash ^= Condition.GetHashCode();
+      if (MsgSequenceNumber != 0UL) hash ^= MsgSequenceNumber.GetHashCode();
       return hash;
     }
 
@@ -761,9 +812,17 @@ namespace Mktdatamessage {
         output.WriteRawTag(128, 1);
         output.WriteUInt32(ExchangeCode);
       }
-      if (ConditionCode != 0) {
+      if (ConditionNum != 0) {
         output.WriteRawTag(136, 1);
-        output.WriteUInt32(ConditionCode);
+        output.WriteUInt32(ConditionNum);
+      }
+      if (Condition.Length != 0) {
+        output.WriteRawTag(146, 1);
+        output.WriteBytes(Condition);
+      }
+      if (MsgSequenceNumber != 0UL) {
+        output.WriteRawTag(152, 1);
+        output.WriteUInt64(MsgSequenceNumber);
       }
     }
 
@@ -816,8 +875,14 @@ namespace Mktdatamessage {
       if (ExchangeCode != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ExchangeCode);
       }
-      if (ConditionCode != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ConditionCode);
+      if (ConditionNum != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ConditionNum);
+      }
+      if (Condition.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeBytesSize(Condition);
+      }
+      if (MsgSequenceNumber != 0UL) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(MsgSequenceNumber);
       }
       return size;
     }
@@ -873,8 +938,14 @@ namespace Mktdatamessage {
       if (other.ExchangeCode != 0) {
         ExchangeCode = other.ExchangeCode;
       }
-      if (other.ConditionCode != 0) {
-        ConditionCode = other.ConditionCode;
+      if (other.ConditionNum != 0) {
+        ConditionNum = other.ConditionNum;
+      }
+      if (other.Condition.Length != 0) {
+        Condition = other.Condition;
+      }
+      if (other.MsgSequenceNumber != 0UL) {
+        MsgSequenceNumber = other.MsgSequenceNumber;
       }
     }
 
@@ -951,7 +1022,502 @@ namespace Mktdatamessage {
             break;
           }
           case 136: {
-            ConditionCode = input.ReadUInt32();
+            ConditionNum = input.ReadUInt32();
+            break;
+          }
+          case 146: {
+            Condition = input.ReadBytes();
+            break;
+          }
+          case 152: {
+            MsgSequenceNumber = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class RBTrade : pb::IMessage<RBTrade> {
+    private static readonly pb::MessageParser<RBTrade> _parser = new pb::MessageParser<RBTrade>(() => new RBTrade());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<RBTrade> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RBTrade() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RBTrade(RBTrade other) : this() {
+      BaseMessage = other.baseMessage_ != null ? other.BaseMessage.Clone() : null;
+      optionVega_ = other.optionVega_;
+      optionDelta_ = other.optionDelta_;
+      optionTheta_ = other.optionTheta_;
+      optionGamma_ = other.optionGamma_;
+      optionRho_ = other.optionRho_;
+      vWAP_ = other.vWAP_;
+      fairWidth_ = other.fairWidth_;
+      fairSize_ = other.fairSize_;
+      avgBBOBidSz_ = other.avgBBOBidSz_;
+      avgBBOAskSz_ = other.avgBBOAskSz_;
+      avgSpread_ = other.avgSpread_;
+      stockPrice_ = other.stockPrice_;
+      miscellaneousData_ = other.miscellaneousData_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RBTrade Clone() {
+      return new RBTrade(this);
+    }
+
+    /// <summary>Field number for the "BaseMessage" field.</summary>
+    public const int BaseMessageFieldNumber = 1;
+    private global::Mktdatamessage.TradeMessage baseMessage_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Mktdatamessage.TradeMessage BaseMessage {
+      get { return baseMessage_; }
+      set {
+        baseMessage_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionVega" field.</summary>
+    public const int OptionVegaFieldNumber = 6;
+    private float optionVega_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionVega {
+      get { return optionVega_; }
+      set {
+        optionVega_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionDelta" field.</summary>
+    public const int OptionDeltaFieldNumber = 2;
+    private float optionDelta_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionDelta {
+      get { return optionDelta_; }
+      set {
+        optionDelta_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionTheta" field.</summary>
+    public const int OptionThetaFieldNumber = 3;
+    private float optionTheta_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionTheta {
+      get { return optionTheta_; }
+      set {
+        optionTheta_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionGamma" field.</summary>
+    public const int OptionGammaFieldNumber = 4;
+    private float optionGamma_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionGamma {
+      get { return optionGamma_; }
+      set {
+        optionGamma_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionRho" field.</summary>
+    public const int OptionRhoFieldNumber = 5;
+    private float optionRho_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionRho {
+      get { return optionRho_; }
+      set {
+        optionRho_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "VWAP" field.</summary>
+    public const int VWAPFieldNumber = 7;
+    private float vWAP_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float VWAP {
+      get { return vWAP_; }
+      set {
+        vWAP_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FairWidth" field.</summary>
+    public const int FairWidthFieldNumber = 8;
+    private float fairWidth_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float FairWidth {
+      get { return fairWidth_; }
+      set {
+        fairWidth_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FairSize" field.</summary>
+    public const int FairSizeFieldNumber = 14;
+    private float fairSize_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float FairSize {
+      get { return fairSize_; }
+      set {
+        fairSize_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AvgBBOBidSz" field.</summary>
+    public const int AvgBBOBidSzFieldNumber = 9;
+    private float avgBBOBidSz_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AvgBBOBidSz {
+      get { return avgBBOBidSz_; }
+      set {
+        avgBBOBidSz_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AvgBBOAskSz" field.</summary>
+    public const int AvgBBOAskSzFieldNumber = 10;
+    private float avgBBOAskSz_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AvgBBOAskSz {
+      get { return avgBBOAskSz_; }
+      set {
+        avgBBOAskSz_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AvgSpread" field.</summary>
+    public const int AvgSpreadFieldNumber = 11;
+    private float avgSpread_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AvgSpread {
+      get { return avgSpread_; }
+      set {
+        avgSpread_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StockPrice" field.</summary>
+    public const int StockPriceFieldNumber = 12;
+    private float stockPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float StockPrice {
+      get { return stockPrice_; }
+      set {
+        stockPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MiscellaneousData" field.</summary>
+    public const int MiscellaneousDataFieldNumber = 13;
+    private pb::ByteString miscellaneousData_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString MiscellaneousData {
+      get { return miscellaneousData_; }
+      set {
+        miscellaneousData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as RBTrade);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(RBTrade other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(BaseMessage, other.BaseMessage)) return false;
+      if (OptionVega != other.OptionVega) return false;
+      if (OptionDelta != other.OptionDelta) return false;
+      if (OptionTheta != other.OptionTheta) return false;
+      if (OptionGamma != other.OptionGamma) return false;
+      if (OptionRho != other.OptionRho) return false;
+      if (VWAP != other.VWAP) return false;
+      if (FairWidth != other.FairWidth) return false;
+      if (FairSize != other.FairSize) return false;
+      if (AvgBBOBidSz != other.AvgBBOBidSz) return false;
+      if (AvgBBOAskSz != other.AvgBBOAskSz) return false;
+      if (AvgSpread != other.AvgSpread) return false;
+      if (StockPrice != other.StockPrice) return false;
+      if (MiscellaneousData != other.MiscellaneousData) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (baseMessage_ != null) hash ^= BaseMessage.GetHashCode();
+      if (OptionVega != 0F) hash ^= OptionVega.GetHashCode();
+      if (OptionDelta != 0F) hash ^= OptionDelta.GetHashCode();
+      if (OptionTheta != 0F) hash ^= OptionTheta.GetHashCode();
+      if (OptionGamma != 0F) hash ^= OptionGamma.GetHashCode();
+      if (OptionRho != 0F) hash ^= OptionRho.GetHashCode();
+      if (VWAP != 0F) hash ^= VWAP.GetHashCode();
+      if (FairWidth != 0F) hash ^= FairWidth.GetHashCode();
+      if (FairSize != 0F) hash ^= FairSize.GetHashCode();
+      if (AvgBBOBidSz != 0F) hash ^= AvgBBOBidSz.GetHashCode();
+      if (AvgBBOAskSz != 0F) hash ^= AvgBBOAskSz.GetHashCode();
+      if (AvgSpread != 0F) hash ^= AvgSpread.GetHashCode();
+      if (StockPrice != 0F) hash ^= StockPrice.GetHashCode();
+      if (MiscellaneousData.Length != 0) hash ^= MiscellaneousData.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (baseMessage_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(BaseMessage);
+      }
+      if (OptionDelta != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(OptionDelta);
+      }
+      if (OptionTheta != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(OptionTheta);
+      }
+      if (OptionGamma != 0F) {
+        output.WriteRawTag(37);
+        output.WriteFloat(OptionGamma);
+      }
+      if (OptionRho != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(OptionRho);
+      }
+      if (OptionVega != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(OptionVega);
+      }
+      if (VWAP != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(VWAP);
+      }
+      if (FairWidth != 0F) {
+        output.WriteRawTag(69);
+        output.WriteFloat(FairWidth);
+      }
+      if (AvgBBOBidSz != 0F) {
+        output.WriteRawTag(77);
+        output.WriteFloat(AvgBBOBidSz);
+      }
+      if (AvgBBOAskSz != 0F) {
+        output.WriteRawTag(85);
+        output.WriteFloat(AvgBBOAskSz);
+      }
+      if (AvgSpread != 0F) {
+        output.WriteRawTag(93);
+        output.WriteFloat(AvgSpread);
+      }
+      if (StockPrice != 0F) {
+        output.WriteRawTag(101);
+        output.WriteFloat(StockPrice);
+      }
+      if (MiscellaneousData.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteBytes(MiscellaneousData);
+      }
+      if (FairSize != 0F) {
+        output.WriteRawTag(117);
+        output.WriteFloat(FairSize);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (baseMessage_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BaseMessage);
+      }
+      if (OptionVega != 0F) {
+        size += 1 + 4;
+      }
+      if (OptionDelta != 0F) {
+        size += 1 + 4;
+      }
+      if (OptionTheta != 0F) {
+        size += 1 + 4;
+      }
+      if (OptionGamma != 0F) {
+        size += 1 + 4;
+      }
+      if (OptionRho != 0F) {
+        size += 1 + 4;
+      }
+      if (VWAP != 0F) {
+        size += 1 + 4;
+      }
+      if (FairWidth != 0F) {
+        size += 1 + 4;
+      }
+      if (FairSize != 0F) {
+        size += 1 + 4;
+      }
+      if (AvgBBOBidSz != 0F) {
+        size += 1 + 4;
+      }
+      if (AvgBBOAskSz != 0F) {
+        size += 1 + 4;
+      }
+      if (AvgSpread != 0F) {
+        size += 1 + 4;
+      }
+      if (StockPrice != 0F) {
+        size += 1 + 4;
+      }
+      if (MiscellaneousData.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(MiscellaneousData);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(RBTrade other) {
+      if (other == null) {
+        return;
+      }
+      if (other.baseMessage_ != null) {
+        if (baseMessage_ == null) {
+          baseMessage_ = new global::Mktdatamessage.TradeMessage();
+        }
+        BaseMessage.MergeFrom(other.BaseMessage);
+      }
+      if (other.OptionVega != 0F) {
+        OptionVega = other.OptionVega;
+      }
+      if (other.OptionDelta != 0F) {
+        OptionDelta = other.OptionDelta;
+      }
+      if (other.OptionTheta != 0F) {
+        OptionTheta = other.OptionTheta;
+      }
+      if (other.OptionGamma != 0F) {
+        OptionGamma = other.OptionGamma;
+      }
+      if (other.OptionRho != 0F) {
+        OptionRho = other.OptionRho;
+      }
+      if (other.VWAP != 0F) {
+        VWAP = other.VWAP;
+      }
+      if (other.FairWidth != 0F) {
+        FairWidth = other.FairWidth;
+      }
+      if (other.FairSize != 0F) {
+        FairSize = other.FairSize;
+      }
+      if (other.AvgBBOBidSz != 0F) {
+        AvgBBOBidSz = other.AvgBBOBidSz;
+      }
+      if (other.AvgBBOAskSz != 0F) {
+        AvgBBOAskSz = other.AvgBBOAskSz;
+      }
+      if (other.AvgSpread != 0F) {
+        AvgSpread = other.AvgSpread;
+      }
+      if (other.StockPrice != 0F) {
+        StockPrice = other.StockPrice;
+      }
+      if (other.MiscellaneousData.Length != 0) {
+        MiscellaneousData = other.MiscellaneousData;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (baseMessage_ == null) {
+              baseMessage_ = new global::Mktdatamessage.TradeMessage();
+            }
+            input.ReadMessage(baseMessage_);
+            break;
+          }
+          case 21: {
+            OptionDelta = input.ReadFloat();
+            break;
+          }
+          case 29: {
+            OptionTheta = input.ReadFloat();
+            break;
+          }
+          case 37: {
+            OptionGamma = input.ReadFloat();
+            break;
+          }
+          case 45: {
+            OptionRho = input.ReadFloat();
+            break;
+          }
+          case 53: {
+            OptionVega = input.ReadFloat();
+            break;
+          }
+          case 61: {
+            VWAP = input.ReadFloat();
+            break;
+          }
+          case 69: {
+            FairWidth = input.ReadFloat();
+            break;
+          }
+          case 77: {
+            AvgBBOBidSz = input.ReadFloat();
+            break;
+          }
+          case 85: {
+            AvgBBOAskSz = input.ReadFloat();
+            break;
+          }
+          case 93: {
+            AvgSpread = input.ReadFloat();
+            break;
+          }
+          case 101: {
+            StockPrice = input.ReadFloat();
+            break;
+          }
+          case 106: {
+            MiscellaneousData = input.ReadBytes();
+            break;
+          }
+          case 117: {
+            FairSize = input.ReadFloat();
             break;
           }
         }
@@ -967,7 +1533,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -987,6 +1553,8 @@ namespace Mktdatamessage {
       price_ = other.price_;
       size_ = other.size_;
       exchangeCode_ = other.exchangeCode_;
+      customerSize_ = other.customerSize_;
+      partID_ = other.partID_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1027,6 +1595,28 @@ namespace Mktdatamessage {
       }
     }
 
+    /// <summary>Field number for the "CustomerSize" field.</summary>
+    public const int CustomerSizeFieldNumber = 4;
+    private uint customerSize_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint CustomerSize {
+      get { return customerSize_; }
+      set {
+        customerSize_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PartID" field.</summary>
+    public const int PartIDFieldNumber = 5;
+    private uint partID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint PartID {
+      get { return partID_; }
+      set {
+        partID_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as MarketDepthLevel);
@@ -1043,6 +1633,8 @@ namespace Mktdatamessage {
       if (Price != other.Price) return false;
       if (Size != other.Size) return false;
       if (ExchangeCode != other.ExchangeCode) return false;
+      if (CustomerSize != other.CustomerSize) return false;
+      if (PartID != other.PartID) return false;
       return true;
     }
 
@@ -1052,6 +1644,8 @@ namespace Mktdatamessage {
       if (Price != 0F) hash ^= Price.GetHashCode();
       if (Size != 0) hash ^= Size.GetHashCode();
       if (ExchangeCode != 0) hash ^= ExchangeCode.GetHashCode();
+      if (CustomerSize != 0) hash ^= CustomerSize.GetHashCode();
+      if (PartID != 0) hash ^= PartID.GetHashCode();
       return hash;
     }
 
@@ -1074,6 +1668,14 @@ namespace Mktdatamessage {
         output.WriteRawTag(24);
         output.WriteUInt32(ExchangeCode);
       }
+      if (CustomerSize != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(CustomerSize);
+      }
+      if (PartID != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(PartID);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1087,6 +1689,12 @@ namespace Mktdatamessage {
       }
       if (ExchangeCode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ExchangeCode);
+      }
+      if (CustomerSize != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CustomerSize);
+      }
+      if (PartID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PartID);
       }
       return size;
     }
@@ -1104,6 +1712,12 @@ namespace Mktdatamessage {
       }
       if (other.ExchangeCode != 0) {
         ExchangeCode = other.ExchangeCode;
+      }
+      if (other.CustomerSize != 0) {
+        CustomerSize = other.CustomerSize;
+      }
+      if (other.PartID != 0) {
+        PartID = other.PartID;
       }
     }
 
@@ -1127,6 +1741,14 @@ namespace Mktdatamessage {
             ExchangeCode = input.ReadUInt32();
             break;
           }
+          case 32: {
+            CustomerSize = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            PartID = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -1140,7 +1762,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1311,7 +1933,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1335,6 +1957,7 @@ namespace Mktdatamessage {
       numBidLevels_ = other.numBidLevels_;
       numAskLevels_ = other.numAskLevels_;
       conditionCode_ = other.conditionCode_;
+      msgSequenceNumber_ = other.msgSequenceNumber_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1416,6 +2039,17 @@ namespace Mktdatamessage {
       }
     }
 
+    /// <summary>Field number for the "msgSequenceNumber" field.</summary>
+    public const int MsgSequenceNumberFieldNumber = 8;
+    private ulong msgSequenceNumber_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong MsgSequenceNumber {
+      get { return msgSequenceNumber_; }
+      set {
+        msgSequenceNumber_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as BookDepthMessage);
@@ -1436,6 +2070,7 @@ namespace Mktdatamessage {
       if (NumBidLevels != other.NumBidLevels) return false;
       if (NumAskLevels != other.NumAskLevels) return false;
       if (ConditionCode != other.ConditionCode) return false;
+      if (MsgSequenceNumber != other.MsgSequenceNumber) return false;
       return true;
     }
 
@@ -1449,6 +2084,7 @@ namespace Mktdatamessage {
       if (NumBidLevels != 0) hash ^= NumBidLevels.GetHashCode();
       if (NumAskLevels != 0) hash ^= NumAskLevels.GetHashCode();
       if (ConditionCode != 0) hash ^= ConditionCode.GetHashCode();
+      if (MsgSequenceNumber != 0UL) hash ^= MsgSequenceNumber.GetHashCode();
       return hash;
     }
 
@@ -1478,6 +2114,10 @@ namespace Mktdatamessage {
         output.WriteRawTag(56);
         output.WriteUInt32(ConditionCode);
       }
+      if (MsgSequenceNumber != 0UL) {
+        output.WriteRawTag(64);
+        output.WriteUInt64(MsgSequenceNumber);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1497,6 +2137,9 @@ namespace Mktdatamessage {
       }
       if (ConditionCode != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ConditionCode);
+      }
+      if (MsgSequenceNumber != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(MsgSequenceNumber);
       }
       return size;
     }
@@ -1520,6 +2163,9 @@ namespace Mktdatamessage {
       }
       if (other.ConditionCode != 0) {
         ConditionCode = other.ConditionCode;
+      }
+      if (other.MsgSequenceNumber != 0UL) {
+        MsgSequenceNumber = other.MsgSequenceNumber;
       }
     }
 
@@ -1559,6 +2205,715 @@ namespace Mktdatamessage {
             ConditionCode = input.ReadUInt32();
             break;
           }
+          case 64: {
+            MsgSequenceNumber = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class EnrichedBookDepthMessage : pb::IMessage<EnrichedBookDepthMessage> {
+    private static readonly pb::MessageParser<EnrichedBookDepthMessage> _parser = new pb::MessageParser<EnrichedBookDepthMessage>(() => new EnrichedBookDepthMessage());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<EnrichedBookDepthMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EnrichedBookDepthMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EnrichedBookDepthMessage(EnrichedBookDepthMessage other) : this() {
+      BookDepth = other.bookDepth_ != null ? other.BookDepth.Clone() : null;
+      MessageStats = other.messageStats_ != null ? other.MessageStats.Clone() : null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EnrichedBookDepthMessage Clone() {
+      return new EnrichedBookDepthMessage(this);
+    }
+
+    /// <summary>Field number for the "BookDepth" field.</summary>
+    public const int BookDepthFieldNumber = 1;
+    private global::Mktdatamessage.BookDepthMessage bookDepth_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Mktdatamessage.BookDepthMessage BookDepth {
+      get { return bookDepth_; }
+      set {
+        bookDepth_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MessageStats" field.</summary>
+    public const int MessageStatsFieldNumber = 2;
+    private global::Mktdatamessage.SingleMessageStats messageStats_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Mktdatamessage.SingleMessageStats MessageStats {
+      get { return messageStats_; }
+      set {
+        messageStats_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as EnrichedBookDepthMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(EnrichedBookDepthMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(BookDepth, other.BookDepth)) return false;
+      if (!object.Equals(MessageStats, other.MessageStats)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (bookDepth_ != null) hash ^= BookDepth.GetHashCode();
+      if (messageStats_ != null) hash ^= MessageStats.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (bookDepth_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(BookDepth);
+      }
+      if (messageStats_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(MessageStats);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (bookDepth_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BookDepth);
+      }
+      if (messageStats_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MessageStats);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(EnrichedBookDepthMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.bookDepth_ != null) {
+        if (bookDepth_ == null) {
+          bookDepth_ = new global::Mktdatamessage.BookDepthMessage();
+        }
+        BookDepth.MergeFrom(other.BookDepth);
+      }
+      if (other.messageStats_ != null) {
+        if (messageStats_ == null) {
+          messageStats_ = new global::Mktdatamessage.SingleMessageStats();
+        }
+        MessageStats.MergeFrom(other.MessageStats);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (bookDepth_ == null) {
+              bookDepth_ = new global::Mktdatamessage.BookDepthMessage();
+            }
+            input.ReadMessage(bookDepth_);
+            break;
+          }
+          case 18: {
+            if (messageStats_ == null) {
+              messageStats_ = new global::Mktdatamessage.SingleMessageStats();
+            }
+            input.ReadMessage(messageStats_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SingleMessageStats : pb::IMessage<SingleMessageStats> {
+    private static readonly pb::MessageParser<SingleMessageStats> _parser = new pb::MessageParser<SingleMessageStats>(() => new SingleMessageStats());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SingleMessageStats> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SingleMessageStats() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SingleMessageStats(SingleMessageStats other) : this() {
+      packetReceivedTimestamp_ = other.packetReceivedTimestamp_;
+      nATSMessageParsedTimestamp_ = other.nATSMessageParsedTimestamp_;
+      nATSMessageSentTimestamp_ = other.nATSMessageSentTimestamp_;
+      PreviousMessageStats = other.previousMessageStats_ != null ? other.PreviousMessageStats.Clone() : null;
+      messageDescription_ = other.messageDescription_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SingleMessageStats Clone() {
+      return new SingleMessageStats(this);
+    }
+
+    /// <summary>Field number for the "PacketReceivedTimestamp" field.</summary>
+    public const int PacketReceivedTimestampFieldNumber = 1;
+    private ulong packetReceivedTimestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong PacketReceivedTimestamp {
+      get { return packetReceivedTimestamp_; }
+      set {
+        packetReceivedTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NATSMessageParsedTimestamp" field.</summary>
+    public const int NATSMessageParsedTimestampFieldNumber = 2;
+    private ulong nATSMessageParsedTimestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong NATSMessageParsedTimestamp {
+      get { return nATSMessageParsedTimestamp_; }
+      set {
+        nATSMessageParsedTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NATSMessageSentTimestamp" field.</summary>
+    public const int NATSMessageSentTimestampFieldNumber = 3;
+    private ulong nATSMessageSentTimestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong NATSMessageSentTimestamp {
+      get { return nATSMessageSentTimestamp_; }
+      set {
+        nATSMessageSentTimestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "previousMessageStats" field.</summary>
+    public const int PreviousMessageStatsFieldNumber = 4;
+    private global::Mktdatamessage.SingleMessageStats previousMessageStats_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Mktdatamessage.SingleMessageStats PreviousMessageStats {
+      get { return previousMessageStats_; }
+      set {
+        previousMessageStats_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MessageDescription" field.</summary>
+    public const int MessageDescriptionFieldNumber = 5;
+    private string messageDescription_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string MessageDescription {
+      get { return messageDescription_; }
+      set {
+        messageDescription_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SingleMessageStats);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SingleMessageStats other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PacketReceivedTimestamp != other.PacketReceivedTimestamp) return false;
+      if (NATSMessageParsedTimestamp != other.NATSMessageParsedTimestamp) return false;
+      if (NATSMessageSentTimestamp != other.NATSMessageSentTimestamp) return false;
+      if (!object.Equals(PreviousMessageStats, other.PreviousMessageStats)) return false;
+      if (MessageDescription != other.MessageDescription) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PacketReceivedTimestamp != 0UL) hash ^= PacketReceivedTimestamp.GetHashCode();
+      if (NATSMessageParsedTimestamp != 0UL) hash ^= NATSMessageParsedTimestamp.GetHashCode();
+      if (NATSMessageSentTimestamp != 0UL) hash ^= NATSMessageSentTimestamp.GetHashCode();
+      if (previousMessageStats_ != null) hash ^= PreviousMessageStats.GetHashCode();
+      if (MessageDescription.Length != 0) hash ^= MessageDescription.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (PacketReceivedTimestamp != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(PacketReceivedTimestamp);
+      }
+      if (NATSMessageParsedTimestamp != 0UL) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(NATSMessageParsedTimestamp);
+      }
+      if (NATSMessageSentTimestamp != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(NATSMessageSentTimestamp);
+      }
+      if (previousMessageStats_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(PreviousMessageStats);
+      }
+      if (MessageDescription.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(MessageDescription);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PacketReceivedTimestamp != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PacketReceivedTimestamp);
+      }
+      if (NATSMessageParsedTimestamp != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(NATSMessageParsedTimestamp);
+      }
+      if (NATSMessageSentTimestamp != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(NATSMessageSentTimestamp);
+      }
+      if (previousMessageStats_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PreviousMessageStats);
+      }
+      if (MessageDescription.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageDescription);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SingleMessageStats other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PacketReceivedTimestamp != 0UL) {
+        PacketReceivedTimestamp = other.PacketReceivedTimestamp;
+      }
+      if (other.NATSMessageParsedTimestamp != 0UL) {
+        NATSMessageParsedTimestamp = other.NATSMessageParsedTimestamp;
+      }
+      if (other.NATSMessageSentTimestamp != 0UL) {
+        NATSMessageSentTimestamp = other.NATSMessageSentTimestamp;
+      }
+      if (other.previousMessageStats_ != null) {
+        if (previousMessageStats_ == null) {
+          previousMessageStats_ = new global::Mktdatamessage.SingleMessageStats();
+        }
+        PreviousMessageStats.MergeFrom(other.PreviousMessageStats);
+      }
+      if (other.MessageDescription.Length != 0) {
+        MessageDescription = other.MessageDescription;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            PacketReceivedTimestamp = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            NATSMessageParsedTimestamp = input.ReadUInt64();
+            break;
+          }
+          case 24: {
+            NATSMessageSentTimestamp = input.ReadUInt64();
+            break;
+          }
+          case 34: {
+            if (previousMessageStats_ == null) {
+              previousMessageStats_ = new global::Mktdatamessage.SingleMessageStats();
+            }
+            input.ReadMessage(previousMessageStats_);
+            break;
+          }
+          case 42: {
+            MessageDescription = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class PacketHandlerStats : pb::IMessage<PacketHandlerStats> {
+    private static readonly pb::MessageParser<PacketHandlerStats> _parser = new pb::MessageParser<PacketHandlerStats>(() => new PacketHandlerStats());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PacketHandlerStats> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PacketHandlerStats() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PacketHandlerStats(PacketHandlerStats other) : this() {
+      timestamp_ = other.timestamp_;
+      packetHandlerDescription_ = other.packetHandlerDescription_;
+      totalDataProcessed_ = other.totalDataProcessed_;
+      totalPacketsProcessed_ = other.totalPacketsProcessed_;
+      totalGaps_ = other.totalGaps_;
+      lastLoggedData_ = other.lastLoggedData_;
+      lastLoggedPackets_ = other.lastLoggedPackets_;
+      lastLoggedGaps_ = other.lastLoggedGaps_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PacketHandlerStats Clone() {
+      return new PacketHandlerStats(this);
+    }
+
+    /// <summary>Field number for the "Timestamp" field.</summary>
+    public const int TimestampFieldNumber = 1;
+    private ulong timestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Timestamp {
+      get { return timestamp_; }
+      set {
+        timestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PacketHandlerDescription" field.</summary>
+    public const int PacketHandlerDescriptionFieldNumber = 2;
+    private string packetHandlerDescription_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PacketHandlerDescription {
+      get { return packetHandlerDescription_; }
+      set {
+        packetHandlerDescription_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "TotalDataProcessed" field.</summary>
+    public const int TotalDataProcessedFieldNumber = 3;
+    private ulong totalDataProcessed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong TotalDataProcessed {
+      get { return totalDataProcessed_; }
+      set {
+        totalDataProcessed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "TotalPacketsProcessed" field.</summary>
+    public const int TotalPacketsProcessedFieldNumber = 4;
+    private ulong totalPacketsProcessed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong TotalPacketsProcessed {
+      get { return totalPacketsProcessed_; }
+      set {
+        totalPacketsProcessed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "TotalGaps" field.</summary>
+    public const int TotalGapsFieldNumber = 5;
+    private ulong totalGaps_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong TotalGaps {
+      get { return totalGaps_; }
+      set {
+        totalGaps_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "LastLoggedData" field.</summary>
+    public const int LastLoggedDataFieldNumber = 6;
+    private ulong lastLoggedData_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong LastLoggedData {
+      get { return lastLoggedData_; }
+      set {
+        lastLoggedData_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "LastLoggedPackets" field.</summary>
+    public const int LastLoggedPacketsFieldNumber = 7;
+    private ulong lastLoggedPackets_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong LastLoggedPackets {
+      get { return lastLoggedPackets_; }
+      set {
+        lastLoggedPackets_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "LastLoggedGaps" field.</summary>
+    public const int LastLoggedGapsFieldNumber = 8;
+    private ulong lastLoggedGaps_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong LastLoggedGaps {
+      get { return lastLoggedGaps_; }
+      set {
+        lastLoggedGaps_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PacketHandlerStats);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PacketHandlerStats other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Timestamp != other.Timestamp) return false;
+      if (PacketHandlerDescription != other.PacketHandlerDescription) return false;
+      if (TotalDataProcessed != other.TotalDataProcessed) return false;
+      if (TotalPacketsProcessed != other.TotalPacketsProcessed) return false;
+      if (TotalGaps != other.TotalGaps) return false;
+      if (LastLoggedData != other.LastLoggedData) return false;
+      if (LastLoggedPackets != other.LastLoggedPackets) return false;
+      if (LastLoggedGaps != other.LastLoggedGaps) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Timestamp != 0UL) hash ^= Timestamp.GetHashCode();
+      if (PacketHandlerDescription.Length != 0) hash ^= PacketHandlerDescription.GetHashCode();
+      if (TotalDataProcessed != 0UL) hash ^= TotalDataProcessed.GetHashCode();
+      if (TotalPacketsProcessed != 0UL) hash ^= TotalPacketsProcessed.GetHashCode();
+      if (TotalGaps != 0UL) hash ^= TotalGaps.GetHashCode();
+      if (LastLoggedData != 0UL) hash ^= LastLoggedData.GetHashCode();
+      if (LastLoggedPackets != 0UL) hash ^= LastLoggedPackets.GetHashCode();
+      if (LastLoggedGaps != 0UL) hash ^= LastLoggedGaps.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Timestamp != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Timestamp);
+      }
+      if (PacketHandlerDescription.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(PacketHandlerDescription);
+      }
+      if (TotalDataProcessed != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(TotalDataProcessed);
+      }
+      if (TotalPacketsProcessed != 0UL) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(TotalPacketsProcessed);
+      }
+      if (TotalGaps != 0UL) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(TotalGaps);
+      }
+      if (LastLoggedData != 0UL) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(LastLoggedData);
+      }
+      if (LastLoggedPackets != 0UL) {
+        output.WriteRawTag(56);
+        output.WriteUInt64(LastLoggedPackets);
+      }
+      if (LastLoggedGaps != 0UL) {
+        output.WriteRawTag(64);
+        output.WriteUInt64(LastLoggedGaps);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Timestamp != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Timestamp);
+      }
+      if (PacketHandlerDescription.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PacketHandlerDescription);
+      }
+      if (TotalDataProcessed != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TotalDataProcessed);
+      }
+      if (TotalPacketsProcessed != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TotalPacketsProcessed);
+      }
+      if (TotalGaps != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TotalGaps);
+      }
+      if (LastLoggedData != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(LastLoggedData);
+      }
+      if (LastLoggedPackets != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(LastLoggedPackets);
+      }
+      if (LastLoggedGaps != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(LastLoggedGaps);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PacketHandlerStats other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Timestamp != 0UL) {
+        Timestamp = other.Timestamp;
+      }
+      if (other.PacketHandlerDescription.Length != 0) {
+        PacketHandlerDescription = other.PacketHandlerDescription;
+      }
+      if (other.TotalDataProcessed != 0UL) {
+        TotalDataProcessed = other.TotalDataProcessed;
+      }
+      if (other.TotalPacketsProcessed != 0UL) {
+        TotalPacketsProcessed = other.TotalPacketsProcessed;
+      }
+      if (other.TotalGaps != 0UL) {
+        TotalGaps = other.TotalGaps;
+      }
+      if (other.LastLoggedData != 0UL) {
+        LastLoggedData = other.LastLoggedData;
+      }
+      if (other.LastLoggedPackets != 0UL) {
+        LastLoggedPackets = other.LastLoggedPackets;
+      }
+      if (other.LastLoggedGaps != 0UL) {
+        LastLoggedGaps = other.LastLoggedGaps;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Timestamp = input.ReadUInt64();
+            break;
+          }
+          case 18: {
+            PacketHandlerDescription = input.ReadString();
+            break;
+          }
+          case 24: {
+            TotalDataProcessed = input.ReadUInt64();
+            break;
+          }
+          case 32: {
+            TotalPacketsProcessed = input.ReadUInt64();
+            break;
+          }
+          case 40: {
+            TotalGaps = input.ReadUInt64();
+            break;
+          }
+          case 48: {
+            LastLoggedData = input.ReadUInt64();
+            break;
+          }
+          case 56: {
+            LastLoggedPackets = input.ReadUInt64();
+            break;
+          }
+          case 64: {
+            LastLoggedGaps = input.ReadUInt64();
+            break;
+          }
         }
       }
     }
@@ -1572,7 +2927,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1709,7 +3064,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1846,7 +3201,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1968,207 +3323,6 @@ namespace Mktdatamessage {
           }
           case 18: {
             depthMessages_.AddEntriesFrom(input, _repeated_depthMessages_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class DebugInfo : pb::IMessage<DebugInfo> {
-    private static readonly pb::MessageParser<DebugInfo> _parser = new pb::MessageParser<DebugInfo>(() => new DebugInfo());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DebugInfo> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DebugInfo() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DebugInfo(DebugInfo other) : this() {
-      messageCreatedTimestamp_ = other.messageCreatedTimestamp_;
-      messageSentTimestamp_ = other.messageSentTimestamp_;
-      messageNumber_ = other.messageNumber_;
-      other_ = other.other_;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DebugInfo Clone() {
-      return new DebugInfo(this);
-    }
-
-    /// <summary>Field number for the "MessageCreatedTimestamp" field.</summary>
-    public const int MessageCreatedTimestampFieldNumber = 1;
-    private ulong messageCreatedTimestamp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong MessageCreatedTimestamp {
-      get { return messageCreatedTimestamp_; }
-      set {
-        messageCreatedTimestamp_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "MessageSentTimestamp" field.</summary>
-    public const int MessageSentTimestampFieldNumber = 2;
-    private ulong messageSentTimestamp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong MessageSentTimestamp {
-      get { return messageSentTimestamp_; }
-      set {
-        messageSentTimestamp_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "MessageNumber" field.</summary>
-    public const int MessageNumberFieldNumber = 3;
-    private ulong messageNumber_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong MessageNumber {
-      get { return messageNumber_; }
-      set {
-        messageNumber_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "Other" field.</summary>
-    public const int OtherFieldNumber = 4;
-    private string other_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Other {
-      get { return other_; }
-      set {
-        other_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as DebugInfo);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DebugInfo other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (MessageCreatedTimestamp != other.MessageCreatedTimestamp) return false;
-      if (MessageSentTimestamp != other.MessageSentTimestamp) return false;
-      if (MessageNumber != other.MessageNumber) return false;
-      if (Other != other.Other) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (MessageCreatedTimestamp != 0UL) hash ^= MessageCreatedTimestamp.GetHashCode();
-      if (MessageSentTimestamp != 0UL) hash ^= MessageSentTimestamp.GetHashCode();
-      if (MessageNumber != 0UL) hash ^= MessageNumber.GetHashCode();
-      if (Other.Length != 0) hash ^= Other.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (MessageCreatedTimestamp != 0UL) {
-        output.WriteRawTag(8);
-        output.WriteUInt64(MessageCreatedTimestamp);
-      }
-      if (MessageSentTimestamp != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(MessageSentTimestamp);
-      }
-      if (MessageNumber != 0UL) {
-        output.WriteRawTag(24);
-        output.WriteUInt64(MessageNumber);
-      }
-      if (Other.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Other);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (MessageCreatedTimestamp != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(MessageCreatedTimestamp);
-      }
-      if (MessageSentTimestamp != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(MessageSentTimestamp);
-      }
-      if (MessageNumber != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(MessageNumber);
-      }
-      if (Other.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Other);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DebugInfo other) {
-      if (other == null) {
-        return;
-      }
-      if (other.MessageCreatedTimestamp != 0UL) {
-        MessageCreatedTimestamp = other.MessageCreatedTimestamp;
-      }
-      if (other.MessageSentTimestamp != 0UL) {
-        MessageSentTimestamp = other.MessageSentTimestamp;
-      }
-      if (other.MessageNumber != 0UL) {
-        MessageNumber = other.MessageNumber;
-      }
-      if (other.Other.Length != 0) {
-        Other = other.Other;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            MessageCreatedTimestamp = input.ReadUInt64();
-            break;
-          }
-          case 16: {
-            MessageSentTimestamp = input.ReadUInt64();
-            break;
-          }
-          case 24: {
-            MessageNumber = input.ReadUInt64();
-            break;
-          }
-          case 34: {
-            Other = input.ReadString();
             break;
           }
         }

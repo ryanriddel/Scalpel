@@ -33,6 +33,14 @@ namespace mdt
 
         ConcurrentDictionary<string, ConcurrentQueue<string>> quoteMessages = new ConcurrentDictionary<string, ConcurrentQueue<string>>();
         ConcurrentDictionary<string, ConcurrentQueue<string>> tradeMessages = new ConcurrentDictionary<string, ConcurrentQueue<string>>();
+
+        ConcurrentDictionary<ProtobufMessageType, ConcurrentDictionary<string, ConcurrentQueue<string>>> receivedMessageDictByType = 
+            new ConcurrentDictionary<ProtobufMessageType, ConcurrentDictionary<string, ConcurrentQueue<string>>>();
+
+        ConcurrentDictionary<ProtobufMessageType, ConcurrentDictionary<string, ulong>> receivedMessageCountByType =
+            new ConcurrentDictionary<ProtobufMessageType, ConcurrentDictionary<string, ulong>>();
+
+        ConcurrentDictionary<string, ProtobufMessageType> subjToMsgTypeDict = new ConcurrentDictionary<string, ProtobufMessageType>();
         NATSAdapter nats;
 
         string IPAddress = "";
@@ -98,6 +106,15 @@ namespace mdt
             }
         }
 
+        private string InstrToString(Mktdatamessage.Instrument instr)
+        {
+            string instrString = instr.UnderlyingSymbol + "_" + instr.Strike +
+            (instr.IsCallOption ? "C" : "P") + instr.ExpirationMonth + "/" + instr.ExpirationDay +
+            "/" + instr.ExpirationYear;
+
+            return instrString;
+        }
+
         private void btnStartTest_Click(object sender, EventArgs e)
         {
             if (nats == null)
@@ -113,8 +130,9 @@ namespace mdt
             testDurationMillis += ((uint)updSeconds.Value) * 1000;
             tradeMessages.Clear();
             quoteMessages.Clear();
-            numQuoteMsgReceived = 0;
-            numTradeMsgReceived = 0;
+
+            receivedMessageDictByType.Clear();
+            receivedMessageCountByType.Clear();
 
             for (int i = 0; i < natsSubjectList.Count; i++)
             {
@@ -122,22 +140,69 @@ namespace mdt
                 string[] subParts = subj.Split(new char[] { '.' });
 
                 bool isTrade = (subParts[1] == "TRADE");
+                bool isRB = (subParts[2] == "RBTRADE");
+                bool isStats = (subParts[1] == "STATS");
+                string thirdToken = (subParts[2]);
+
+                ProtobufMessageType mtype;
+
+                if (isTrade && isRB)
+                {
+                    mtype = ProtobufMessageType.RBTradeMessage;
+                    
+                }
+                else if (isTrade && !isRB)
+                {
+                    mtype = ProtobufMessageType.TradeMessage;
+                }
+                else if (subParts[1] == "DEPTH")
+                {
+                    mtype = ProtobufMessageType.DepthMessage;
+                }
+                else if (isStats && subParts[2] == "PKTHANDLER")
+                {
+                    mtype = ProtobufMessageType.PacketHandlerStatsMessage;
+                }
+                else if (isStats && subParts[2] == "SINGLEMSG")
+                    mtype = ProtobufMessageType.SingleMessageStatsMessage;
+                else
+                    mtype = ProtobufMessageType.UnknownMessageType;
 
                 
-                if (isTrade)
-                {
-                    tradeMessages[subj] = new ConcurrentQueue<string>();
-                }
-                else
-                    quoteMessages[subj] = new ConcurrentQueue<string>();
+                receivedMessageDictByType[mtype][subj] = new ConcurrentQueue<string>();
+                subjToMsgTypeDict[subj] = mtype;
+
 
                 timeDifferenceAverageDict[subj] = 0;
                 EventHandler<MsgHandlerEventArgs> evHandler = new EventHandler<MsgHandlerEventArgs>((object o, MsgHandlerEventArgs a) => 
                 {
                     //DateTime nTime = DateTime.Now;
-                   //uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
+                    //uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
+                    
+                    if(mtype == ProtobufMessageType.RBTradeMessage)
+                    {
+                        isTrade = true;
+                        byte[] data = a.Message.Data;
+                        Mktdatamessage.RBTrade rbMsg;
 
-                    if(isTrade)
+                        rbMsg = Mktdatamessage.RBTrade.Parser.ParseFrom(data);
+                        Mktdatamessage.TradeMessage baseMessage = rbMsg.BaseMessage;
+
+                        ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.RBTradeMessage][subj];
+
+                        if (cnt % 100 == 0)
+                        {
+                            //store message
+                            string instrString = InstrToString(baseMessage.Instruments[0]);
+                            string messageText;
+
+                            messageText = "[" + baseMessage.Timestamp + "]: " + instrString + "===> [" + rbMsg.StockPrice + "] [" + rbMsg.AvgBBOAskSz + "] [" + rbMsg.AvgBBOBidSz + "] [" + rbMsg.OptionDelta + "] [" + rbMsg.OptionGamma + "] [" +
+                            rbMsg.OptionRho + "] [" + rbMsg.OptionTheta + "] [" + rbMsg.OptionVega + "] ======= [" + baseMessage.Price + "] [" + baseMessage.Size + "] [" + baseMessage.ExchangeName + "]";
+
+                            receivedMessageDictByType[ProtobufMessageType.RBTradeMessage][subj].Enqueue(messageText);
+                        }
+                    }
+                    else if(mtype == ProtobufMessageType.TradeMessage)
                     {
                         
                         byte[] data = a.Message.Data;
@@ -146,55 +211,68 @@ namespace mdt
 
                         tMsg = Mktdatamessage.TradeMessage.Parser.ParseFrom(data);
                         
-                        try
+
+                        ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.TradeMessage][subj];
+
+                        if (cnt % 1000 == 0)
                         {
-                            Mktdatamessage.Instrument instr = tMsg.Instruments[0];
+                            //store message
+                            string instrString = InstrToString(tMsg.Instruments[0]);
+                            string messageText = "[" + tMsg.Timestamp + "]: " + instrString + "===> [" + tMsg.Price + "] [" + tMsg.Size + "] [" + tMsg.ExchangeName + "]";
 
-
-                            if (numTradeMsgReceived < 5000 )
-                            {
-                                string m = Google.Protobuf.JsonFormatter.ToDiagnosticString(tMsg);
-                                tradeMessages[subj].Enqueue(m);
-                            }
-                            numTradeMsgReceived++;
-                           // this.txtMain.Invoke((MethodInvoker) delegate { txtMain.AppendText(m + "\n"); });
-
+                            receivedMessageDictByType[ProtobufMessageType.TradeMessage][subj].Enqueue(messageText);
                         }
-                        catch (Google.Protobuf.InvalidProtocolBufferException d)
+
+
+                    }
+                    else if(mtype == ProtobufMessageType.DepthMessage)
+                    {
+                        byte[] data = a.Message.Data;
+                        Mktdatamessage.BookDepthMessage qMsg;
+                        
+                        qMsg = Mktdatamessage.BookDepthMessage.Parser.ParseFrom(data);
+
+                        string instrString = InstrToString(qMsg.Instruments[0]);
+
+                        ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.DepthMessage][subj];
+
+                        if (cnt % 10000 == 0)
                         {
-                            Console.WriteLine(d.Message.ToString());
-                            throw d;
+                            string messageText = "[" + qMsg.Timestamp + "]: " + instrString + "===> [" + Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg) + "]";
+
+                            receivedMessageDictByType[ProtobufMessageType.DepthMessage][subj].Enqueue(messageText);
+                            
                         }
-                        
-                        
+                    }
+                    else if(mtype == ProtobufMessageType.PacketHandlerStatsMessage)
+                    {
+                        byte[] data = a.Message.Data;
+                        Mktdatamessage.PacketHandlerStats sMsg;
+
+
+                        sMsg = Mktdatamessage.PacketHandlerStats.Parser.ParseFrom(data);
+
+
+                        ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.PacketHandlerStatsMessage][subj];
+
+                        if (cnt % 1 == 0)
+                        {
+                            //store message
+                            string messageText = sMsg.PacketHandlerDescription + ":  [" + DateTime.Now.ToShortDateString() + "] ===> [" + sMsg.LastLoggedData + "] [" + sMsg.LastLoggedGaps + "] [" +
+                            sMsg.LastLoggedPackets + "] [" + sMsg.TotalDataProcessed + "] [" + sMsg.TotalGaps + "] [" + sMsg.TotalPacketsProcessed + "]";
+
+                            receivedMessageDictByType[ProtobufMessageType.PacketHandlerStatsMessage][subj].Enqueue(messageText);
+                        }
+                    }
+                    else if(mtype == ProtobufMessageType.UnknownMessageType)
+                    {
+                        //uhh...idk?
+                        byte[] data = a.Message.Data;
+                        Console.WriteLine("Weird message... ");
                     }
                     else
                     {
-                        byte[] data = a.Message.Data;
-                        // Console.WriteLine(a.Message.ToString());
-                        Mktdatamessage.BookDepthMessage qMsg;
-                            
-                        try
-                        {
-                            qMsg = Mktdatamessage.BookDepthMessage.Parser.ParseFrom(data);
-
-                            Mktdatamessage.Instrument instr = qMsg.Instruments[0];
-
-                            if (numQuoteMsgReceived % 10000 == 0)
-                            {
-                                quoteMessages[subj].Enqueue(Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg));
-                            }
-
-                            //if we don't limit the number of messages we store, we'll run out of memory within 20 seconds
-
-                            numQuoteMsgReceived++;
-
-                        }
-                        catch (Google.Protobuf.InvalidProtocolBufferException d)
-                        {
-                            Console.WriteLine(d.Message.ToString());
-                            throw d;
-                        }
+                        
                         
                     }
                 });
@@ -333,30 +411,22 @@ namespace mdt
                 string subj = ias.Subject;
                 string[] subParts = subj.Split(new char[] { '.' });
 
-                bool isTrade = (subParts[1] == "TRADE");
+                ProtobufMessageType mtype = subjToMsgTypeDict[subj];
+
                 string str = "0";
                 bool success = false;
-                string allMessages = "";
+                string allMessages = subj + " (" + receivedMessageCountByType[mtype][subj] + " messages received):" + Environment.NewLine;
 
                 ConcurrentDictionary<string, ConcurrentQueue<string>> tempDict;
-                if (isTrade)
-                    tempDict = tradeMessages;
-                else
-                    tempDict = quoteMessages;
+                tempDict = receivedMessageDictByType[mtype];
 
                 int ct = tempDict[subj].Count;
 
                 for (int i = 0; i < ct; i++)
                 {
-                    success = false;
-                    if (isTrade)
-                    {
-                        success = tempDict[subj].TryDequeue(out str);
-                    }
-                    else
-                    {
-                        success = tempDict[subj].TryDequeue(out str);
-                    }
+                    
+                    success = tempDict[subj].TryDequeue(out str);
+                    
                     if (success)
                         allMessages += str + Environment.NewLine; 
                 }
@@ -539,5 +609,13 @@ namespace mdt
         }
     }
 
-
+    public enum ProtobufMessageType
+    {
+        DepthMessage,
+        TradeMessage,
+        RBTradeMessage,
+        PacketHandlerStatsMessage,
+        SingleMessageStatsMessage,
+        UnknownMessageType
+    };
 }
