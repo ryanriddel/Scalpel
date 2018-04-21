@@ -1,0 +1,26 @@
+<< 2018.03.06 09:14:37.335832 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 0   Total Pkts = 28335737    Total Gaps = 44669    Total Data = 2171574672
+<< 2018.03.06 09:14:37.335848 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 1   Total Pkts = 31572847    Total Gaps = 132538    Total Data = 2363935800
+<< 2018.03.06 09:14:37.335854 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 2   Total Pkts = 81963529    Total Gaps = 694343    Total Data = 8542777308
+<< 2018.03.06 09:14:37.335860 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 3   Total Pkts = 31990996    Total Gaps = 112510    Total Data = 2521402614
+<< 2018.03.06 09:14:37.335866 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 4   Total Pkts = 51750457    Total Gaps = 124871    Total Data = 4380302118
+<< 2018.03.06 09:14:37.335873 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 5   Total Pkts = 52922354    Total Gaps = 457198    Total Data = 4814946804
+<< 2018.03.06 09:14:37.335878 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 6   Total Pkts = 27626200    Total Gaps = 132550    Total Data = 2054222874
+<< 2018.03.06 09:14:37.335885 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 7   Total Pkts = 26856900    Total Gaps = 140847    Total Data = 2041075194
+<< 2018.03.06 09:14:37.335892 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 8   Total Pkts = 21174652    Total Gaps = 57753    Total Data = 1575335024
+<< 2018.03.06 09:14:37.335900 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 9   Total Pkts = 31495611    Total Gaps = 110955    Total Data = 2362349046
+<< 2018.03.06 09:14:37.335906 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 10   Total Pkts = 23920326    Total Gaps = 104404    Total Data = 1803694518
+<< 2018.03.06 09:14:37.335915 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 11   Total Pkts = 25508076    Total Gaps = 119887    Total Data = 2065361740
+<< 2018.03.06 09:14:37.335922 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 12   Total Pkts = 24954981    Total Gaps = 144842    Total Data = 1819261364
+<< 2018.03.06 09:14:37.335931 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 13   Total Pkts = 19748346    Total Gaps = 106693    Total Data = 1438151668
+<< 2018.03.06 09:14:37.335936 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 14   Total Pkts = 23885882    Total Gaps = 151797    Total Data = 1779647350
+<< 2018.03.06 09:14:37.335945 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 15   Total Pkts = 22594036    Total Gaps = 153486    Total Data = 1636648772
+<< 2018.03.06 09:14:37.335952 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 16   Total Pkts = 22319191    Total Gaps = 93632    Total Data = 1657800450
+<< 2018.03.06 09:14:37.335960 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 17   Total Pkts = 26428952    Total Gaps = 170717    Total Data = 2336898200
+<< 2018.03.06 09:14:37.335965 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 18   Total Pkts = 32721897    Total Gaps = 315343    Total Data = 3253641646
+<< 2018.03.06 09:14:37.335974 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 19   Total Pkts = 35574923    Total Gaps = 206728    Total Data = 2653209348
+<< 2018.03.06 09:14:37.335979 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 20   Total Pkts = 25439225    Total Gaps = 186142    Total Data = 1850333190
+<< 2018.03.06 09:14:37.335989 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 21   Total Pkts = 19118976    Total Gaps = 105948    Total Data = 1379127320
+<< 2018.03.06 09:14:37.335996 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 22   Total Pkts = 35436187    Total Gaps = 203446    Total Data = 2614615010
+<< 2018.03.06 09:14:37.336005 | Info    | 7f2b94bad740 >> : Socket: ChannelID = 23   Total Pkts = 31352151    Total Gaps = 138146    Total Data = 2347483096
+<< 2018.03.06 09:14:37.336012 | Info    | 7f2b94bad740 >> : Total Usage: Total Pkts = 754692432    Total Gaps = 4209445    Total Data = 61463795126
+<< 2018.03.06 09:14:41.772861 | Info    | 7f2b94bad740 >> : OPRA finished.
