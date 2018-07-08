@@ -254,7 +254,7 @@
             // 
             // txtIP
             // 
-            this.txtIP.EditValue = "172.20.168.74";
+            this.txtIP.EditValue = "35.227.69.33";
             this.txtIP.Location = new System.Drawing.Point(5, 27);
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(91, 20);
@@ -289,7 +289,7 @@
             // 
             // txtSubject
             // 
-            this.txtSubject.EditValue = "MKTDATA.DEPTH.>";
+            this.txtSubject.EditValue = "MKTDATA.TRADE.RBTRADE";
             this.txtSubject.Location = new System.Drawing.Point(336, 20);
             this.txtSubject.Name = "txtSubject";
             this.txtSubject.Size = new System.Drawing.Size(158, 20);

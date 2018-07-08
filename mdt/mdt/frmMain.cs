@@ -114,7 +114,7 @@ namespace mdt
 
             return instrString;
         }
-
+        uint numErrors = 0;
         private void btnStartTest_Click(object sender, EventArgs e)
         {
             if (nats == null)
@@ -130,6 +130,8 @@ namespace mdt
             testDurationMillis += ((uint)updSeconds.Value) * 1000;
             tradeMessages.Clear();
             quoteMessages.Clear();
+
+            numErrors = 0;
 
             receivedMessageDictByType.Clear();
             receivedMessageCountByType.Clear();
@@ -168,18 +170,36 @@ namespace mdt
                 else
                     mtype = ProtobufMessageType.UnknownMessageType;
 
-                
+                if (!receivedMessageDictByType.ContainsKey(mtype))
+                    receivedMessageDictByType.TryAdd(mtype, new ConcurrentDictionary<string, ConcurrentQueue<string>>());
+
+                if(!receivedMessageDictByType[mtype].ContainsKey(subj))
+                    receivedMessageDictByType[mtype].TryAdd(subj, new ConcurrentQueue<string>());
+
+
                 receivedMessageDictByType[mtype][subj] = new ConcurrentQueue<string>();
                 subjToMsgTypeDict[subj] = mtype;
 
 
                 timeDifferenceAverageDict[subj] = 0;
+
+                if (!receivedMessageCountByType.ContainsKey(mtype))
+                {
+                    receivedMessageCountByType.TryAdd(mtype, new ConcurrentDictionary<string, ulong>());
+                }
+
+                if (!receivedMessageCountByType[mtype].ContainsKey(subj))
+                {
+                    receivedMessageCountByType[mtype].TryAdd(subj, 0);
+                }
+
                 EventHandler<MsgHandlerEventArgs> evHandler = new EventHandler<MsgHandlerEventArgs>((object o, MsgHandlerEventArgs a) => 
                 {
                     //DateTime nTime = DateTime.Now;
                     //uint timestamp = (uint) (nTime.Hour * 60 * 60 * 1000 + nTime.Minute * 60 * 1000 + nTime.Second * 1000 + nTime.Millisecond);
                     
-                    if(mtype == ProtobufMessageType.RBTradeMessage)
+
+                    if (mtype == ProtobufMessageType.RBTradeMessage)
                     {
                         isTrade = true;
                         byte[] data = a.Message.Data;
@@ -188,9 +208,10 @@ namespace mdt
                         rbMsg = Mktdatamessage.RBTrade.Parser.ParseFrom(data);
                         Mktdatamessage.TradeMessage baseMessage = rbMsg.BaseMessage;
 
+                        
                         ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.RBTradeMessage][subj];
 
-                        if (cnt % 100 == 0)
+                        if (baseMessage != null)
                         {
                             //store message
                             string instrString = InstrToString(baseMessage.Instruments[0]);
@@ -201,6 +222,9 @@ namespace mdt
 
                             receivedMessageDictByType[ProtobufMessageType.RBTradeMessage][subj].Enqueue(messageText);
                         }
+                        else
+                            numErrors++;
+
                     }
                     else if(mtype == ProtobufMessageType.TradeMessage)
                     {
@@ -405,7 +429,7 @@ namespace mdt
 
             clearDataTabs();
             addDataTab("Test results", remsg);
-
+            Console.WriteLine("Errors: " + numErrors);
             foreach(IAsyncSubscription ias in natsSubscriptionDict.Values)
             {
                 string subj = ias.Subject;
