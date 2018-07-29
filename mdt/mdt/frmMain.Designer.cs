@@ -81,6 +81,8 @@
             this.tabData = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageTemplate = new DevExpress.XtraTab.XtraTabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).BeginInit();
@@ -118,10 +120,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabData)).BeginInit();
             this.tabData.SuspendLayout();
             this.tabPageTemplate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.checkBox1);
+            this.panelControl1.Controls.Add(this.separatorControl2);
             this.panelControl1.Controls.Add(this.label4);
             this.panelControl1.Controls.Add(this.txtPubSubIP);
             this.panelControl1.Controls.Add(this.checkEditTestTCP);
@@ -151,7 +156,7 @@
             // 
             // txtPubSubIP
             // 
-            this.txtPubSubIP.EditValue = "172.20.168.70";
+            this.txtPubSubIP.EditValue = "172.20.168.71";
             this.txtPubSubIP.Location = new System.Drawing.Point(78, 71);
             this.txtPubSubIP.Name = "txtPubSubIP";
             this.txtPubSubIP.Size = new System.Drawing.Size(88, 20);
@@ -168,16 +173,16 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(78, 183);
+            this.simpleButton2.Location = new System.Drawing.Point(8, 183);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(88, 23);
+            this.simpleButton2.Size = new System.Drawing.Size(158, 18);
             this.simpleButton2.TabIndex = 10;
             this.simpleButton2.Text = "Clear Messages";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // txtConnectMsg
             // 
-            this.txtConnectMsg.Location = new System.Drawing.Point(8, 212);
+            this.txtConnectMsg.Location = new System.Drawing.Point(8, 144);
             this.txtConnectMsg.Multiline = true;
             this.txtConnectMsg.Name = "txtConnectMsg";
             this.txtConnectMsg.Size = new System.Drawing.Size(158, 33);
@@ -254,7 +259,7 @@
             // 
             // txtIP
             // 
-            this.txtIP.EditValue = "35.227.69.33";
+            this.txtIP.EditValue = "172.20.168.71";
             this.txtIP.Location = new System.Drawing.Point(5, 27);
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(91, 20);
@@ -741,6 +746,27 @@
             this.textBox1.Size = new System.Drawing.Size(605, 189);
             this.textBox1.TabIndex = 24;
             // 
+            // separatorControl2
+            // 
+            this.separatorControl2.AutoSizeMode = true;
+            this.separatorControl2.LineColor = System.Drawing.Color.Gray;
+            this.separatorControl2.LineStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.separatorControl2.Location = new System.Drawing.Point(5, 207);
+            this.separatorControl2.Name = "separatorControl2";
+            this.separatorControl2.Size = new System.Drawing.Size(161, 20);
+            this.separatorControl2.TabIndex = 27;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, 227);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(164, 17);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "Broadcast Test RB Messages";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -792,6 +818,7 @@
             this.tabData.ResumeLayout(false);
             this.tabPageTemplate.ResumeLayout(false);
             this.tabPageTemplate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -851,6 +878,8 @@
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.TextEdit txtPubSubIP;
         private System.Windows.Forms.TextBox txtConnectMsg;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private DevExpress.XtraEditors.SeparatorControl separatorControl2;
     }
 }
 

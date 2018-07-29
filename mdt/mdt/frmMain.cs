@@ -51,12 +51,55 @@ namespace mdt
 
         Feeds.QuoteFeedClient client;
 
+
+        Timer rbBroadcastTimer;
+
         public frmMain()
         {
             InitializeComponent();
             connectionDetailsChanged(this, null);
 
+            rbBroadcastTimer = new Timer();
+            rbBroadcastTimer.Tick += rbBroadcastTimer_Tick;
+            rbBroadcastTimer.Interval = 20;
+            
+        }
 
+        private void rbBroadcastTimer_Tick(object sender, EventArgs e)
+        {
+            Mktdatamessage.TradeMessage t = new Mktdatamessage.TradeMessage();
+            Mktdatamessage.Instrument inst = new Mktdatamessage.Instrument();
+            inst.UnderlyingSymbol = "TEST";
+            inst.Strike = 3.14F;
+            inst.Idx = 1;
+            inst.ExpirationDay = 2;
+            inst.ExpirationMonth = 1;
+            inst.ExpirationYear = 2018;
+            inst.InstrumentType = Mktdatamessage.Instrument.Types.InstrType.Option;
+            inst.IsCallOption = true;
+
+            t.Instruments.Add(inst);
+            t.Price = 10;
+            t.Size = 33;
+            t.Timestamp = 070022111;
+            t.ExchangeName = "CBOE";
+            
+            
+            Mktdatamessage.RBTrade m = new Mktdatamessage.RBTrade();
+            m.BaseMessage = t;
+            m.OptionDelta = 1;
+            m.OptionGamma = 2;
+            m.OptionRho = 3;
+            m.OptionTheta = 4;
+            m.OptionVega = 5;
+
+            m.StockPrice = 3.14F;
+
+            int msize = m.CalculateSize();
+            byte[] ar = Google.Protobuf.MessageExtensions.ToByteArray(m);
+
+            if(nats.GetConnectionState() == ConnState.CONNECTED)
+                nats.natsConnection.Publish("MKTDATA.TRADE.RBTRADE", ar);
         }
 
         private void btnConnect_Click(object sndr, EventArgs e)
@@ -135,6 +178,7 @@ namespace mdt
 
             receivedMessageDictByType.Clear();
             receivedMessageCountByType.Clear();
+            quoteMessages = new ConcurrentDictionary<string, ConcurrentQueue<string>>();
 
             for (int i = 0; i < natsSubjectList.Count; i++)
             {
@@ -145,6 +189,7 @@ namespace mdt
                 bool isRB = (subParts[2] == "RBTRADE");
                 bool isStats = (subParts[1] == "STATS");
                 string thirdToken = (subParts[2]);
+                
 
                 ProtobufMessageType mtype;
 
@@ -153,7 +198,7 @@ namespace mdt
                     mtype = ProtobufMessageType.RBTradeMessage;
                     
                 }
-                else if (isTrade && !isRB)
+                else if ((isTrade && !isRB) || subj == "MKTDATA.DEBUG.RBTRADE")
                 {
                     mtype = ProtobufMessageType.TradeMessage;
                 }
@@ -176,6 +221,7 @@ namespace mdt
                 if(!receivedMessageDictByType[mtype].ContainsKey(subj))
                     receivedMessageDictByType[mtype].TryAdd(subj, new ConcurrentQueue<string>());
 
+                receivedMessageCountByType.TryAdd(mtype, new ConcurrentDictionary<string, ulong>());
 
                 receivedMessageDictByType[mtype][subj] = new ConcurrentQueue<string>();
                 subjToMsgTypeDict[subj] = mtype;
@@ -203,24 +249,31 @@ namespace mdt
                     {
                         isTrade = true;
                         byte[] data = a.Message.Data;
-                        Mktdatamessage.RBTrade rbMsg;
+                        Mktdatamessage.RBTrade2 rbMsg;
 
-                        rbMsg = Mktdatamessage.RBTrade.Parser.ParseFrom(data);
-                        Mktdatamessage.TradeMessage baseMessage = rbMsg.BaseMessage;
+                        rbMsg = Mktdatamessage.RBTrade2.Parser.ParseFrom(data);
+                        string rbstr = Google.Protobuf.JsonFormatter.ToDiagnosticString(rbMsg);
+                        
 
                         
-                        ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.RBTradeMessage][subj];
+                        //baseMessage.MergeFrom(rbMsg.BaseMessage);
 
-                        if (baseMessage != null)
-                        {
+
+
+
+                        ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.RBTradeMessage][subj];
+                        if(rbstr.Length > 1 )
+                        { 
                             //store message
-                            string instrString = InstrToString(baseMessage.Instruments[0]);
+                            /*string instrString = InstrToString(baseMessage.Instruments[0]);
                             string messageText;
+
 
                             messageText = "[" + baseMessage.Timestamp + "]: " + instrString + "===> [" + rbMsg.StockPrice + "] [" + rbMsg.AvgBBOAskSz + "] [" + rbMsg.AvgBBOBidSz + "] [" + rbMsg.OptionDelta + "] [" + rbMsg.OptionGamma + "] [" +
                             rbMsg.OptionRho + "] [" + rbMsg.OptionTheta + "] [" + rbMsg.OptionVega + "] ======= [" + baseMessage.Price + "] [" + baseMessage.Size + "] [" + baseMessage.ExchangeName + "]";
-
-                            receivedMessageDictByType[ProtobufMessageType.RBTradeMessage][subj].Enqueue(messageText);
+                            */
+                            //receivedMessageDictByType[ProtobufMessageType.RBTradeMessage][subj].Enqueue(messageText);
+                            receivedMessageDictByType[ProtobufMessageType.RBTradeMessage][subj].Enqueue(rbstr);
                         }
                         else
                             numErrors++;
@@ -238,11 +291,12 @@ namespace mdt
 
                         ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.TradeMessage][subj];
 
-                        if (cnt % 1000 == 0)
+                        if (cnt % 1 == 0)
                         {
                             //store message
                             string instrString = InstrToString(tMsg.Instruments[0]);
-                            string messageText = "[" + tMsg.Timestamp + "]: " + instrString + "===> [" + tMsg.Price + "] [" + tMsg.Size + "] [" + tMsg.ExchangeName + "]";
+                            string messageText = instrString + "|" + tMsg.Timestamp + "|" + Google.Protobuf.JsonFormatter.ToDiagnosticString(tMsg);
+                            //tMsg.Price + "] [" + tMsg.Size + "] [" + tMsg.ExchangeName + "]";
 
                             receivedMessageDictByType[ProtobufMessageType.TradeMessage][subj].Enqueue(messageText);
                         }
@@ -255,17 +309,20 @@ namespace mdt
                         Mktdatamessage.BookDepthMessage qMsg;
                         
                         qMsg = Mktdatamessage.BookDepthMessage.Parser.ParseFrom(data);
-
-                        string instrString = InstrToString(qMsg.Instruments[0]);
-
                         ulong cnt = ++receivedMessageCountByType[ProtobufMessageType.DepthMessage][subj];
 
-                        if (cnt % 10000 == 0)
+                        
+                        
+                        if (cnt % 1 == 0)
                         {
-                            string messageText = "[" + qMsg.Timestamp + "]: " + instrString + "===> [" + Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg) + "]";
+                            string instrString = InstrToString(qMsg.Instruments[0]);
+
+                            string messageText = instrString + "|" + qMsg.Timestamp + "|" + Google.Protobuf.JsonFormatter.ToDiagnosticString(qMsg);
+
 
                             receivedMessageDictByType[ProtobufMessageType.DepthMessage][subj].Enqueue(messageText);
-                            
+                            //quoteMessages.TryUpdate(subj,messageText);
+                            Console.WriteLine(messageText);
                         }
                     }
                     else if(mtype == ProtobufMessageType.PacketHandlerStatsMessage)
@@ -455,10 +512,17 @@ namespace mdt
                         allMessages += str + Environment.NewLine; 
                 }
 
-                addDataTab(subj, allMessages);
-                
+
+                /*string strGuy = "" ;
+                string theBigMessage = "";
+                while(quoteMessages[subj].TryDequeue(out strGuy))
+                {
+                    theBigMessage += strGuy + Environment.NewLine;
+                }
+
+                addDataTab("Quotes", theBigMessage);*/
             }
-            quoteMessages.Clear();
+            
             tradeMessages.Clear();
             natsSubscriptionDict.Clear();
             natsSubjectList.Clear();
@@ -630,6 +694,17 @@ namespace mdt
         private void checkEditTestTCP_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked == true)
+            {
+                rbBroadcastTimer.Enabled = true;
+            }
+            else
+            {
+                rbBroadcastTimer.Enabled = false;
+            }
         }
     }
 

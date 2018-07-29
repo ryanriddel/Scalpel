@@ -39,58 +39,100 @@ namespace Mktdatamessage {
             "c09wZW5pbmdQcmljZRgOIAEoAhIXCg9EYXlzVG90YWxWb2x1bWUYDyABKA0S",
             "FAoMRXhjaGFuZ2VDb2RlGBAgASgNEhQKDENvbmRpdGlvbk51bRgRIAEoDRIR",
             "CglDb25kaXRpb24YEiABKAwSGQoRbXNnU2VxdWVuY2VOdW1iZXIYEyABKAQi",
-            "wQIKB1JCVHJhZGUSMQoLQmFzZU1lc3NhZ2UYASABKAsyHC5ta3RkYXRhbWVz",
-            "c2FnZS5UcmFkZU1lc3NhZ2USEgoKT3B0aW9uVmVnYRgGIAEoAhITCgtPcHRp",
-            "b25EZWx0YRgCIAEoAhITCgtPcHRpb25UaGV0YRgDIAEoAhITCgtPcHRpb25H",
-            "YW1tYRgEIAEoAhIRCglPcHRpb25SaG8YBSABKAISDAoEVldBUBgHIAEoAhIR",
-            "CglGYWlyV2lkdGgYCCABKAISEAoIRmFpclNpemUYDiABKAISEwoLQXZnQkJP",
-            "QmlkU3oYCSABKAISEwoLQXZnQkJPQXNrU3oYCiABKAISEQoJQXZnU3ByZWFk",
-            "GAsgASgCEhIKClN0b2NrUHJpY2UYDCABKAISGQoRTWlzY2VsbGFuZW91c0Rh",
-            "dGEYDSABKAwiawoQTWFya2V0RGVwdGhMZXZlbBINCgVQcmljZRgBIAEoAhIM",
-            "CgRTaXplGAIgASgNEhQKDEV4Y2hhbmdlQ29kZRgDIAEoDRIUCgxDdXN0b21l",
-            "clNpemUYBCABKA0SDgoGUGFydElEGAUgASgNIoYBCgtRdW90ZVVwZGF0ZRIR",
-            "CglUaW1lc3RhbXAYASABKAQSLwoLSW5zdHJ1bWVudHMYAiADKAsyGi5ta3Rk",
-            "YXRhbWVzc2FnZS5JbnN0cnVtZW50EjMKCVRvcE9mQm9vaxgDIAEoCzIgLm1r",
-            "dGRhdGFtZXNzYWdlLk1hcmtldERlcHRoTGV2ZWwipgIKEEJvb2tEZXB0aE1l",
-            "c3NhZ2USEQoJVGltZXN0YW1wGAEgASgEEi8KC0luc3RydW1lbnRzGAIgAygL",
-            "MhoubWt0ZGF0YW1lc3NhZ2UuSW5zdHJ1bWVudBI3Cg1CaWRCb29rTGV2ZWxz",
-            "GAMgAygLMiAubWt0ZGF0YW1lc3NhZ2UuTWFya2V0RGVwdGhMZXZlbBI3Cg1B",
-            "c2tCb29rTGV2ZWxzGAQgAygLMiAubWt0ZGF0YW1lc3NhZ2UuTWFya2V0RGVw",
-            "dGhMZXZlbBIUCgxOdW1CaWRMZXZlbHMYBSABKA0SFAoMTnVtQXNrTGV2ZWxz",
-            "GAYgASgNEhUKDUNvbmRpdGlvbkNvZGUYByABKA0SGQoRbXNnU2VxdWVuY2VO",
-            "dW1iZXIYCCABKAQiiQEKGEVucmljaGVkQm9va0RlcHRoTWVzc2FnZRIzCglC",
-            "b29rRGVwdGgYASABKAsyIC5ta3RkYXRhbWVzc2FnZS5Cb29rRGVwdGhNZXNz",
-            "YWdlEjgKDE1lc3NhZ2VTdGF0cxgCIAEoCzIiLm1rdGRhdGFtZXNzYWdlLlNp",
-            "bmdsZU1lc3NhZ2VTdGF0cyLZAQoSU2luZ2xlTWVzc2FnZVN0YXRzEh8KF1Bh",
-            "Y2tldFJlY2VpdmVkVGltZXN0YW1wGAEgASgEEiIKGk5BVFNNZXNzYWdlUGFy",
-            "c2VkVGltZXN0YW1wGAIgASgEEiAKGE5BVFNNZXNzYWdlU2VudFRpbWVzdGFt",
-            "cBgDIAEoBBJAChRwcmV2aW91c01lc3NhZ2VTdGF0cxgEIAEoCzIiLm1rdGRh",
-            "dGFtZXNzYWdlLlNpbmdsZU1lc3NhZ2VTdGF0cxIaChJNZXNzYWdlRGVzY3Jp",
-            "cHRpb24YBSABKAki4gEKElBhY2tldEhhbmRsZXJTdGF0cxIRCglUaW1lc3Rh",
-            "bXAYASABKAQSIAoYUGFja2V0SGFuZGxlckRlc2NyaXB0aW9uGAIgASgJEhoK",
-            "ElRvdGFsRGF0YVByb2Nlc3NlZBgDIAEoBBIdChVUb3RhbFBhY2tldHNQcm9j",
-            "ZXNzZWQYBCABKAQSEQoJVG90YWxHYXBzGAUgASgEEhYKDkxhc3RMb2dnZWRE",
-            "YXRhGAYgASgEEhkKEUxhc3RMb2dnZWRQYWNrZXRzGAcgASgEEhYKDkxhc3RM",
-            "b2dnZWRHYXBzGAggASgEImIKElF1b3RlTWVzc2FnZXNCYXRjaBIYChBOdW1i",
-            "ZXJPZk1lc3NhZ2VzGAEgASgNEjIKDVF1b3RlTWVzc2FnZXMYAiADKAsyGy5t",
-            "a3RkYXRhbWVzc2FnZS5RdW90ZVVwZGF0ZSJjChJUcmFkZU1lc3NhZ2VzQmF0",
-            "Y2gSGAoQTnVtYmVyT2ZNZXNzYWdlcxgBIAEoDRIzCg1UcmFkZU1lc3NhZ2Vz",
-            "GAIgAygLMhwubWt0ZGF0YW1lc3NhZ2UuVHJhZGVNZXNzYWdlImcKEkRlcHRo",
-            "TWVzc2FnZXNCYXRjaBIYChBOdW1iZXJPZk1lc3NhZ2VzGAEgASgNEjcKDURl",
-            "cHRoTWVzc2FnZXMYAiADKAsyIC5ta3RkYXRhbWVzc2FnZS5Cb29rRGVwdGhN",
-            "ZXNzYWdlQgJIAWIGcHJvdG8z"));
+            "wQIKB1JCVHJhZGUSEgoKT3B0aW9uVmVnYRgBIAEoAhITCgtPcHRpb25EZWx0",
+            "YRgCIAEoAhITCgtPcHRpb25UaGV0YRgDIAEoAhITCgtPcHRpb25HYW1tYRgE",
+            "IAEoAhIRCglPcHRpb25SaG8YBSABKAISDAoEVldBUBgGIAEoAhIRCglGYWly",
+            "V2lkdGgYByABKAISEAoIRmFpclNpemUYCCABKAISEwoLQXZnQkJPQmlkU3oY",
+            "CSABKAISEwoLQXZnQkJPQXNrU3oYCiABKAISEQoJQXZnU3ByZWFkGAsgASgC",
+            "EhIKClN0b2NrUHJpY2UYDCABKAISGQoRTWlzY2VsbGFuZW91c0RhdGEYDSAB",
+            "KAwSMQoLQmFzZU1lc3NhZ2UYDiABKAsyHC5ta3RkYXRhbWVzc2FnZS5UcmFk",
+            "ZU1lc3NhZ2Ui9gUKCFJCVHJhZGUyEhEKCVRpbWVzdGFtcBgBIAEoBBIvCgtJ",
+            "bnN0cnVtZW50cxgCIAMoCzIaLm1rdGRhdGFtZXNzYWdlLkluc3RydW1lbnQS",
+            "DQoFUHJpY2UYAyABKAISDAoEU2l6ZRgEIAEoDRIUCgxFeGNoYW5nZU5hbWUY",
+            "BSABKAkSEwoLQmlkUHJpY2VCQk8YBiABKAISEwoLQXNrUHJpY2VCQk8YByAB",
+            "KAISEgoKQmlkU2l6ZUJCTxgIIAEoDRISCgpBc2tTaXplQkJPGAkgASgNEhYK",
+            "DkJpZEV4Y2hhbmdlQkJPGAogASgJEhYKDkFza0V4Y2hhbmdlQkJPGAsgASgJ",
+            "EhIKClN0b2NrUHJpY2UYDCABKAISFwoPU3RvY2tCaWRTaXplQkJPGA0gASgN",
+            "EhcKD1N0b2NrQXNrU2l6ZUJCTxgOIAEoDRIbChNTdG9ja0JpZEV4Y2hhbmdl",
+            "QkJPGA8gASgJEhQKDEV4Y2hhbmdlQ29kZRgQIAEoDRIUCgxDb25kaXRpb25O",
+            "dW0YESABKA0SEQoJQ29uZGl0aW9uGBIgASgMEhIKCk9wdGlvblZlZ2EYEyAB",
+            "KAISEwoLT3B0aW9uRGVsdGEYFCABKAISEwoLT3B0aW9uVGhldGEYFSABKAIS",
+            "EwoLT3B0aW9uR2FtbWEYFiABKAISEQoJT3B0aW9uUmhvGBcgASgCEhMKC09w",
+            "dGlvblNpZ21hGBggASgCEhEKCUZhaXJXaWR0aBgZIAEoAhIQCghGYWlyU2l6",
+            "ZRgaIAEoAhITCgtBdmdCQk9CaWRTehgbIAEoAhITCgtBdmdCQk9Bc2tTehgc",
+            "IAEoAhIRCglBdmdTcHJlYWQYHSABKAISDAoEVldBUBgeIAEoAhIbChNTdG9j",
+            "a0Fza0V4Y2hhbmdlQkJPGB8gASgJEhUKDVN0b2NrQXNrUHJpY2UYICABKAIS",
+            "FQoNU3RvY2tCaWRQcmljZRghIAEoAhIZChFNaXNjZWxsYW5lb3VzRGF0YRgi",
+            "IAEoDCJrChBNYXJrZXREZXB0aExldmVsEg0KBVByaWNlGAEgASgCEgwKBFNp",
+            "emUYAiABKA0SFAoMRXhjaGFuZ2VDb2RlGAMgASgNEhQKDEN1c3RvbWVyU2l6",
+            "ZRgEIAEoDRIOCgZQYXJ0SUQYBSABKA0ihgEKC1F1b3RlVXBkYXRlEhEKCVRp",
+            "bWVzdGFtcBgBIAEoBBIvCgtJbnN0cnVtZW50cxgCIAMoCzIaLm1rdGRhdGFt",
+            "ZXNzYWdlLkluc3RydW1lbnQSMwoJVG9wT2ZCb29rGAMgASgLMiAubWt0ZGF0",
+            "YW1lc3NhZ2UuTWFya2V0RGVwdGhMZXZlbCKmAgoQQm9va0RlcHRoTWVzc2Fn",
+            "ZRIRCglUaW1lc3RhbXAYASABKAQSLwoLSW5zdHJ1bWVudHMYAiADKAsyGi5t",
+            "a3RkYXRhbWVzc2FnZS5JbnN0cnVtZW50EjcKDUJpZEJvb2tMZXZlbHMYAyAD",
+            "KAsyIC5ta3RkYXRhbWVzc2FnZS5NYXJrZXREZXB0aExldmVsEjcKDUFza0Jv",
+            "b2tMZXZlbHMYBCADKAsyIC5ta3RkYXRhbWVzc2FnZS5NYXJrZXREZXB0aExl",
+            "dmVsEhQKDE51bUJpZExldmVscxgFIAEoDRIUCgxOdW1Bc2tMZXZlbHMYBiAB",
+            "KA0SFQoNQ29uZGl0aW9uQ29kZRgHIAEoDRIZChFtc2dTZXF1ZW5jZU51bWJl",
+            "chgIIAEoBCKJAQoYRW5yaWNoZWRCb29rRGVwdGhNZXNzYWdlEjMKCUJvb2tE",
+            "ZXB0aBgBIAEoCzIgLm1rdGRhdGFtZXNzYWdlLkJvb2tEZXB0aE1lc3NhZ2US",
+            "OAoMTWVzc2FnZVN0YXRzGAIgASgLMiIubWt0ZGF0YW1lc3NhZ2UuU2luZ2xl",
+            "U3RhdHNNZXNzYWdlIvwBChJTaW5nbGVTdGF0c01lc3NhZ2USHwoXUGFja2V0",
+            "UmVjZWl2ZWRUaW1lc3RhbXAYASABKAQSIgoaTkFUU01lc3NhZ2VQYXJzZWRU",
+            "aW1lc3RhbXAYAiABKAQSIAoYTkFUU01lc3NhZ2VTZW50VGltZXN0YW1wGAMg",
+            "ASgEEkAKFHByZXZpb3VzTWVzc2FnZVN0YXRzGAQgASgLMiIubWt0ZGF0YW1l",
+            "c3NhZ2UuU2luZ2xlU3RhdHNNZXNzYWdlEhoKEk1lc3NhZ2VEZXNjcmlwdGlv",
+            "bhgFIAEoCRIhChlPcmlnaW5hbFNpemVPZlRoaXNNZXNzYWdlGAYgASgEIukB",
+            "ChlQYWNrZXRIYW5kbGVyU3RhdHNNZXNzYWdlEhEKCVRpbWVzdGFtcBgBIAEo",
+            "BBIgChhQYWNrZXRIYW5kbGVyRGVzY3JpcHRpb24YAiABKAkSGgoSVG90YWxE",
+            "YXRhUHJvY2Vzc2VkGAMgASgEEh0KFVRvdGFsUGFja2V0c1Byb2Nlc3NlZBgE",
+            "IAEoBBIRCglUb3RhbEdhcHMYBSABKAQSFgoOTGFzdExvZ2dlZERhdGEYBiAB",
+            "KAQSGQoRTGFzdExvZ2dlZFBhY2tldHMYByABKAQSFgoOTGFzdExvZ2dlZEdh",
+            "cHMYCCABKAQitwIKHFN0cmVhbVByb2Nlc3NpbmdTdGF0c01lc3NhZ2USGgoS",
+            "VG90YWxTdHJlYW1lZEJ5dGVzGAEgASgNEhwKFE51bVN0cmVhbURhdGFGZXRj",
+            "aGVzGAIgASgNEh0KFU51bVN0cmVhbURhdGFNZXNzYWdlcxgDIAEoDRIXCg9C",
+            "dWZmZXJGdWxsQ291bnQYBCABKA0SHAoUQnVmZmVyU3RpbGxGdWxsQ291bnQY",
+            "BSABKA0SHgoWRW1wdHlTdHJlYW1EYXRhRmV0Y2hlcxgGIAEoDRIbChNEYXRh",
+            "TWVzc2FnZVJhdGVQZWFrGAcgASgNEjcKEU1pc2NlbGxhbmVvdXNEYXRhGAgg",
+            "ASgLMhwubWt0ZGF0YW1lc3NhZ2UuS1ZTdHJpbmdMaXN0EhEKCVRpbWVzdGFt",
+            "cBgJIAEoBCLJAgoXS2luZGxlQ2FjaGVTdGF0c01lc3NhZ2USHgoWTnVtVHJh",
+            "ZGVzV2l0aG91dEdyZWVrcxgBIAEoDRIbChNOdW1UcmFkZXNXaXRoR3JlZWtz",
+            "GAIgASgNEhoKEk51bVRyYWRlc1dpdGhTdG9jaxgDIAEoDRIdChVOdW1UcmFk",
+            "ZXNXaXRob3V0U3RvY2sYBCABKA0SIAoYTnVtVHJhZGVzV2l0aEdya0FuZFN0",
+            "b2NrGAUgASgNEiIKGk51bVRyYWRlc1dpdGhvdXRHcmtPclN0b2NrGAYgASgN",
+            "EhsKE1NvY2tldE1lc3NhZ2VXcml0ZXMYByABKAQSFwoPQnVmZmVyRnVsbENv",
+            "dW50GAggASgNEhwKFEJ1ZmZlckZ1bGxTdGlsbENvdW50GAkgASgNEhwKFE51",
+            "bVN0cmVhbURhdGFGZXRjaGVzGAogASgNIiYKCEtWU3RyaW5nEgsKA0tleRgB",
+            "IAEoCRINCgVWYWx1ZRgCIAEoCSJNCgxLVlN0cmluZ0xpc3QSEAoITGlzdE5h",
+            "bWUYASABKAkSKwoJS1ZTdHJpbmdzGAIgAygLMhgubWt0ZGF0YW1lc3NhZ2Uu",
+            "S1ZTdHJpbmciNgoMQnl0ZXNNZXNzYWdlEhMKC01lc3NhZ2VUZXh0GAEgASgJ",
+            "EhEKCURhdGFCeXRlcxgCIAMoDCJiChJRdW90ZU1lc3NhZ2VzQmF0Y2gSGAoQ",
+            "TnVtYmVyT2ZNZXNzYWdlcxgBIAEoDRIyCg1RdW90ZU1lc3NhZ2VzGAIgAygL",
+            "MhsubWt0ZGF0YW1lc3NhZ2UuUXVvdGVVcGRhdGUiYwoSVHJhZGVNZXNzYWdl",
+            "c0JhdGNoEhgKEE51bWJlck9mTWVzc2FnZXMYASABKA0SMwoNVHJhZGVNZXNz",
+            "YWdlcxgCIAMoCzIcLm1rdGRhdGFtZXNzYWdlLlRyYWRlTWVzc2FnZSJnChJE",
+            "ZXB0aE1lc3NhZ2VzQmF0Y2gSGAoQTnVtYmVyT2ZNZXNzYWdlcxgBIAEoDRI3",
+            "Cg1EZXB0aE1lc3NhZ2VzGAIgAygLMiAubWt0ZGF0YW1lc3NhZ2UuQm9va0Rl",
+            "cHRoTWVzc2FnZUICSAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.Instrument), global::Mktdatamessage.Instrument.Parser, new[]{ "InstrumentType", "UnderlyingSymbol", "ExpirationDay", "ExpirationMonth", "ExpirationYear", "Strike", "IsCallOption", "Idx" }, null, new[]{ typeof(global::Mktdatamessage.Instrument.Types.InstrType) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.TradeMessage), global::Mktdatamessage.TradeMessage.Parser, new[]{ "Timestamp", "Instruments", "Price", "Size", "ExchangeName", "BidPriceBBO", "AskPriceBBO", "BidSizeBBO", "AskSizeBBO", "BidExchangeBBO", "AskExchangeBBO", "DaysHighestPrice", "DaysLowestPrice", "DaysOpeningPrice", "DaysTotalVolume", "ExchangeCode", "ConditionNum", "Condition", "MsgSequenceNumber" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.RBTrade), global::Mktdatamessage.RBTrade.Parser, new[]{ "BaseMessage", "OptionVega", "OptionDelta", "OptionTheta", "OptionGamma", "OptionRho", "VWAP", "FairWidth", "FairSize", "AvgBBOBidSz", "AvgBBOAskSz", "AvgSpread", "StockPrice", "MiscellaneousData" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.RBTrade), global::Mktdatamessage.RBTrade.Parser, new[]{ "OptionVega", "OptionDelta", "OptionTheta", "OptionGamma", "OptionRho", "VWAP", "FairWidth", "FairSize", "AvgBBOBidSz", "AvgBBOAskSz", "AvgSpread", "StockPrice", "MiscellaneousData", "BaseMessage" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.RBTrade2), global::Mktdatamessage.RBTrade2.Parser, new[]{ "Timestamp", "Instruments", "Price", "Size", "ExchangeName", "BidPriceBBO", "AskPriceBBO", "BidSizeBBO", "AskSizeBBO", "BidExchangeBBO", "AskExchangeBBO", "StockPrice", "StockBidSizeBBO", "StockAskSizeBBO", "StockBidExchangeBBO", "ExchangeCode", "ConditionNum", "Condition", "OptionVega", "OptionDelta", "OptionTheta", "OptionGamma", "OptionRho", "OptionSigma", "FairWidth", "FairSize", "AvgBBOBidSz", "AvgBBOAskSz", "AvgSpread", "VWAP", "StockAskExchangeBBO", "StockAskPrice", "StockBidPrice", "MiscellaneousData" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.MarketDepthLevel), global::Mktdatamessage.MarketDepthLevel.Parser, new[]{ "Price", "Size", "ExchangeCode", "CustomerSize", "PartID" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.QuoteUpdate), global::Mktdatamessage.QuoteUpdate.Parser, new[]{ "Timestamp", "Instruments", "TopOfBook" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.BookDepthMessage), global::Mktdatamessage.BookDepthMessage.Parser, new[]{ "Timestamp", "Instruments", "BidBookLevels", "AskBookLevels", "NumBidLevels", "NumAskLevels", "ConditionCode", "MsgSequenceNumber" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.EnrichedBookDepthMessage), global::Mktdatamessage.EnrichedBookDepthMessage.Parser, new[]{ "BookDepth", "MessageStats" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.SingleMessageStats), global::Mktdatamessage.SingleMessageStats.Parser, new[]{ "PacketReceivedTimestamp", "NATSMessageParsedTimestamp", "NATSMessageSentTimestamp", "PreviousMessageStats", "MessageDescription" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.PacketHandlerStats), global::Mktdatamessage.PacketHandlerStats.Parser, new[]{ "Timestamp", "PacketHandlerDescription", "TotalDataProcessed", "TotalPacketsProcessed", "TotalGaps", "LastLoggedData", "LastLoggedPackets", "LastLoggedGaps" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.SingleStatsMessage), global::Mktdatamessage.SingleStatsMessage.Parser, new[]{ "PacketReceivedTimestamp", "NATSMessageParsedTimestamp", "NATSMessageSentTimestamp", "PreviousMessageStats", "MessageDescription", "OriginalSizeOfThisMessage" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.PacketHandlerStatsMessage), global::Mktdatamessage.PacketHandlerStatsMessage.Parser, new[]{ "Timestamp", "PacketHandlerDescription", "TotalDataProcessed", "TotalPacketsProcessed", "TotalGaps", "LastLoggedData", "LastLoggedPackets", "LastLoggedGaps" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.StreamProcessingStatsMessage), global::Mktdatamessage.StreamProcessingStatsMessage.Parser, new[]{ "TotalStreamedBytes", "NumStreamDataFetches", "NumStreamDataMessages", "BufferFullCount", "BufferStillFullCount", "EmptyStreamDataFetches", "DataMessageRatePeak", "MiscellaneousData", "Timestamp" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.KindleCacheStatsMessage), global::Mktdatamessage.KindleCacheStatsMessage.Parser, new[]{ "NumTradesWithoutGreeks", "NumTradesWithGreeks", "NumTradesWithStock", "NumTradesWithoutStock", "NumTradesWithGrkAndStock", "NumTradesWithoutGrkOrStock", "SocketMessageWrites", "BufferFullCount", "BufferFullStillCount", "NumStreamDataFetches" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.KVString), global::Mktdatamessage.KVString.Parser, new[]{ "Key", "Value" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.KVStringList), global::Mktdatamessage.KVStringList.Parser, new[]{ "ListName", "KVStrings" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.BytesMessage), global::Mktdatamessage.BytesMessage.Parser, new[]{ "MessageText", "DataBytes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.QuoteMessagesBatch), global::Mktdatamessage.QuoteMessagesBatch.Parser, new[]{ "NumberOfMessages", "QuoteMessages" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.TradeMessagesBatch), global::Mktdatamessage.TradeMessagesBatch.Parser, new[]{ "NumberOfMessages", "TradeMessages" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Mktdatamessage.DepthMessagesBatch), global::Mktdatamessage.DepthMessagesBatch.Parser, new[]{ "NumberOfMessages", "DepthMessages" }, null, null, null)
@@ -1063,7 +1105,6 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public RBTrade(RBTrade other) : this() {
-      BaseMessage = other.baseMessage_ != null ? other.BaseMessage.Clone() : null;
       optionVega_ = other.optionVega_;
       optionDelta_ = other.optionDelta_;
       optionTheta_ = other.optionTheta_;
@@ -1077,6 +1118,7 @@ namespace Mktdatamessage {
       avgSpread_ = other.avgSpread_;
       stockPrice_ = other.stockPrice_;
       miscellaneousData_ = other.miscellaneousData_;
+      BaseMessage = other.baseMessage_ != null ? other.BaseMessage.Clone() : null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1084,19 +1126,8 @@ namespace Mktdatamessage {
       return new RBTrade(this);
     }
 
-    /// <summary>Field number for the "BaseMessage" field.</summary>
-    public const int BaseMessageFieldNumber = 1;
-    private global::Mktdatamessage.TradeMessage baseMessage_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Mktdatamessage.TradeMessage BaseMessage {
-      get { return baseMessage_; }
-      set {
-        baseMessage_ = value;
-      }
-    }
-
     /// <summary>Field number for the "OptionVega" field.</summary>
-    public const int OptionVegaFieldNumber = 6;
+    public const int OptionVegaFieldNumber = 1;
     private float optionVega_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float OptionVega {
@@ -1151,7 +1182,7 @@ namespace Mktdatamessage {
     }
 
     /// <summary>Field number for the "VWAP" field.</summary>
-    public const int VWAPFieldNumber = 7;
+    public const int VWAPFieldNumber = 6;
     private float vWAP_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float VWAP {
@@ -1162,7 +1193,7 @@ namespace Mktdatamessage {
     }
 
     /// <summary>Field number for the "FairWidth" field.</summary>
-    public const int FairWidthFieldNumber = 8;
+    public const int FairWidthFieldNumber = 7;
     private float fairWidth_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float FairWidth {
@@ -1173,7 +1204,7 @@ namespace Mktdatamessage {
     }
 
     /// <summary>Field number for the "FairSize" field.</summary>
-    public const int FairSizeFieldNumber = 14;
+    public const int FairSizeFieldNumber = 8;
     private float fairSize_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float FairSize {
@@ -1238,6 +1269,17 @@ namespace Mktdatamessage {
       }
     }
 
+    /// <summary>Field number for the "BaseMessage" field.</summary>
+    public const int BaseMessageFieldNumber = 14;
+    private global::Mktdatamessage.TradeMessage baseMessage_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Mktdatamessage.TradeMessage BaseMessage {
+      get { return baseMessage_; }
+      set {
+        baseMessage_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as RBTrade);
@@ -1251,7 +1293,6 @@ namespace Mktdatamessage {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(BaseMessage, other.BaseMessage)) return false;
       if (OptionVega != other.OptionVega) return false;
       if (OptionDelta != other.OptionDelta) return false;
       if (OptionTheta != other.OptionTheta) return false;
@@ -1265,13 +1306,13 @@ namespace Mktdatamessage {
       if (AvgSpread != other.AvgSpread) return false;
       if (StockPrice != other.StockPrice) return false;
       if (MiscellaneousData != other.MiscellaneousData) return false;
+      if (!object.Equals(BaseMessage, other.BaseMessage)) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (baseMessage_ != null) hash ^= BaseMessage.GetHashCode();
       if (OptionVega != 0F) hash ^= OptionVega.GetHashCode();
       if (OptionDelta != 0F) hash ^= OptionDelta.GetHashCode();
       if (OptionTheta != 0F) hash ^= OptionTheta.GetHashCode();
@@ -1285,6 +1326,7 @@ namespace Mktdatamessage {
       if (AvgSpread != 0F) hash ^= AvgSpread.GetHashCode();
       if (StockPrice != 0F) hash ^= StockPrice.GetHashCode();
       if (MiscellaneousData.Length != 0) hash ^= MiscellaneousData.GetHashCode();
+      if (baseMessage_ != null) hash ^= BaseMessage.GetHashCode();
       return hash;
     }
 
@@ -1295,9 +1337,9 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (baseMessage_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(BaseMessage);
+      if (OptionVega != 0F) {
+        output.WriteRawTag(13);
+        output.WriteFloat(OptionVega);
       }
       if (OptionDelta != 0F) {
         output.WriteRawTag(21);
@@ -1315,17 +1357,17 @@ namespace Mktdatamessage {
         output.WriteRawTag(45);
         output.WriteFloat(OptionRho);
       }
-      if (OptionVega != 0F) {
-        output.WriteRawTag(53);
-        output.WriteFloat(OptionVega);
-      }
       if (VWAP != 0F) {
-        output.WriteRawTag(61);
+        output.WriteRawTag(53);
         output.WriteFloat(VWAP);
       }
       if (FairWidth != 0F) {
-        output.WriteRawTag(69);
+        output.WriteRawTag(61);
         output.WriteFloat(FairWidth);
+      }
+      if (FairSize != 0F) {
+        output.WriteRawTag(69);
+        output.WriteFloat(FairSize);
       }
       if (AvgBBOBidSz != 0F) {
         output.WriteRawTag(77);
@@ -1347,18 +1389,15 @@ namespace Mktdatamessage {
         output.WriteRawTag(106);
         output.WriteBytes(MiscellaneousData);
       }
-      if (FairSize != 0F) {
-        output.WriteRawTag(117);
-        output.WriteFloat(FairSize);
+      if (baseMessage_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(BaseMessage);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (baseMessage_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BaseMessage);
-      }
       if (OptionVega != 0F) {
         size += 1 + 4;
       }
@@ -1398,6 +1437,9 @@ namespace Mktdatamessage {
       if (MiscellaneousData.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(MiscellaneousData);
       }
+      if (baseMessage_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BaseMessage);
+      }
       return size;
     }
 
@@ -1405,12 +1447,6 @@ namespace Mktdatamessage {
     public void MergeFrom(RBTrade other) {
       if (other == null) {
         return;
-      }
-      if (other.baseMessage_ != null) {
-        if (baseMessage_ == null) {
-          baseMessage_ = new global::Mktdatamessage.TradeMessage();
-        }
-        BaseMessage.MergeFrom(other.BaseMessage);
       }
       if (other.OptionVega != 0F) {
         OptionVega = other.OptionVega;
@@ -1451,6 +1487,12 @@ namespace Mktdatamessage {
       if (other.MiscellaneousData.Length != 0) {
         MiscellaneousData = other.MiscellaneousData;
       }
+      if (other.baseMessage_ != null) {
+        if (baseMessage_ == null) {
+          baseMessage_ = new global::Mktdatamessage.TradeMessage();
+        }
+        BaseMessage.MergeFrom(other.BaseMessage);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1461,11 +1503,8 @@ namespace Mktdatamessage {
           default:
             input.SkipLastField();
             break;
-          case 10: {
-            if (baseMessage_ == null) {
-              baseMessage_ = new global::Mktdatamessage.TradeMessage();
-            }
-            input.ReadMessage(baseMessage_);
+          case 13: {
+            OptionVega = input.ReadFloat();
             break;
           }
           case 21: {
@@ -1485,15 +1524,15 @@ namespace Mktdatamessage {
             break;
           }
           case 53: {
-            OptionVega = input.ReadFloat();
-            break;
-          }
-          case 61: {
             VWAP = input.ReadFloat();
             break;
           }
-          case 69: {
+          case 61: {
             FairWidth = input.ReadFloat();
+            break;
+          }
+          case 69: {
+            FairSize = input.ReadFloat();
             break;
           }
           case 77: {
@@ -1516,8 +1555,1044 @@ namespace Mktdatamessage {
             MiscellaneousData = input.ReadBytes();
             break;
           }
-          case 117: {
+          case 114: {
+            if (baseMessage_ == null) {
+              baseMessage_ = new global::Mktdatamessage.TradeMessage();
+            }
+            input.ReadMessage(baseMessage_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class RBTrade2 : pb::IMessage<RBTrade2> {
+    private static readonly pb::MessageParser<RBTrade2> _parser = new pb::MessageParser<RBTrade2>(() => new RBTrade2());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<RBTrade2> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RBTrade2() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RBTrade2(RBTrade2 other) : this() {
+      timestamp_ = other.timestamp_;
+      instruments_ = other.instruments_.Clone();
+      price_ = other.price_;
+      size_ = other.size_;
+      exchangeName_ = other.exchangeName_;
+      bidPriceBBO_ = other.bidPriceBBO_;
+      askPriceBBO_ = other.askPriceBBO_;
+      bidSizeBBO_ = other.bidSizeBBO_;
+      askSizeBBO_ = other.askSizeBBO_;
+      bidExchangeBBO_ = other.bidExchangeBBO_;
+      askExchangeBBO_ = other.askExchangeBBO_;
+      stockPrice_ = other.stockPrice_;
+      stockBidSizeBBO_ = other.stockBidSizeBBO_;
+      stockAskSizeBBO_ = other.stockAskSizeBBO_;
+      stockBidExchangeBBO_ = other.stockBidExchangeBBO_;
+      exchangeCode_ = other.exchangeCode_;
+      conditionNum_ = other.conditionNum_;
+      condition_ = other.condition_;
+      optionVega_ = other.optionVega_;
+      optionDelta_ = other.optionDelta_;
+      optionTheta_ = other.optionTheta_;
+      optionGamma_ = other.optionGamma_;
+      optionRho_ = other.optionRho_;
+      optionSigma_ = other.optionSigma_;
+      fairWidth_ = other.fairWidth_;
+      fairSize_ = other.fairSize_;
+      avgBBOBidSz_ = other.avgBBOBidSz_;
+      avgBBOAskSz_ = other.avgBBOAskSz_;
+      avgSpread_ = other.avgSpread_;
+      vWAP_ = other.vWAP_;
+      stockAskExchangeBBO_ = other.stockAskExchangeBBO_;
+      stockAskPrice_ = other.stockAskPrice_;
+      stockBidPrice_ = other.stockBidPrice_;
+      miscellaneousData_ = other.miscellaneousData_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RBTrade2 Clone() {
+      return new RBTrade2(this);
+    }
+
+    /// <summary>Field number for the "Timestamp" field.</summary>
+    public const int TimestampFieldNumber = 1;
+    private ulong timestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Timestamp {
+      get { return timestamp_; }
+      set {
+        timestamp_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Instruments" field.</summary>
+    public const int InstrumentsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::Mktdatamessage.Instrument> _repeated_instruments_codec
+        = pb::FieldCodec.ForMessage(18, global::Mktdatamessage.Instrument.Parser);
+    private readonly pbc::RepeatedField<global::Mktdatamessage.Instrument> instruments_ = new pbc::RepeatedField<global::Mktdatamessage.Instrument>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Mktdatamessage.Instrument> Instruments {
+      get { return instruments_; }
+    }
+
+    /// <summary>Field number for the "Price" field.</summary>
+    public const int PriceFieldNumber = 3;
+    private float price_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Price {
+      get { return price_; }
+      set {
+        price_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Size" field.</summary>
+    public const int SizeFieldNumber = 4;
+    private uint size_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint Size {
+      get { return size_; }
+      set {
+        size_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ExchangeName" field.</summary>
+    public const int ExchangeNameFieldNumber = 5;
+    private string exchangeName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ExchangeName {
+      get { return exchangeName_; }
+      set {
+        exchangeName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "BidPriceBBO" field.</summary>
+    public const int BidPriceBBOFieldNumber = 6;
+    private float bidPriceBBO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float BidPriceBBO {
+      get { return bidPriceBBO_; }
+      set {
+        bidPriceBBO_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AskPriceBBO" field.</summary>
+    public const int AskPriceBBOFieldNumber = 7;
+    private float askPriceBBO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AskPriceBBO {
+      get { return askPriceBBO_; }
+      set {
+        askPriceBBO_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BidSizeBBO" field.</summary>
+    public const int BidSizeBBOFieldNumber = 8;
+    private uint bidSizeBBO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint BidSizeBBO {
+      get { return bidSizeBBO_; }
+      set {
+        bidSizeBBO_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AskSizeBBO" field.</summary>
+    public const int AskSizeBBOFieldNumber = 9;
+    private uint askSizeBBO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint AskSizeBBO {
+      get { return askSizeBBO_; }
+      set {
+        askSizeBBO_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BidExchangeBBO" field.</summary>
+    public const int BidExchangeBBOFieldNumber = 10;
+    private string bidExchangeBBO_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BidExchangeBBO {
+      get { return bidExchangeBBO_; }
+      set {
+        bidExchangeBBO_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "AskExchangeBBO" field.</summary>
+    public const int AskExchangeBBOFieldNumber = 11;
+    private string askExchangeBBO_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string AskExchangeBBO {
+      get { return askExchangeBBO_; }
+      set {
+        askExchangeBBO_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "StockPrice" field.</summary>
+    public const int StockPriceFieldNumber = 12;
+    private float stockPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float StockPrice {
+      get { return stockPrice_; }
+      set {
+        stockPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StockBidSizeBBO" field.</summary>
+    public const int StockBidSizeBBOFieldNumber = 13;
+    private uint stockBidSizeBBO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint StockBidSizeBBO {
+      get { return stockBidSizeBBO_; }
+      set {
+        stockBidSizeBBO_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StockAskSizeBBO" field.</summary>
+    public const int StockAskSizeBBOFieldNumber = 14;
+    private uint stockAskSizeBBO_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint StockAskSizeBBO {
+      get { return stockAskSizeBBO_; }
+      set {
+        stockAskSizeBBO_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StockBidExchangeBBO" field.</summary>
+    public const int StockBidExchangeBBOFieldNumber = 15;
+    private string stockBidExchangeBBO_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string StockBidExchangeBBO {
+      get { return stockBidExchangeBBO_; }
+      set {
+        stockBidExchangeBBO_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ExchangeCode" field.</summary>
+    public const int ExchangeCodeFieldNumber = 16;
+    private uint exchangeCode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint ExchangeCode {
+      get { return exchangeCode_; }
+      set {
+        exchangeCode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ConditionNum" field.</summary>
+    public const int ConditionNumFieldNumber = 17;
+    private uint conditionNum_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint ConditionNum {
+      get { return conditionNum_; }
+      set {
+        conditionNum_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Condition" field.</summary>
+    public const int ConditionFieldNumber = 18;
+    private pb::ByteString condition_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Condition {
+      get { return condition_; }
+      set {
+        condition_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "OptionVega" field.</summary>
+    public const int OptionVegaFieldNumber = 19;
+    private float optionVega_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionVega {
+      get { return optionVega_; }
+      set {
+        optionVega_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionDelta" field.</summary>
+    public const int OptionDeltaFieldNumber = 20;
+    private float optionDelta_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionDelta {
+      get { return optionDelta_; }
+      set {
+        optionDelta_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionTheta" field.</summary>
+    public const int OptionThetaFieldNumber = 21;
+    private float optionTheta_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionTheta {
+      get { return optionTheta_; }
+      set {
+        optionTheta_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionGamma" field.</summary>
+    public const int OptionGammaFieldNumber = 22;
+    private float optionGamma_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionGamma {
+      get { return optionGamma_; }
+      set {
+        optionGamma_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionRho" field.</summary>
+    public const int OptionRhoFieldNumber = 23;
+    private float optionRho_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionRho {
+      get { return optionRho_; }
+      set {
+        optionRho_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OptionSigma" field.</summary>
+    public const int OptionSigmaFieldNumber = 24;
+    private float optionSigma_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float OptionSigma {
+      get { return optionSigma_; }
+      set {
+        optionSigma_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FairWidth" field.</summary>
+    public const int FairWidthFieldNumber = 25;
+    private float fairWidth_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float FairWidth {
+      get { return fairWidth_; }
+      set {
+        fairWidth_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FairSize" field.</summary>
+    public const int FairSizeFieldNumber = 26;
+    private float fairSize_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float FairSize {
+      get { return fairSize_; }
+      set {
+        fairSize_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AvgBBOBidSz" field.</summary>
+    public const int AvgBBOBidSzFieldNumber = 27;
+    private float avgBBOBidSz_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AvgBBOBidSz {
+      get { return avgBBOBidSz_; }
+      set {
+        avgBBOBidSz_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AvgBBOAskSz" field.</summary>
+    public const int AvgBBOAskSzFieldNumber = 28;
+    private float avgBBOAskSz_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AvgBBOAskSz {
+      get { return avgBBOAskSz_; }
+      set {
+        avgBBOAskSz_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AvgSpread" field.</summary>
+    public const int AvgSpreadFieldNumber = 29;
+    private float avgSpread_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float AvgSpread {
+      get { return avgSpread_; }
+      set {
+        avgSpread_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "VWAP" field.</summary>
+    public const int VWAPFieldNumber = 30;
+    private float vWAP_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float VWAP {
+      get { return vWAP_; }
+      set {
+        vWAP_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StockAskExchangeBBO" field.</summary>
+    public const int StockAskExchangeBBOFieldNumber = 31;
+    private string stockAskExchangeBBO_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string StockAskExchangeBBO {
+      get { return stockAskExchangeBBO_; }
+      set {
+        stockAskExchangeBBO_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "StockAskPrice" field.</summary>
+    public const int StockAskPriceFieldNumber = 32;
+    private float stockAskPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float StockAskPrice {
+      get { return stockAskPrice_; }
+      set {
+        stockAskPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "StockBidPrice" field.</summary>
+    public const int StockBidPriceFieldNumber = 33;
+    private float stockBidPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float StockBidPrice {
+      get { return stockBidPrice_; }
+      set {
+        stockBidPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MiscellaneousData" field.</summary>
+    public const int MiscellaneousDataFieldNumber = 34;
+    private pb::ByteString miscellaneousData_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString MiscellaneousData {
+      get { return miscellaneousData_; }
+      set {
+        miscellaneousData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as RBTrade2);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(RBTrade2 other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Timestamp != other.Timestamp) return false;
+      if(!instruments_.Equals(other.instruments_)) return false;
+      if (Price != other.Price) return false;
+      if (Size != other.Size) return false;
+      if (ExchangeName != other.ExchangeName) return false;
+      if (BidPriceBBO != other.BidPriceBBO) return false;
+      if (AskPriceBBO != other.AskPriceBBO) return false;
+      if (BidSizeBBO != other.BidSizeBBO) return false;
+      if (AskSizeBBO != other.AskSizeBBO) return false;
+      if (BidExchangeBBO != other.BidExchangeBBO) return false;
+      if (AskExchangeBBO != other.AskExchangeBBO) return false;
+      if (StockPrice != other.StockPrice) return false;
+      if (StockBidSizeBBO != other.StockBidSizeBBO) return false;
+      if (StockAskSizeBBO != other.StockAskSizeBBO) return false;
+      if (StockBidExchangeBBO != other.StockBidExchangeBBO) return false;
+      if (ExchangeCode != other.ExchangeCode) return false;
+      if (ConditionNum != other.ConditionNum) return false;
+      if (Condition != other.Condition) return false;
+      if (OptionVega != other.OptionVega) return false;
+      if (OptionDelta != other.OptionDelta) return false;
+      if (OptionTheta != other.OptionTheta) return false;
+      if (OptionGamma != other.OptionGamma) return false;
+      if (OptionRho != other.OptionRho) return false;
+      if (OptionSigma != other.OptionSigma) return false;
+      if (FairWidth != other.FairWidth) return false;
+      if (FairSize != other.FairSize) return false;
+      if (AvgBBOBidSz != other.AvgBBOBidSz) return false;
+      if (AvgBBOAskSz != other.AvgBBOAskSz) return false;
+      if (AvgSpread != other.AvgSpread) return false;
+      if (VWAP != other.VWAP) return false;
+      if (StockAskExchangeBBO != other.StockAskExchangeBBO) return false;
+      if (StockAskPrice != other.StockAskPrice) return false;
+      if (StockBidPrice != other.StockBidPrice) return false;
+      if (MiscellaneousData != other.MiscellaneousData) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Timestamp != 0UL) hash ^= Timestamp.GetHashCode();
+      hash ^= instruments_.GetHashCode();
+      if (Price != 0F) hash ^= Price.GetHashCode();
+      if (Size != 0) hash ^= Size.GetHashCode();
+      if (ExchangeName.Length != 0) hash ^= ExchangeName.GetHashCode();
+      if (BidPriceBBO != 0F) hash ^= BidPriceBBO.GetHashCode();
+      if (AskPriceBBO != 0F) hash ^= AskPriceBBO.GetHashCode();
+      if (BidSizeBBO != 0) hash ^= BidSizeBBO.GetHashCode();
+      if (AskSizeBBO != 0) hash ^= AskSizeBBO.GetHashCode();
+      if (BidExchangeBBO.Length != 0) hash ^= BidExchangeBBO.GetHashCode();
+      if (AskExchangeBBO.Length != 0) hash ^= AskExchangeBBO.GetHashCode();
+      if (StockPrice != 0F) hash ^= StockPrice.GetHashCode();
+      if (StockBidSizeBBO != 0) hash ^= StockBidSizeBBO.GetHashCode();
+      if (StockAskSizeBBO != 0) hash ^= StockAskSizeBBO.GetHashCode();
+      if (StockBidExchangeBBO.Length != 0) hash ^= StockBidExchangeBBO.GetHashCode();
+      if (ExchangeCode != 0) hash ^= ExchangeCode.GetHashCode();
+      if (ConditionNum != 0) hash ^= ConditionNum.GetHashCode();
+      if (Condition.Length != 0) hash ^= Condition.GetHashCode();
+      if (OptionVega != 0F) hash ^= OptionVega.GetHashCode();
+      if (OptionDelta != 0F) hash ^= OptionDelta.GetHashCode();
+      if (OptionTheta != 0F) hash ^= OptionTheta.GetHashCode();
+      if (OptionGamma != 0F) hash ^= OptionGamma.GetHashCode();
+      if (OptionRho != 0F) hash ^= OptionRho.GetHashCode();
+      if (OptionSigma != 0F) hash ^= OptionSigma.GetHashCode();
+      if (FairWidth != 0F) hash ^= FairWidth.GetHashCode();
+      if (FairSize != 0F) hash ^= FairSize.GetHashCode();
+      if (AvgBBOBidSz != 0F) hash ^= AvgBBOBidSz.GetHashCode();
+      if (AvgBBOAskSz != 0F) hash ^= AvgBBOAskSz.GetHashCode();
+      if (AvgSpread != 0F) hash ^= AvgSpread.GetHashCode();
+      if (VWAP != 0F) hash ^= VWAP.GetHashCode();
+      if (StockAskExchangeBBO.Length != 0) hash ^= StockAskExchangeBBO.GetHashCode();
+      if (StockAskPrice != 0F) hash ^= StockAskPrice.GetHashCode();
+      if (StockBidPrice != 0F) hash ^= StockBidPrice.GetHashCode();
+      if (MiscellaneousData.Length != 0) hash ^= MiscellaneousData.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Timestamp != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Timestamp);
+      }
+      instruments_.WriteTo(output, _repeated_instruments_codec);
+      if (Price != 0F) {
+        output.WriteRawTag(29);
+        output.WriteFloat(Price);
+      }
+      if (Size != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Size);
+      }
+      if (ExchangeName.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(ExchangeName);
+      }
+      if (BidPriceBBO != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(BidPriceBBO);
+      }
+      if (AskPriceBBO != 0F) {
+        output.WriteRawTag(61);
+        output.WriteFloat(AskPriceBBO);
+      }
+      if (BidSizeBBO != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(BidSizeBBO);
+      }
+      if (AskSizeBBO != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(AskSizeBBO);
+      }
+      if (BidExchangeBBO.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(BidExchangeBBO);
+      }
+      if (AskExchangeBBO.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(AskExchangeBBO);
+      }
+      if (StockPrice != 0F) {
+        output.WriteRawTag(101);
+        output.WriteFloat(StockPrice);
+      }
+      if (StockBidSizeBBO != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(StockBidSizeBBO);
+      }
+      if (StockAskSizeBBO != 0) {
+        output.WriteRawTag(112);
+        output.WriteUInt32(StockAskSizeBBO);
+      }
+      if (StockBidExchangeBBO.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(StockBidExchangeBBO);
+      }
+      if (ExchangeCode != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteUInt32(ExchangeCode);
+      }
+      if (ConditionNum != 0) {
+        output.WriteRawTag(136, 1);
+        output.WriteUInt32(ConditionNum);
+      }
+      if (Condition.Length != 0) {
+        output.WriteRawTag(146, 1);
+        output.WriteBytes(Condition);
+      }
+      if (OptionVega != 0F) {
+        output.WriteRawTag(157, 1);
+        output.WriteFloat(OptionVega);
+      }
+      if (OptionDelta != 0F) {
+        output.WriteRawTag(165, 1);
+        output.WriteFloat(OptionDelta);
+      }
+      if (OptionTheta != 0F) {
+        output.WriteRawTag(173, 1);
+        output.WriteFloat(OptionTheta);
+      }
+      if (OptionGamma != 0F) {
+        output.WriteRawTag(181, 1);
+        output.WriteFloat(OptionGamma);
+      }
+      if (OptionRho != 0F) {
+        output.WriteRawTag(189, 1);
+        output.WriteFloat(OptionRho);
+      }
+      if (OptionSigma != 0F) {
+        output.WriteRawTag(197, 1);
+        output.WriteFloat(OptionSigma);
+      }
+      if (FairWidth != 0F) {
+        output.WriteRawTag(205, 1);
+        output.WriteFloat(FairWidth);
+      }
+      if (FairSize != 0F) {
+        output.WriteRawTag(213, 1);
+        output.WriteFloat(FairSize);
+      }
+      if (AvgBBOBidSz != 0F) {
+        output.WriteRawTag(221, 1);
+        output.WriteFloat(AvgBBOBidSz);
+      }
+      if (AvgBBOAskSz != 0F) {
+        output.WriteRawTag(229, 1);
+        output.WriteFloat(AvgBBOAskSz);
+      }
+      if (AvgSpread != 0F) {
+        output.WriteRawTag(237, 1);
+        output.WriteFloat(AvgSpread);
+      }
+      if (VWAP != 0F) {
+        output.WriteRawTag(245, 1);
+        output.WriteFloat(VWAP);
+      }
+      if (StockAskExchangeBBO.Length != 0) {
+        output.WriteRawTag(250, 1);
+        output.WriteString(StockAskExchangeBBO);
+      }
+      if (StockAskPrice != 0F) {
+        output.WriteRawTag(133, 2);
+        output.WriteFloat(StockAskPrice);
+      }
+      if (StockBidPrice != 0F) {
+        output.WriteRawTag(141, 2);
+        output.WriteFloat(StockBidPrice);
+      }
+      if (MiscellaneousData.Length != 0) {
+        output.WriteRawTag(146, 2);
+        output.WriteBytes(MiscellaneousData);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Timestamp != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Timestamp);
+      }
+      size += instruments_.CalculateSize(_repeated_instruments_codec);
+      if (Price != 0F) {
+        size += 1 + 4;
+      }
+      if (Size != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Size);
+      }
+      if (ExchangeName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ExchangeName);
+      }
+      if (BidPriceBBO != 0F) {
+        size += 1 + 4;
+      }
+      if (AskPriceBBO != 0F) {
+        size += 1 + 4;
+      }
+      if (BidSizeBBO != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BidSizeBBO);
+      }
+      if (AskSizeBBO != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AskSizeBBO);
+      }
+      if (BidExchangeBBO.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BidExchangeBBO);
+      }
+      if (AskExchangeBBO.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AskExchangeBBO);
+      }
+      if (StockPrice != 0F) {
+        size += 1 + 4;
+      }
+      if (StockBidSizeBBO != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(StockBidSizeBBO);
+      }
+      if (StockAskSizeBBO != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(StockAskSizeBBO);
+      }
+      if (StockBidExchangeBBO.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(StockBidExchangeBBO);
+      }
+      if (ExchangeCode != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ExchangeCode);
+      }
+      if (ConditionNum != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ConditionNum);
+      }
+      if (Condition.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeBytesSize(Condition);
+      }
+      if (OptionVega != 0F) {
+        size += 2 + 4;
+      }
+      if (OptionDelta != 0F) {
+        size += 2 + 4;
+      }
+      if (OptionTheta != 0F) {
+        size += 2 + 4;
+      }
+      if (OptionGamma != 0F) {
+        size += 2 + 4;
+      }
+      if (OptionRho != 0F) {
+        size += 2 + 4;
+      }
+      if (OptionSigma != 0F) {
+        size += 2 + 4;
+      }
+      if (FairWidth != 0F) {
+        size += 2 + 4;
+      }
+      if (FairSize != 0F) {
+        size += 2 + 4;
+      }
+      if (AvgBBOBidSz != 0F) {
+        size += 2 + 4;
+      }
+      if (AvgBBOAskSz != 0F) {
+        size += 2 + 4;
+      }
+      if (AvgSpread != 0F) {
+        size += 2 + 4;
+      }
+      if (VWAP != 0F) {
+        size += 2 + 4;
+      }
+      if (StockAskExchangeBBO.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(StockAskExchangeBBO);
+      }
+      if (StockAskPrice != 0F) {
+        size += 2 + 4;
+      }
+      if (StockBidPrice != 0F) {
+        size += 2 + 4;
+      }
+      if (MiscellaneousData.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeBytesSize(MiscellaneousData);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(RBTrade2 other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Timestamp != 0UL) {
+        Timestamp = other.Timestamp;
+      }
+      instruments_.Add(other.instruments_);
+      if (other.Price != 0F) {
+        Price = other.Price;
+      }
+      if (other.Size != 0) {
+        Size = other.Size;
+      }
+      if (other.ExchangeName.Length != 0) {
+        ExchangeName = other.ExchangeName;
+      }
+      if (other.BidPriceBBO != 0F) {
+        BidPriceBBO = other.BidPriceBBO;
+      }
+      if (other.AskPriceBBO != 0F) {
+        AskPriceBBO = other.AskPriceBBO;
+      }
+      if (other.BidSizeBBO != 0) {
+        BidSizeBBO = other.BidSizeBBO;
+      }
+      if (other.AskSizeBBO != 0) {
+        AskSizeBBO = other.AskSizeBBO;
+      }
+      if (other.BidExchangeBBO.Length != 0) {
+        BidExchangeBBO = other.BidExchangeBBO;
+      }
+      if (other.AskExchangeBBO.Length != 0) {
+        AskExchangeBBO = other.AskExchangeBBO;
+      }
+      if (other.StockPrice != 0F) {
+        StockPrice = other.StockPrice;
+      }
+      if (other.StockBidSizeBBO != 0) {
+        StockBidSizeBBO = other.StockBidSizeBBO;
+      }
+      if (other.StockAskSizeBBO != 0) {
+        StockAskSizeBBO = other.StockAskSizeBBO;
+      }
+      if (other.StockBidExchangeBBO.Length != 0) {
+        StockBidExchangeBBO = other.StockBidExchangeBBO;
+      }
+      if (other.ExchangeCode != 0) {
+        ExchangeCode = other.ExchangeCode;
+      }
+      if (other.ConditionNum != 0) {
+        ConditionNum = other.ConditionNum;
+      }
+      if (other.Condition.Length != 0) {
+        Condition = other.Condition;
+      }
+      if (other.OptionVega != 0F) {
+        OptionVega = other.OptionVega;
+      }
+      if (other.OptionDelta != 0F) {
+        OptionDelta = other.OptionDelta;
+      }
+      if (other.OptionTheta != 0F) {
+        OptionTheta = other.OptionTheta;
+      }
+      if (other.OptionGamma != 0F) {
+        OptionGamma = other.OptionGamma;
+      }
+      if (other.OptionRho != 0F) {
+        OptionRho = other.OptionRho;
+      }
+      if (other.OptionSigma != 0F) {
+        OptionSigma = other.OptionSigma;
+      }
+      if (other.FairWidth != 0F) {
+        FairWidth = other.FairWidth;
+      }
+      if (other.FairSize != 0F) {
+        FairSize = other.FairSize;
+      }
+      if (other.AvgBBOBidSz != 0F) {
+        AvgBBOBidSz = other.AvgBBOBidSz;
+      }
+      if (other.AvgBBOAskSz != 0F) {
+        AvgBBOAskSz = other.AvgBBOAskSz;
+      }
+      if (other.AvgSpread != 0F) {
+        AvgSpread = other.AvgSpread;
+      }
+      if (other.VWAP != 0F) {
+        VWAP = other.VWAP;
+      }
+      if (other.StockAskExchangeBBO.Length != 0) {
+        StockAskExchangeBBO = other.StockAskExchangeBBO;
+      }
+      if (other.StockAskPrice != 0F) {
+        StockAskPrice = other.StockAskPrice;
+      }
+      if (other.StockBidPrice != 0F) {
+        StockBidPrice = other.StockBidPrice;
+      }
+      if (other.MiscellaneousData.Length != 0) {
+        MiscellaneousData = other.MiscellaneousData;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Timestamp = input.ReadUInt64();
+            break;
+          }
+          case 18: {
+            instruments_.AddEntriesFrom(input, _repeated_instruments_codec);
+            break;
+          }
+          case 29: {
+            Price = input.ReadFloat();
+            break;
+          }
+          case 32: {
+            Size = input.ReadUInt32();
+            break;
+          }
+          case 42: {
+            ExchangeName = input.ReadString();
+            break;
+          }
+          case 53: {
+            BidPriceBBO = input.ReadFloat();
+            break;
+          }
+          case 61: {
+            AskPriceBBO = input.ReadFloat();
+            break;
+          }
+          case 64: {
+            BidSizeBBO = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            AskSizeBBO = input.ReadUInt32();
+            break;
+          }
+          case 82: {
+            BidExchangeBBO = input.ReadString();
+            break;
+          }
+          case 90: {
+            AskExchangeBBO = input.ReadString();
+            break;
+          }
+          case 101: {
+            StockPrice = input.ReadFloat();
+            break;
+          }
+          case 104: {
+            StockBidSizeBBO = input.ReadUInt32();
+            break;
+          }
+          case 112: {
+            StockAskSizeBBO = input.ReadUInt32();
+            break;
+          }
+          case 122: {
+            StockBidExchangeBBO = input.ReadString();
+            break;
+          }
+          case 128: {
+            ExchangeCode = input.ReadUInt32();
+            break;
+          }
+          case 136: {
+            ConditionNum = input.ReadUInt32();
+            break;
+          }
+          case 146: {
+            Condition = input.ReadBytes();
+            break;
+          }
+          case 157: {
+            OptionVega = input.ReadFloat();
+            break;
+          }
+          case 165: {
+            OptionDelta = input.ReadFloat();
+            break;
+          }
+          case 173: {
+            OptionTheta = input.ReadFloat();
+            break;
+          }
+          case 181: {
+            OptionGamma = input.ReadFloat();
+            break;
+          }
+          case 189: {
+            OptionRho = input.ReadFloat();
+            break;
+          }
+          case 197: {
+            OptionSigma = input.ReadFloat();
+            break;
+          }
+          case 205: {
+            FairWidth = input.ReadFloat();
+            break;
+          }
+          case 213: {
             FairSize = input.ReadFloat();
+            break;
+          }
+          case 221: {
+            AvgBBOBidSz = input.ReadFloat();
+            break;
+          }
+          case 229: {
+            AvgBBOAskSz = input.ReadFloat();
+            break;
+          }
+          case 237: {
+            AvgSpread = input.ReadFloat();
+            break;
+          }
+          case 245: {
+            VWAP = input.ReadFloat();
+            break;
+          }
+          case 250: {
+            StockAskExchangeBBO = input.ReadString();
+            break;
+          }
+          case 261: {
+            StockAskPrice = input.ReadFloat();
+            break;
+          }
+          case 269: {
+            StockBidPrice = input.ReadFloat();
+            break;
+          }
+          case 274: {
+            MiscellaneousData = input.ReadBytes();
             break;
           }
         }
@@ -1533,7 +2608,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1762,7 +2837,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1933,7 +3008,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2222,7 +3297,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2261,9 +3336,9 @@ namespace Mktdatamessage {
 
     /// <summary>Field number for the "MessageStats" field.</summary>
     public const int MessageStatsFieldNumber = 2;
-    private global::Mktdatamessage.SingleMessageStats messageStats_;
+    private global::Mktdatamessage.SingleStatsMessage messageStats_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Mktdatamessage.SingleMessageStats MessageStats {
+    public global::Mktdatamessage.SingleStatsMessage MessageStats {
       get { return messageStats_; }
       set {
         messageStats_ = value;
@@ -2338,7 +3413,7 @@ namespace Mktdatamessage {
       }
       if (other.messageStats_ != null) {
         if (messageStats_ == null) {
-          messageStats_ = new global::Mktdatamessage.SingleMessageStats();
+          messageStats_ = new global::Mktdatamessage.SingleStatsMessage();
         }
         MessageStats.MergeFrom(other.MessageStats);
       }
@@ -2361,7 +3436,7 @@ namespace Mktdatamessage {
           }
           case 18: {
             if (messageStats_ == null) {
-              messageStats_ = new global::Mktdatamessage.SingleMessageStats();
+              messageStats_ = new global::Mktdatamessage.SingleStatsMessage();
             }
             input.ReadMessage(messageStats_);
             break;
@@ -2372,14 +3447,14 @@ namespace Mktdatamessage {
 
   }
 
-  public sealed partial class SingleMessageStats : pb::IMessage<SingleMessageStats> {
-    private static readonly pb::MessageParser<SingleMessageStats> _parser = new pb::MessageParser<SingleMessageStats>(() => new SingleMessageStats());
+  public sealed partial class SingleStatsMessage : pb::IMessage<SingleStatsMessage> {
+    private static readonly pb::MessageParser<SingleStatsMessage> _parser = new pb::MessageParser<SingleStatsMessage>(() => new SingleStatsMessage());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<SingleMessageStats> Parser { get { return _parser; } }
+    public static pb::MessageParser<SingleStatsMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2388,24 +3463,25 @@ namespace Mktdatamessage {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SingleMessageStats() {
+    public SingleStatsMessage() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SingleMessageStats(SingleMessageStats other) : this() {
+    public SingleStatsMessage(SingleStatsMessage other) : this() {
       packetReceivedTimestamp_ = other.packetReceivedTimestamp_;
       nATSMessageParsedTimestamp_ = other.nATSMessageParsedTimestamp_;
       nATSMessageSentTimestamp_ = other.nATSMessageSentTimestamp_;
       PreviousMessageStats = other.previousMessageStats_ != null ? other.PreviousMessageStats.Clone() : null;
       messageDescription_ = other.messageDescription_;
+      originalSizeOfThisMessage_ = other.originalSizeOfThisMessage_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SingleMessageStats Clone() {
-      return new SingleMessageStats(this);
+    public SingleStatsMessage Clone() {
+      return new SingleStatsMessage(this);
     }
 
     /// <summary>Field number for the "PacketReceivedTimestamp" field.</summary>
@@ -2443,9 +3519,9 @@ namespace Mktdatamessage {
 
     /// <summary>Field number for the "previousMessageStats" field.</summary>
     public const int PreviousMessageStatsFieldNumber = 4;
-    private global::Mktdatamessage.SingleMessageStats previousMessageStats_;
+    private global::Mktdatamessage.SingleStatsMessage previousMessageStats_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Mktdatamessage.SingleMessageStats PreviousMessageStats {
+    public global::Mktdatamessage.SingleStatsMessage PreviousMessageStats {
       get { return previousMessageStats_; }
       set {
         previousMessageStats_ = value;
@@ -2463,13 +3539,24 @@ namespace Mktdatamessage {
       }
     }
 
+    /// <summary>Field number for the "OriginalSizeOfThisMessage" field.</summary>
+    public const int OriginalSizeOfThisMessageFieldNumber = 6;
+    private ulong originalSizeOfThisMessage_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as SingleMessageStats);
+    public ulong OriginalSizeOfThisMessage {
+      get { return originalSizeOfThisMessage_; }
+      set {
+        originalSizeOfThisMessage_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(SingleMessageStats other) {
+    public override bool Equals(object other) {
+      return Equals(other as SingleStatsMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SingleStatsMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -2481,6 +3568,7 @@ namespace Mktdatamessage {
       if (NATSMessageSentTimestamp != other.NATSMessageSentTimestamp) return false;
       if (!object.Equals(PreviousMessageStats, other.PreviousMessageStats)) return false;
       if (MessageDescription != other.MessageDescription) return false;
+      if (OriginalSizeOfThisMessage != other.OriginalSizeOfThisMessage) return false;
       return true;
     }
 
@@ -2492,6 +3580,7 @@ namespace Mktdatamessage {
       if (NATSMessageSentTimestamp != 0UL) hash ^= NATSMessageSentTimestamp.GetHashCode();
       if (previousMessageStats_ != null) hash ^= PreviousMessageStats.GetHashCode();
       if (MessageDescription.Length != 0) hash ^= MessageDescription.GetHashCode();
+      if (OriginalSizeOfThisMessage != 0UL) hash ^= OriginalSizeOfThisMessage.GetHashCode();
       return hash;
     }
 
@@ -2522,6 +3611,10 @@ namespace Mktdatamessage {
         output.WriteRawTag(42);
         output.WriteString(MessageDescription);
       }
+      if (OriginalSizeOfThisMessage != 0UL) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(OriginalSizeOfThisMessage);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2542,11 +3635,14 @@ namespace Mktdatamessage {
       if (MessageDescription.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageDescription);
       }
+      if (OriginalSizeOfThisMessage != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OriginalSizeOfThisMessage);
+      }
       return size;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(SingleMessageStats other) {
+    public void MergeFrom(SingleStatsMessage other) {
       if (other == null) {
         return;
       }
@@ -2561,12 +3657,15 @@ namespace Mktdatamessage {
       }
       if (other.previousMessageStats_ != null) {
         if (previousMessageStats_ == null) {
-          previousMessageStats_ = new global::Mktdatamessage.SingleMessageStats();
+          previousMessageStats_ = new global::Mktdatamessage.SingleStatsMessage();
         }
         PreviousMessageStats.MergeFrom(other.PreviousMessageStats);
       }
       if (other.MessageDescription.Length != 0) {
         MessageDescription = other.MessageDescription;
+      }
+      if (other.OriginalSizeOfThisMessage != 0UL) {
+        OriginalSizeOfThisMessage = other.OriginalSizeOfThisMessage;
       }
     }
 
@@ -2592,7 +3691,7 @@ namespace Mktdatamessage {
           }
           case 34: {
             if (previousMessageStats_ == null) {
-              previousMessageStats_ = new global::Mktdatamessage.SingleMessageStats();
+              previousMessageStats_ = new global::Mktdatamessage.SingleStatsMessage();
             }
             input.ReadMessage(previousMessageStats_);
             break;
@@ -2601,20 +3700,24 @@ namespace Mktdatamessage {
             MessageDescription = input.ReadString();
             break;
           }
+          case 48: {
+            OriginalSizeOfThisMessage = input.ReadUInt64();
+            break;
+          }
         }
       }
     }
 
   }
 
-  public sealed partial class PacketHandlerStats : pb::IMessage<PacketHandlerStats> {
-    private static readonly pb::MessageParser<PacketHandlerStats> _parser = new pb::MessageParser<PacketHandlerStats>(() => new PacketHandlerStats());
+  public sealed partial class PacketHandlerStatsMessage : pb::IMessage<PacketHandlerStatsMessage> {
+    private static readonly pb::MessageParser<PacketHandlerStatsMessage> _parser = new pb::MessageParser<PacketHandlerStatsMessage>(() => new PacketHandlerStatsMessage());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<PacketHandlerStats> Parser { get { return _parser; } }
+    public static pb::MessageParser<PacketHandlerStatsMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2623,14 +3726,14 @@ namespace Mktdatamessage {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PacketHandlerStats() {
+    public PacketHandlerStatsMessage() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PacketHandlerStats(PacketHandlerStats other) : this() {
+    public PacketHandlerStatsMessage(PacketHandlerStatsMessage other) : this() {
       timestamp_ = other.timestamp_;
       packetHandlerDescription_ = other.packetHandlerDescription_;
       totalDataProcessed_ = other.totalDataProcessed_;
@@ -2642,8 +3745,8 @@ namespace Mktdatamessage {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PacketHandlerStats Clone() {
-      return new PacketHandlerStats(this);
+    public PacketHandlerStatsMessage Clone() {
+      return new PacketHandlerStatsMessage(this);
     }
 
     /// <summary>Field number for the "Timestamp" field.</summary>
@@ -2736,11 +3839,11 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as PacketHandlerStats);
+      return Equals(other as PacketHandlerStatsMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(PacketHandlerStats other) {
+    public bool Equals(PacketHandlerStatsMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -2844,7 +3947,7 @@ namespace Mktdatamessage {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(PacketHandlerStats other) {
+    public void MergeFrom(PacketHandlerStatsMessage other) {
       if (other == null) {
         return;
       }
@@ -2920,6 +4023,1141 @@ namespace Mktdatamessage {
 
   }
 
+  public sealed partial class StreamProcessingStatsMessage : pb::IMessage<StreamProcessingStatsMessage> {
+    private static readonly pb::MessageParser<StreamProcessingStatsMessage> _parser = new pb::MessageParser<StreamProcessingStatsMessage>(() => new StreamProcessingStatsMessage());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<StreamProcessingStatsMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StreamProcessingStatsMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StreamProcessingStatsMessage(StreamProcessingStatsMessage other) : this() {
+      totalStreamedBytes_ = other.totalStreamedBytes_;
+      numStreamDataFetches_ = other.numStreamDataFetches_;
+      numStreamDataMessages_ = other.numStreamDataMessages_;
+      bufferFullCount_ = other.bufferFullCount_;
+      bufferStillFullCount_ = other.bufferStillFullCount_;
+      emptyStreamDataFetches_ = other.emptyStreamDataFetches_;
+      dataMessageRatePeak_ = other.dataMessageRatePeak_;
+      MiscellaneousData = other.miscellaneousData_ != null ? other.MiscellaneousData.Clone() : null;
+      timestamp_ = other.timestamp_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StreamProcessingStatsMessage Clone() {
+      return new StreamProcessingStatsMessage(this);
+    }
+
+    /// <summary>Field number for the "TotalStreamedBytes" field.</summary>
+    public const int TotalStreamedBytesFieldNumber = 1;
+    private uint totalStreamedBytes_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint TotalStreamedBytes {
+      get { return totalStreamedBytes_; }
+      set {
+        totalStreamedBytes_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NumStreamDataFetches" field.</summary>
+    public const int NumStreamDataFetchesFieldNumber = 2;
+    private uint numStreamDataFetches_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumStreamDataFetches {
+      get { return numStreamDataFetches_; }
+      set {
+        numStreamDataFetches_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NumStreamDataMessages" field.</summary>
+    public const int NumStreamDataMessagesFieldNumber = 3;
+    private uint numStreamDataMessages_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumStreamDataMessages {
+      get { return numStreamDataMessages_; }
+      set {
+        numStreamDataMessages_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BufferFullCount" field.</summary>
+    public const int BufferFullCountFieldNumber = 4;
+    private uint bufferFullCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint BufferFullCount {
+      get { return bufferFullCount_; }
+      set {
+        bufferFullCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BufferStillFullCount" field.</summary>
+    public const int BufferStillFullCountFieldNumber = 5;
+    private uint bufferStillFullCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint BufferStillFullCount {
+      get { return bufferStillFullCount_; }
+      set {
+        bufferStillFullCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EmptyStreamDataFetches" field.</summary>
+    public const int EmptyStreamDataFetchesFieldNumber = 6;
+    private uint emptyStreamDataFetches_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint EmptyStreamDataFetches {
+      get { return emptyStreamDataFetches_; }
+      set {
+        emptyStreamDataFetches_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DataMessageRatePeak" field.</summary>
+    public const int DataMessageRatePeakFieldNumber = 7;
+    private uint dataMessageRatePeak_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint DataMessageRatePeak {
+      get { return dataMessageRatePeak_; }
+      set {
+        dataMessageRatePeak_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MiscellaneousData" field.</summary>
+    public const int MiscellaneousDataFieldNumber = 8;
+    private global::Mktdatamessage.KVStringList miscellaneousData_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Mktdatamessage.KVStringList MiscellaneousData {
+      get { return miscellaneousData_; }
+      set {
+        miscellaneousData_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Timestamp" field.</summary>
+    public const int TimestampFieldNumber = 9;
+    private ulong timestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Timestamp {
+      get { return timestamp_; }
+      set {
+        timestamp_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as StreamProcessingStatsMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(StreamProcessingStatsMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TotalStreamedBytes != other.TotalStreamedBytes) return false;
+      if (NumStreamDataFetches != other.NumStreamDataFetches) return false;
+      if (NumStreamDataMessages != other.NumStreamDataMessages) return false;
+      if (BufferFullCount != other.BufferFullCount) return false;
+      if (BufferStillFullCount != other.BufferStillFullCount) return false;
+      if (EmptyStreamDataFetches != other.EmptyStreamDataFetches) return false;
+      if (DataMessageRatePeak != other.DataMessageRatePeak) return false;
+      if (!object.Equals(MiscellaneousData, other.MiscellaneousData)) return false;
+      if (Timestamp != other.Timestamp) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TotalStreamedBytes != 0) hash ^= TotalStreamedBytes.GetHashCode();
+      if (NumStreamDataFetches != 0) hash ^= NumStreamDataFetches.GetHashCode();
+      if (NumStreamDataMessages != 0) hash ^= NumStreamDataMessages.GetHashCode();
+      if (BufferFullCount != 0) hash ^= BufferFullCount.GetHashCode();
+      if (BufferStillFullCount != 0) hash ^= BufferStillFullCount.GetHashCode();
+      if (EmptyStreamDataFetches != 0) hash ^= EmptyStreamDataFetches.GetHashCode();
+      if (DataMessageRatePeak != 0) hash ^= DataMessageRatePeak.GetHashCode();
+      if (miscellaneousData_ != null) hash ^= MiscellaneousData.GetHashCode();
+      if (Timestamp != 0UL) hash ^= Timestamp.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (TotalStreamedBytes != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(TotalStreamedBytes);
+      }
+      if (NumStreamDataFetches != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(NumStreamDataFetches);
+      }
+      if (NumStreamDataMessages != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(NumStreamDataMessages);
+      }
+      if (BufferFullCount != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(BufferFullCount);
+      }
+      if (BufferStillFullCount != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(BufferStillFullCount);
+      }
+      if (EmptyStreamDataFetches != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(EmptyStreamDataFetches);
+      }
+      if (DataMessageRatePeak != 0) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(DataMessageRatePeak);
+      }
+      if (miscellaneousData_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(MiscellaneousData);
+      }
+      if (Timestamp != 0UL) {
+        output.WriteRawTag(72);
+        output.WriteUInt64(Timestamp);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (TotalStreamedBytes != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TotalStreamedBytes);
+      }
+      if (NumStreamDataFetches != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumStreamDataFetches);
+      }
+      if (NumStreamDataMessages != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumStreamDataMessages);
+      }
+      if (BufferFullCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BufferFullCount);
+      }
+      if (BufferStillFullCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BufferStillFullCount);
+      }
+      if (EmptyStreamDataFetches != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EmptyStreamDataFetches);
+      }
+      if (DataMessageRatePeak != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DataMessageRatePeak);
+      }
+      if (miscellaneousData_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MiscellaneousData);
+      }
+      if (Timestamp != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Timestamp);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(StreamProcessingStatsMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TotalStreamedBytes != 0) {
+        TotalStreamedBytes = other.TotalStreamedBytes;
+      }
+      if (other.NumStreamDataFetches != 0) {
+        NumStreamDataFetches = other.NumStreamDataFetches;
+      }
+      if (other.NumStreamDataMessages != 0) {
+        NumStreamDataMessages = other.NumStreamDataMessages;
+      }
+      if (other.BufferFullCount != 0) {
+        BufferFullCount = other.BufferFullCount;
+      }
+      if (other.BufferStillFullCount != 0) {
+        BufferStillFullCount = other.BufferStillFullCount;
+      }
+      if (other.EmptyStreamDataFetches != 0) {
+        EmptyStreamDataFetches = other.EmptyStreamDataFetches;
+      }
+      if (other.DataMessageRatePeak != 0) {
+        DataMessageRatePeak = other.DataMessageRatePeak;
+      }
+      if (other.miscellaneousData_ != null) {
+        if (miscellaneousData_ == null) {
+          miscellaneousData_ = new global::Mktdatamessage.KVStringList();
+        }
+        MiscellaneousData.MergeFrom(other.MiscellaneousData);
+      }
+      if (other.Timestamp != 0UL) {
+        Timestamp = other.Timestamp;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            TotalStreamedBytes = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            NumStreamDataFetches = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            NumStreamDataMessages = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            BufferFullCount = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            BufferStillFullCount = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            EmptyStreamDataFetches = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            DataMessageRatePeak = input.ReadUInt32();
+            break;
+          }
+          case 66: {
+            if (miscellaneousData_ == null) {
+              miscellaneousData_ = new global::Mktdatamessage.KVStringList();
+            }
+            input.ReadMessage(miscellaneousData_);
+            break;
+          }
+          case 72: {
+            Timestamp = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class KindleCacheStatsMessage : pb::IMessage<KindleCacheStatsMessage> {
+    private static readonly pb::MessageParser<KindleCacheStatsMessage> _parser = new pb::MessageParser<KindleCacheStatsMessage>(() => new KindleCacheStatsMessage());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<KindleCacheStatsMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KindleCacheStatsMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KindleCacheStatsMessage(KindleCacheStatsMessage other) : this() {
+      numTradesWithoutGreeks_ = other.numTradesWithoutGreeks_;
+      numTradesWithGreeks_ = other.numTradesWithGreeks_;
+      numTradesWithStock_ = other.numTradesWithStock_;
+      numTradesWithoutStock_ = other.numTradesWithoutStock_;
+      numTradesWithGrkAndStock_ = other.numTradesWithGrkAndStock_;
+      numTradesWithoutGrkOrStock_ = other.numTradesWithoutGrkOrStock_;
+      socketMessageWrites_ = other.socketMessageWrites_;
+      bufferFullCount_ = other.bufferFullCount_;
+      bufferFullStillCount_ = other.bufferFullStillCount_;
+      numStreamDataFetches_ = other.numStreamDataFetches_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KindleCacheStatsMessage Clone() {
+      return new KindleCacheStatsMessage(this);
+    }
+
+    /// <summary>Field number for the "NumTradesWithoutGreeks" field.</summary>
+    public const int NumTradesWithoutGreeksFieldNumber = 1;
+    private uint numTradesWithoutGreeks_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumTradesWithoutGreeks {
+      get { return numTradesWithoutGreeks_; }
+      set {
+        numTradesWithoutGreeks_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NumTradesWithGreeks" field.</summary>
+    public const int NumTradesWithGreeksFieldNumber = 2;
+    private uint numTradesWithGreeks_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumTradesWithGreeks {
+      get { return numTradesWithGreeks_; }
+      set {
+        numTradesWithGreeks_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NumTradesWithStock" field.</summary>
+    public const int NumTradesWithStockFieldNumber = 3;
+    private uint numTradesWithStock_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumTradesWithStock {
+      get { return numTradesWithStock_; }
+      set {
+        numTradesWithStock_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NumTradesWithoutStock" field.</summary>
+    public const int NumTradesWithoutStockFieldNumber = 4;
+    private uint numTradesWithoutStock_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumTradesWithoutStock {
+      get { return numTradesWithoutStock_; }
+      set {
+        numTradesWithoutStock_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NumTradesWithGrkAndStock" field.</summary>
+    public const int NumTradesWithGrkAndStockFieldNumber = 5;
+    private uint numTradesWithGrkAndStock_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumTradesWithGrkAndStock {
+      get { return numTradesWithGrkAndStock_; }
+      set {
+        numTradesWithGrkAndStock_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NumTradesWithoutGrkOrStock" field.</summary>
+    public const int NumTradesWithoutGrkOrStockFieldNumber = 6;
+    private uint numTradesWithoutGrkOrStock_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumTradesWithoutGrkOrStock {
+      get { return numTradesWithoutGrkOrStock_; }
+      set {
+        numTradesWithoutGrkOrStock_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SocketMessageWrites" field.</summary>
+    public const int SocketMessageWritesFieldNumber = 7;
+    private ulong socketMessageWrites_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong SocketMessageWrites {
+      get { return socketMessageWrites_; }
+      set {
+        socketMessageWrites_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BufferFullCount" field.</summary>
+    public const int BufferFullCountFieldNumber = 8;
+    private uint bufferFullCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint BufferFullCount {
+      get { return bufferFullCount_; }
+      set {
+        bufferFullCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BufferFullStillCount" field.</summary>
+    public const int BufferFullStillCountFieldNumber = 9;
+    private uint bufferFullStillCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint BufferFullStillCount {
+      get { return bufferFullStillCount_; }
+      set {
+        bufferFullStillCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NumStreamDataFetches" field.</summary>
+    public const int NumStreamDataFetchesFieldNumber = 10;
+    private uint numStreamDataFetches_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint NumStreamDataFetches {
+      get { return numStreamDataFetches_; }
+      set {
+        numStreamDataFetches_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as KindleCacheStatsMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(KindleCacheStatsMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (NumTradesWithoutGreeks != other.NumTradesWithoutGreeks) return false;
+      if (NumTradesWithGreeks != other.NumTradesWithGreeks) return false;
+      if (NumTradesWithStock != other.NumTradesWithStock) return false;
+      if (NumTradesWithoutStock != other.NumTradesWithoutStock) return false;
+      if (NumTradesWithGrkAndStock != other.NumTradesWithGrkAndStock) return false;
+      if (NumTradesWithoutGrkOrStock != other.NumTradesWithoutGrkOrStock) return false;
+      if (SocketMessageWrites != other.SocketMessageWrites) return false;
+      if (BufferFullCount != other.BufferFullCount) return false;
+      if (BufferFullStillCount != other.BufferFullStillCount) return false;
+      if (NumStreamDataFetches != other.NumStreamDataFetches) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (NumTradesWithoutGreeks != 0) hash ^= NumTradesWithoutGreeks.GetHashCode();
+      if (NumTradesWithGreeks != 0) hash ^= NumTradesWithGreeks.GetHashCode();
+      if (NumTradesWithStock != 0) hash ^= NumTradesWithStock.GetHashCode();
+      if (NumTradesWithoutStock != 0) hash ^= NumTradesWithoutStock.GetHashCode();
+      if (NumTradesWithGrkAndStock != 0) hash ^= NumTradesWithGrkAndStock.GetHashCode();
+      if (NumTradesWithoutGrkOrStock != 0) hash ^= NumTradesWithoutGrkOrStock.GetHashCode();
+      if (SocketMessageWrites != 0UL) hash ^= SocketMessageWrites.GetHashCode();
+      if (BufferFullCount != 0) hash ^= BufferFullCount.GetHashCode();
+      if (BufferFullStillCount != 0) hash ^= BufferFullStillCount.GetHashCode();
+      if (NumStreamDataFetches != 0) hash ^= NumStreamDataFetches.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (NumTradesWithoutGreeks != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(NumTradesWithoutGreeks);
+      }
+      if (NumTradesWithGreeks != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(NumTradesWithGreeks);
+      }
+      if (NumTradesWithStock != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(NumTradesWithStock);
+      }
+      if (NumTradesWithoutStock != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(NumTradesWithoutStock);
+      }
+      if (NumTradesWithGrkAndStock != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(NumTradesWithGrkAndStock);
+      }
+      if (NumTradesWithoutGrkOrStock != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(NumTradesWithoutGrkOrStock);
+      }
+      if (SocketMessageWrites != 0UL) {
+        output.WriteRawTag(56);
+        output.WriteUInt64(SocketMessageWrites);
+      }
+      if (BufferFullCount != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(BufferFullCount);
+      }
+      if (BufferFullStillCount != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(BufferFullStillCount);
+      }
+      if (NumStreamDataFetches != 0) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(NumStreamDataFetches);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (NumTradesWithoutGreeks != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumTradesWithoutGreeks);
+      }
+      if (NumTradesWithGreeks != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumTradesWithGreeks);
+      }
+      if (NumTradesWithStock != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumTradesWithStock);
+      }
+      if (NumTradesWithoutStock != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumTradesWithoutStock);
+      }
+      if (NumTradesWithGrkAndStock != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumTradesWithGrkAndStock);
+      }
+      if (NumTradesWithoutGrkOrStock != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumTradesWithoutGrkOrStock);
+      }
+      if (SocketMessageWrites != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SocketMessageWrites);
+      }
+      if (BufferFullCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BufferFullCount);
+      }
+      if (BufferFullStillCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BufferFullStillCount);
+      }
+      if (NumStreamDataFetches != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumStreamDataFetches);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(KindleCacheStatsMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.NumTradesWithoutGreeks != 0) {
+        NumTradesWithoutGreeks = other.NumTradesWithoutGreeks;
+      }
+      if (other.NumTradesWithGreeks != 0) {
+        NumTradesWithGreeks = other.NumTradesWithGreeks;
+      }
+      if (other.NumTradesWithStock != 0) {
+        NumTradesWithStock = other.NumTradesWithStock;
+      }
+      if (other.NumTradesWithoutStock != 0) {
+        NumTradesWithoutStock = other.NumTradesWithoutStock;
+      }
+      if (other.NumTradesWithGrkAndStock != 0) {
+        NumTradesWithGrkAndStock = other.NumTradesWithGrkAndStock;
+      }
+      if (other.NumTradesWithoutGrkOrStock != 0) {
+        NumTradesWithoutGrkOrStock = other.NumTradesWithoutGrkOrStock;
+      }
+      if (other.SocketMessageWrites != 0UL) {
+        SocketMessageWrites = other.SocketMessageWrites;
+      }
+      if (other.BufferFullCount != 0) {
+        BufferFullCount = other.BufferFullCount;
+      }
+      if (other.BufferFullStillCount != 0) {
+        BufferFullStillCount = other.BufferFullStillCount;
+      }
+      if (other.NumStreamDataFetches != 0) {
+        NumStreamDataFetches = other.NumStreamDataFetches;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            NumTradesWithoutGreeks = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            NumTradesWithGreeks = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            NumTradesWithStock = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            NumTradesWithoutStock = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            NumTradesWithGrkAndStock = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            NumTradesWithoutGrkOrStock = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            SocketMessageWrites = input.ReadUInt64();
+            break;
+          }
+          case 64: {
+            BufferFullCount = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            BufferFullStillCount = input.ReadUInt32();
+            break;
+          }
+          case 80: {
+            NumStreamDataFetches = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class KVString : pb::IMessage<KVString> {
+    private static readonly pb::MessageParser<KVString> _parser = new pb::MessageParser<KVString>(() => new KVString());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<KVString> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KVString() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KVString(KVString other) : this() {
+      key_ = other.key_;
+      value_ = other.value_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KVString Clone() {
+      return new KVString(this);
+    }
+
+    /// <summary>Field number for the "Key" field.</summary>
+    public const int KeyFieldNumber = 1;
+    private string key_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Key {
+      get { return key_; }
+      set {
+        key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Value" field.</summary>
+    public const int ValueFieldNumber = 2;
+    private string value_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Value {
+      get { return value_; }
+      set {
+        value_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as KVString);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(KVString other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Key != other.Key) return false;
+      if (Value != other.Value) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Key.Length != 0) hash ^= Key.GetHashCode();
+      if (Value.Length != 0) hash ^= Value.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Key.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Key);
+      }
+      if (Value.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Value);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Key.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
+      }
+      if (Value.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Value);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(KVString other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Key.Length != 0) {
+        Key = other.Key;
+      }
+      if (other.Value.Length != 0) {
+        Value = other.Value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            Key = input.ReadString();
+            break;
+          }
+          case 18: {
+            Value = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class KVStringList : pb::IMessage<KVStringList> {
+    private static readonly pb::MessageParser<KVStringList> _parser = new pb::MessageParser<KVStringList>(() => new KVStringList());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<KVStringList> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KVStringList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KVStringList(KVStringList other) : this() {
+      listName_ = other.listName_;
+      kVStrings_ = other.kVStrings_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KVStringList Clone() {
+      return new KVStringList(this);
+    }
+
+    /// <summary>Field number for the "ListName" field.</summary>
+    public const int ListNameFieldNumber = 1;
+    private string listName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ListName {
+      get { return listName_; }
+      set {
+        listName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "KVStrings" field.</summary>
+    public const int KVStringsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::Mktdatamessage.KVString> _repeated_kVStrings_codec
+        = pb::FieldCodec.ForMessage(18, global::Mktdatamessage.KVString.Parser);
+    private readonly pbc::RepeatedField<global::Mktdatamessage.KVString> kVStrings_ = new pbc::RepeatedField<global::Mktdatamessage.KVString>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Mktdatamessage.KVString> KVStrings {
+      get { return kVStrings_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as KVStringList);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(KVStringList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ListName != other.ListName) return false;
+      if(!kVStrings_.Equals(other.kVStrings_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ListName.Length != 0) hash ^= ListName.GetHashCode();
+      hash ^= kVStrings_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (ListName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ListName);
+      }
+      kVStrings_.WriteTo(output, _repeated_kVStrings_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ListName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ListName);
+      }
+      size += kVStrings_.CalculateSize(_repeated_kVStrings_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(KVStringList other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ListName.Length != 0) {
+        ListName = other.ListName;
+      }
+      kVStrings_.Add(other.kVStrings_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            ListName = input.ReadString();
+            break;
+          }
+          case 18: {
+            kVStrings_.AddEntriesFrom(input, _repeated_kVStrings_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class BytesMessage : pb::IMessage<BytesMessage> {
+    private static readonly pb::MessageParser<BytesMessage> _parser = new pb::MessageParser<BytesMessage>(() => new BytesMessage());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BytesMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BytesMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BytesMessage(BytesMessage other) : this() {
+      messageText_ = other.messageText_;
+      dataBytes_ = other.dataBytes_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BytesMessage Clone() {
+      return new BytesMessage(this);
+    }
+
+    /// <summary>Field number for the "MessageText" field.</summary>
+    public const int MessageTextFieldNumber = 1;
+    private string messageText_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string MessageText {
+      get { return messageText_; }
+      set {
+        messageText_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "DataBytes" field.</summary>
+    public const int DataBytesFieldNumber = 2;
+    private static readonly pb::FieldCodec<pb::ByteString> _repeated_dataBytes_codec
+        = pb::FieldCodec.ForBytes(18);
+    private readonly pbc::RepeatedField<pb::ByteString> dataBytes_ = new pbc::RepeatedField<pb::ByteString>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<pb::ByteString> DataBytes {
+      get { return dataBytes_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BytesMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BytesMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (MessageText != other.MessageText) return false;
+      if(!dataBytes_.Equals(other.dataBytes_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (MessageText.Length != 0) hash ^= MessageText.GetHashCode();
+      hash ^= dataBytes_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (MessageText.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(MessageText);
+      }
+      dataBytes_.WriteTo(output, _repeated_dataBytes_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (MessageText.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageText);
+      }
+      size += dataBytes_.CalculateSize(_repeated_dataBytes_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BytesMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.MessageText.Length != 0) {
+        MessageText = other.MessageText;
+      }
+      dataBytes_.Add(other.dataBytes_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            MessageText = input.ReadString();
+            break;
+          }
+          case 18: {
+            dataBytes_.AddEntriesFrom(input, _repeated_dataBytes_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class QuoteMessagesBatch : pb::IMessage<QuoteMessagesBatch> {
     private static readonly pb::MessageParser<QuoteMessagesBatch> _parser = new pb::MessageParser<QuoteMessagesBatch>(() => new QuoteMessagesBatch());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2927,7 +5165,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3064,7 +5302,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3201,7 +5439,7 @@ namespace Mktdatamessage {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Mktdatamessage.MktdataReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

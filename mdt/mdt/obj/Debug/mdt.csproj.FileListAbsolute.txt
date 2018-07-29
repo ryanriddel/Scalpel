@@ -336,7 +336,6 @@ C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\de\DevExpress.Sparkline.v17.1.C
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\es\DevExpress.Sparkline.v17.1.Core.resources.dll
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
-C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\obj\Debug\mdt.csprojResolveAssemblyReference.cache
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\obj\Debug\mdt.frmMain.resources
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\obj\Debug\mdt.Properties.Resources.resources
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\obj\Debug\mdt.csproj.GenerateResource.Cache
@@ -520,3 +519,8 @@ C:\Users\Scalp\Documents\Visual Studio 2017\Projects\Scalpel\mdt\mdt\obj\Debug\m
 C:\Users\Scalp\Documents\Visual Studio 2017\Projects\Scalpel\mdt\mdt\obj\Debug\mdt.pdb
 C:\Users\Scalp\Documents\Visual Studio 2017\Projects\Scalpel\mdt\mdt\bin\Debug\MktSrvcAPI.dll
 C:\Users\Scalp\Desktop\Scalpel\mdt\mdt\bin\Debug\MktSrvcAPI.dll
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\mdt.exe.manifest
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\mdt.application
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\obj\Debug\mdt.exe.manifest
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\obj\Debug\mdt.application
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\obj\Debug\mdt.csprojResolveAssemblyReference.cache
