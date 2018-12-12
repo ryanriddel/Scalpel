@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using RbGRPC;
+using Grpc.Core;
+
+namespace grpctester
+{
+    public partial class Form1 : Form
+    {
+        Channel channel;
+        Credentials credentials;
+
+        
+        public mainForm()
+        {
+            InitializeComponent();
+            Console.WriteLine(RbGRPC.RbgrpcReflection.Descriptor.Services[0].FullName);
+
+
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+            requestComboBox.Items.Add("Subscribe to AAPL Quotes");
+            requestComboBox.Items.Add("Subscribe to AAPL Trades");
+        }
+
+        private void grpcCallButton_Click(object sender, EventArgs e)
+        {
+            if(requestComboBox.Text == "")
+            {
+                MessageBox.Show("Invalid request.");
+                return;
+            }
+            RbGRPC.SubscriptionRequest newRequest = new RbGRPC.SubscriptionRequest
+            {
+                IsSpread = false,
+                IsList = false
+            };
+
+            RbGRPC.Instrument instr = new RbGRPC.Instrument
+            {
+                UnderlyingSymbol = "AAPL",
+                ExpirationDay = 28,
+                ExpirationMonth = 12,
+                ExpirationYear = 2018,
+                IsCallOption = true,
+                InstrumentType = RbGRPC.Instrument.Types.InstrType.Option,
+                IsLegOfSpread = false,
+                Strike = 165
+            };
+            newRequest.Instruments.Add(instr);
+            
+            //RbGRPC.SubscriptionRequest.
+
+
+        }
+    }
+}
