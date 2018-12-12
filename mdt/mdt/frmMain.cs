@@ -252,7 +252,9 @@ namespace mdt
                         Mktdatamessage.RBTrade2 rbMsg;
 
                         rbMsg = Mktdatamessage.RBTrade2.Parser.ParseFrom(data);
-                        string rbstr = Google.Protobuf.JsonFormatter.ToDiagnosticString(rbMsg);
+                        string rbstr = Google.Protobuf.JsonFormatter.ToDiagnosticString(rbMsg) +
+                        Google.Protobuf.JsonFormatter.ToDiagnosticString(rbMsg.Instruments[0]) +
+                        (rbMsg.Instruments[0].IsCallOption ? "C" : "P");
                         
 
                         
@@ -328,7 +330,7 @@ namespace mdt
                     else if(mtype == ProtobufMessageType.PacketHandlerStatsMessage)
                     {
                         byte[] data = a.Message.Data;
-                        Mktdatamessage.PacketHandlerStats sMsg;
+                        /*Mktdatamessage.PacketHandlerStats sMsg;
 
 
                         sMsg = Mktdatamessage.PacketHandlerStats.Parser.ParseFrom(data);
@@ -343,7 +345,7 @@ namespace mdt
                             sMsg.LastLoggedPackets + "] [" + sMsg.TotalDataProcessed + "] [" + sMsg.TotalGaps + "] [" + sMsg.TotalPacketsProcessed + "]";
 
                             receivedMessageDictByType[ProtobufMessageType.PacketHandlerStatsMessage][subj].Enqueue(messageText);
-                        }
+                        }*/
                     }
                     else if(mtype == ProtobufMessageType.UnknownMessageType)
                     {
@@ -512,7 +514,7 @@ namespace mdt
                         allMessages += str + Environment.NewLine; 
                 }
 
-
+                addDataTab(subj, allMessages);
                 /*string strGuy = "" ;
                 string theBigMessage = "";
                 while(quoteMessages[subj].TryDequeue(out strGuy))
