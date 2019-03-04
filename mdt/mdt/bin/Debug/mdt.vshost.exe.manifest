@@ -1602,14 +1602,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="mdt.exe" size="140232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="mdt.exe" size="144840">
       <assemblyIdentity name="mdt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>blHLMt8ou8LeEqP0VeR7SsQrfZSfh72SqyBCkQJMoWg=</dsig:DigestValue>
+        <dsig:DigestValue>0EGp6Lmw4HMU3YJrRqqOH4aXhrcx9LFSSnuqW576Apw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

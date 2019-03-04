@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPubSubIP = new DevExpress.XtraEditors.TextEdit();
             this.checkEditTestTCP = new DevExpress.XtraEditors.CheckEdit();
@@ -81,10 +83,30 @@
             this.tabData = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageTemplate = new DevExpress.XtraTab.XtraTabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.requestButton = new System.Windows.Forms.Button();
+            this.subscribeTextBox = new System.Windows.Forms.TextBox();
+            this.subscribeButton = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.subscribeBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.consoleBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.sendButton = new System.Windows.Forms.Button();
+            this.messageBox = new System.Windows.Forms.TextBox();
+            this.topicBox = new System.Windows.Forms.TextBox();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -120,7 +142,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabData)).BeginInit();
             this.tabData.SuspendLayout();
             this.tabPageTemplate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
+            this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -144,6 +167,27 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(171, 255);
             this.panelControl1.TabIndex = 0;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, 227);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(164, 17);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "Broadcast Test RB Messages";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // separatorControl2
+            // 
+            this.separatorControl2.AutoSizeMode = true;
+            this.separatorControl2.LineColor = System.Drawing.Color.Gray;
+            this.separatorControl2.LineStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.separatorControl2.Location = new System.Drawing.Point(5, 207);
+            this.separatorControl2.Name = "separatorControl2";
+            this.separatorControl2.Size = new System.Drawing.Size(161, 20);
+            this.separatorControl2.TabIndex = 27;
             // 
             // label4
             // 
@@ -588,7 +632,9 @@
             this.tbControlMain.TabIndex = 1;
             this.tbControlMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tbpageNATS,
-            this.tbpageData});
+            this.tbpageData,
+            this.xtraTabPage1,
+            this.xtraTabPage2});
             // 
             // tbpageNATS
             // 
@@ -746,26 +792,227 @@
             this.textBox1.Size = new System.Drawing.Size(605, 189);
             this.textBox1.TabIndex = 24;
             // 
-            // separatorControl2
+            // xtraTabPage1
             // 
-            this.separatorControl2.AutoSizeMode = true;
-            this.separatorControl2.LineColor = System.Drawing.Color.Gray;
-            this.separatorControl2.LineStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.separatorControl2.Location = new System.Drawing.Point(5, 207);
-            this.separatorControl2.Name = "separatorControl2";
-            this.separatorControl2.Size = new System.Drawing.Size(161, 20);
-            this.separatorControl2.TabIndex = 27;
+            this.xtraTabPage1.Controls.Add(this.requestButton);
+            this.xtraTabPage1.Controls.Add(this.subscribeTextBox);
+            this.xtraTabPage1.Controls.Add(this.subscribeButton);
+            this.xtraTabPage1.Controls.Add(this.label9);
+            this.xtraTabPage1.Controls.Add(this.subscribeBox);
+            this.xtraTabPage1.Controls.Add(this.label8);
+            this.xtraTabPage1.Controls.Add(this.label7);
+            this.xtraTabPage1.Controls.Add(this.consoleBox);
+            this.xtraTabPage1.Controls.Add(this.label6);
+            this.xtraTabPage1.Controls.Add(this.label5);
+            this.xtraTabPage1.Controls.Add(this.sendButton);
+            this.xtraTabPage1.Controls.Add(this.messageBox);
+            this.xtraTabPage1.Controls.Add(this.topicBox);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(625, 232);
+            this.xtraTabPage1.Text = "Messages";
             // 
-            // checkBox1
+            // requestButton
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 227);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(164, 17);
-            this.checkBox1.TabIndex = 28;
-            this.checkBox1.Text = "Broadcast Test RB Messages";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.requestButton.Location = new System.Drawing.Point(162, 121);
+            this.requestButton.Name = "requestButton";
+            this.requestButton.Size = new System.Drawing.Size(100, 23);
+            this.requestButton.TabIndex = 12;
+            this.requestButton.Text = "REQUEST";
+            this.requestButton.UseVisualStyleBackColor = true;
+            this.requestButton.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // subscribeTextBox
+            // 
+            this.subscribeTextBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.subscribeTextBox.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.subscribeTextBox.Location = new System.Drawing.Point(334, 111);
+            this.subscribeTextBox.Multiline = true;
+            this.subscribeTextBox.Name = "subscribeTextBox";
+            this.subscribeTextBox.ReadOnly = true;
+            this.subscribeTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.subscribeTextBox.Size = new System.Drawing.Size(256, 93);
+            this.subscribeTextBox.TabIndex = 11;
+            // 
+            // subscribeButton
+            // 
+            this.subscribeButton.Location = new System.Drawing.Point(407, 75);
+            this.subscribeButton.Name = "subscribeButton";
+            this.subscribeButton.Size = new System.Drawing.Size(100, 23);
+            this.subscribeButton.TabIndex = 10;
+            this.subscribeButton.Text = "SUBSCRIBE";
+            this.subscribeButton.UseVisualStyleBackColor = true;
+            this.subscribeButton.Click += new System.EventHandler(this.subscribeButton_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(331, 42);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 17);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "TOPIC:";
+            // 
+            // subscribeBox
+            // 
+            this.subscribeBox.BackColor = System.Drawing.SystemColors.InfoText;
+            this.subscribeBox.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.subscribeBox.ForeColor = System.Drawing.SystemColors.Info;
+            this.subscribeBox.Location = new System.Drawing.Point(420, 39);
+            this.subscribeBox.Name = "subscribeBox";
+            this.subscribeBox.Size = new System.Drawing.Size(150, 24);
+            this.subscribeBox.TabIndex = 8;
+            this.subscribeBox.Text = "SUBREQ.TRADE.A";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label8.Location = new System.Drawing.Point(404, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 17);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "SUBSCRIBE:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label7.Location = new System.Drawing.Point(62, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(149, 17);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "PUBLISH MESSAGE:";
+            // 
+            // consoleBox
+            // 
+            this.consoleBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.consoleBox.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.consoleBox.Location = new System.Drawing.Point(26, 158);
+            this.consoleBox.Multiline = true;
+            this.consoleBox.Name = "consoleBox";
+            this.consoleBox.ReadOnly = true;
+            this.consoleBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.consoleBox.Size = new System.Drawing.Size(248, 46);
+            this.consoleBox.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(23, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 17);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "MESSAGE:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(23, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 17);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "TOPIC:";
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(26, 121);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(100, 23);
+            this.sendButton.TabIndex = 2;
+            this.sendButton.Text = "SEND";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
+            // messageBox
+            // 
+            this.messageBox.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.messageBox.Location = new System.Drawing.Point(112, 82);
+            this.messageBox.Name = "messageBox";
+            this.messageBox.Size = new System.Drawing.Size(150, 24);
+            this.messageBox.TabIndex = 1;
+            this.messageBox.Text = "Test";
+            // 
+            // topicBox
+            // 
+            this.topicBox.BackColor = System.Drawing.SystemColors.InfoText;
+            this.topicBox.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.topicBox.ForeColor = System.Drawing.SystemColors.Info;
+            this.topicBox.Location = new System.Drawing.Point(112, 39);
+            this.topicBox.Name = "topicBox";
+            this.topicBox.Size = new System.Drawing.Size(150, 24);
+            this.topicBox.TabIndex = 0;
+            this.topicBox.Text = "SUBREQ.TRADE.A";
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.textBox3);
+            this.xtraTabPage2.Controls.Add(this.label12);
+            this.xtraTabPage2.Controls.Add(this.label11);
+            this.xtraTabPage2.Controls.Add(this.textBox2);
+            this.xtraTabPage2.Controls.Add(this.button1);
+            this.xtraTabPage2.Controls.Add(this.label10);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(625, 232);
+            this.xtraTabPage2.Text = "grpc";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label10.Location = new System.Drawing.Point(70, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(106, 18);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "grpc Request";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(87, 82);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Get IDX";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.AllowDrop = true;
+            this.textBox2.Location = new System.Drawing.Point(73, 41);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(187, 21);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Instrument:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label12.Location = new System.Drawing.Point(70, 136);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(117, 18);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "grpc Response";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBox3.Location = new System.Drawing.Point(9, 160);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(251, 61);
+            this.textBox3.TabIndex = 6;
             // 
             // frmMain
             // 
@@ -781,6 +1028,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPubSubIP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditTestTCP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
@@ -818,7 +1066,10 @@
             this.tabData.ResumeLayout(false);
             this.tabPageTemplate.ResumeLayout(false);
             this.tabPageTemplate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
+            this.xtraTabPage2.ResumeLayout(false);
+            this.xtraTabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -880,6 +1131,27 @@
         private System.Windows.Forms.TextBox txtConnectMsg;
         private System.Windows.Forms.CheckBox checkBox1;
         private DevExpress.XtraEditors.SeparatorControl separatorControl2;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button sendButton;
+        private System.Windows.Forms.TextBox messageBox;
+        private System.Windows.Forms.TextBox topicBox;
+        private System.Windows.Forms.TextBox consoleBox;
+        private System.Windows.Forms.TextBox subscribeTextBox;
+        private System.Windows.Forms.Button subscribeButton;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox subscribeBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button requestButton;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
 

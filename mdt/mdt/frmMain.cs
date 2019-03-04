@@ -708,6 +708,38 @@ namespace mdt
                 rbBroadcastTimer.Enabled = false;
             }
         }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            nats.PublishString(topicBox.Text, messageBox.Text);
+            consoleBox.Text += "Message published" + Environment.NewLine;
+        }
+
+
+        void addSubscribeMsgText(string text)
+        {
+            subscribeTextBox.Invoke((MethodInvoker)delegate
+            {
+                subscribeTextBox.Text += text + Environment.NewLine;
+            });
+        }
+
+        private void subscribeButton_Click(object sender, EventArgs e)
+        {
+            EventHandler<MsgHandlerEventArgs> evHandler = new EventHandler<MsgHandlerEventArgs>((object o, MsgHandlerEventArgs a) =>
+            {
+                addSubscribeMsgText(a.Message.ToString());
+            });
+            nats.Subscribe(subscribeBox.Text, evHandler);
+            
+            addSubscribeMsgText("Subscribed to " + subscribeBox.Text);
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            string returnVal = nats.RequestString(topicBox.Text, messageBox.Text);
+            consoleBox.Text += "Message received: " + returnVal + Environment.NewLine;
+        }
     }
 
     public enum ProtobufMessageType

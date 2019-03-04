@@ -70,6 +70,32 @@ namespace mdt
             return natsConnection.SubscribeAsync(subject, msgHandler);
         }
 
+        public void PublishString(string subject, string message)
+        {
+            byte[] bytes = new byte[message.Length * sizeof(char)];
+            System.Buffer.BlockCopy(message.ToCharArray(), 0, bytes, 0, bytes.Length);
+            natsConnection.Publish(subject, bytes);
+            Console.WriteLine(bytes.Length);
+        }
+
+        public string RequestString(string subject, string message)
+        {
+            byte[] bytes = Encoding.ASCII.GetBytes(message);
+            Console.WriteLine(System.Text.Encoding.Default.GetString(bytes));
+            string response = "NO REPLY";
+            try
+            {
+                Msg a = natsConnection.Request(subject, bytes, 5000);
+
+                response = System.Text.Encoding.Default.GetString(a.Data);
+            }
+            catch(Exception e)
+            {
+                
+            }
+            return response;
+        }
+
         public void Unsubscribe(IAsyncSubscription subscription)
         {
             subscription.Unsubscribe();
