@@ -1602,14 +1602,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="mdt.exe" size="144840">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Grpc.Core.dll" size="462320">
+      <assemblyIdentity name="Grpc.Core" version="1.0.0.0" publicKeyToken="D754F35622E28BAD" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>pU8hHWYj8uS1W+AAdvGS1TVqvPAD74sCyRY4XcVXW0Y=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Grpc.Core.Api.dll" size="30704">
+      <assemblyIdentity name="Grpc.Core.Api" version="0.0.0.0" publicKeyToken="D754F35622E28BAD" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JsPRK8DVCKBSfirpWqyqwmr9fi1fHzu7VSXq6x8VwYI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="mdt.exe" size="165320">
       <assemblyIdentity name="mdt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0EGp6Lmw4HMU3YJrRqqOH4aXhrcx9LFSSnuqW576Apw=</dsig:DigestValue>
+        <dsig:DigestValue>hbrMhqruxGKJH5RnfPGDzrHQZ/AnoHXTH8joj4AUIC8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1637,6 +1661,72 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Interactive.Async.dll" size="252344">
+      <assemblyIdentity name="System.Interactive.Async" version="3.2.0.0" publicKeyToken="94BC3704CDDFC263" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Ohq4pHCxNbD9SBJGHTHCKM68jKcfgwp4pyTE0BEJn3k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="grpc_csharp_ext.x64.dll" size="3963888">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Cx8wFHCyGsA63mE0dLOoaS4KUkd3Ip3muFsMdC4oy1o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="grpc_csharp_ext.x86.dll" size="2974704">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HS3S4JZrgAguum0ZIUqChaNTYFZFkotLVOtPL+dr6wk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="libgrpc_csharp_ext.x64.dylib" size="3910304">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>QHYosVvhnvY9I3HoQBG772EuVyCzMDd+1jHPW7QlgjU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="libgrpc_csharp_ext.x64.so" size="19617424">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>4z9l43nmyVQUvBUnWHwwDzSIeCrVGeYqN99/EhCfZ1Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="libgrpc_csharp_ext.x86.dylib" size="3367152">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xvk9qbQaDkKtk/4aw0QA+Q5ekDvMpofB5StqR/ZInX0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="libgrpc_csharp_ext.x86.so" size="15841600">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/wDvZ8gNn5HHSLOA4hvxoD0qLz6sHOdjmomH/YMHgjc=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="mdt.exe.config" size="189">
     <hash>
       <dsig:Transforms>

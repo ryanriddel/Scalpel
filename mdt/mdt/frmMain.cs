@@ -740,6 +740,28 @@ namespace mdt
             string returnVal = nats.RequestString(topicBox.Text, messageBox.Text);
             consoleBox.Text += "Message received: " + returnVal + Environment.NewLine;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string instrStr = "";
+            instrStr += underlyingBox.Text + ".";
+            instrStr += (Convert.ToInt16(expYearBox.Text) - 2000).ToString() + ".";
+            instrStr += expMonthBox.Text + ".";
+            instrStr += expDayBox.Text + ".";
+            if (pcBox.Text == "CALL")
+                instrStr += "C" + ".";
+            else if (pcBox.Text == "PUT")
+                instrStr += "P" + ".";
+            instrStr += (strikeBox.Value * 100).ToString();
+            textBox2.Text = instrStr;
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            string subj = "SUBREQ.IDX";
+            string response = nats.RequestString(subj, textBox2.Text);
+            textBox3.Text += response + Environment.NewLine;
+        }
     }
 
     public enum ProtobufMessageType
