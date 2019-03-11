@@ -758,7 +758,7 @@ namespace mdt
 
         private void button1_Click_3(object sender, EventArgs e)
         {
-            string subj = "SUBREQ.IDX";
+            string subj = "SUBMGR.REQ.IDX";
             string response = nats.RequestString(subj, textBox2.Text);
             textBox3.Text += response + Environment.NewLine;
         }

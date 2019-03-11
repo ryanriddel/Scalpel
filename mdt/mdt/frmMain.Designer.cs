@@ -98,26 +98,26 @@
             this.messageBox = new System.Windows.Forms.TextBox();
             this.topicBox = new System.Windows.Forms.TextBox();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pcBox = new System.Windows.Forms.ComboBox();
+            this.strikeBox = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.expYearBox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.expMonthBox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.expDayBox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.underlyingBox = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.underlyingBox = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.expDayBox = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.expMonthBox = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.expYearBox = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.strikeBox = new System.Windows.Forms.NumericUpDown();
-            this.pcBox = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
@@ -990,6 +990,149 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(625, 232);
             this.xtraTabPage2.Text = "IDX";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(419, 202);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 23);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Populate Instrument";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pcBox
+            // 
+            this.pcBox.FormattingEnabled = true;
+            this.pcBox.Location = new System.Drawing.Point(468, 175);
+            this.pcBox.Name = "pcBox";
+            this.pcBox.Size = new System.Drawing.Size(66, 21);
+            this.pcBox.TabIndex = 21;
+            this.pcBox.Text = "CALL";
+            // 
+            // strikeBox
+            // 
+            this.strikeBox.DecimalPlaces = 1;
+            this.strikeBox.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            65536});
+            this.strikeBox.Location = new System.Drawing.Point(469, 148);
+            this.strikeBox.Maximum = new decimal(new int[] {
+            190,
+            0,
+            0,
+            0});
+            this.strikeBox.Minimum = new decimal(new int[] {
+            160,
+            0,
+            0,
+            0});
+            this.strikeBox.Name = "strikeBox";
+            this.strikeBox.Size = new System.Drawing.Size(120, 21);
+            this.strikeBox.TabIndex = 20;
+            this.strikeBox.Value = new decimal(new int[] {
+            170,
+            0,
+            0,
+            0});
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(364, 178);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(24, 13);
+            this.label19.TabIndex = 19;
+            this.label19.Text = "C/P";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(364, 151);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(38, 13);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Strike:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(364, 124);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 13);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Exp Year:";
+            // 
+            // expYearBox
+            // 
+            this.expYearBox.Location = new System.Drawing.Point(469, 121);
+            this.expYearBox.Name = "expYearBox";
+            this.expYearBox.Size = new System.Drawing.Size(100, 21);
+            this.expYearBox.TabIndex = 14;
+            this.expYearBox.Text = "2019";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(364, 94);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 13);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Exp Month:";
+            // 
+            // expMonthBox
+            // 
+            this.expMonthBox.Location = new System.Drawing.Point(469, 91);
+            this.expMonthBox.Name = "expMonthBox";
+            this.expMonthBox.Size = new System.Drawing.Size(100, 21);
+            this.expMonthBox.TabIndex = 12;
+            this.expMonthBox.Text = "4";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(364, 67);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(51, 13);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Exp Day:";
+            // 
+            // expDayBox
+            // 
+            this.expDayBox.Location = new System.Drawing.Point(469, 64);
+            this.expDayBox.Name = "expDayBox";
+            this.expDayBox.Size = new System.Drawing.Size(100, 21);
+            this.expDayBox.TabIndex = 10;
+            this.expDayBox.Text = "12";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(364, 40);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 13);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Underlying:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label13.Location = new System.Drawing.Point(403, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(91, 18);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Instrument";
+            // 
+            // underlyingBox
+            // 
+            this.underlyingBox.Location = new System.Drawing.Point(469, 37);
+            this.underlyingBox.Name = "underlyingBox";
+            this.underlyingBox.Size = new System.Drawing.Size(100, 21);
+            this.underlyingBox.TabIndex = 7;
+            this.underlyingBox.Text = "AAPL";
+            // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -997,6 +1140,7 @@
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox3.Size = new System.Drawing.Size(251, 61);
             this.textBox3.TabIndex = 6;
             // 
@@ -1049,149 +1193,6 @@
             this.label10.Size = new System.Drawing.Size(101, 18);
             this.label10.TabIndex = 1;
             this.label10.Text = "IDX Request";
-            // 
-            // underlyingBox
-            // 
-            this.underlyingBox.Location = new System.Drawing.Point(469, 37);
-            this.underlyingBox.Name = "underlyingBox";
-            this.underlyingBox.Size = new System.Drawing.Size(100, 21);
-            this.underlyingBox.TabIndex = 7;
-            this.underlyingBox.Text = "AAPL";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label13.Location = new System.Drawing.Point(403, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 18);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Instrument";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(364, 40);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 13);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Underlying:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(364, 67);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 13);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "Exp Day:";
-            // 
-            // expDayBox
-            // 
-            this.expDayBox.Location = new System.Drawing.Point(469, 64);
-            this.expDayBox.Name = "expDayBox";
-            this.expDayBox.Size = new System.Drawing.Size(100, 21);
-            this.expDayBox.TabIndex = 10;
-            this.expDayBox.Text = "12";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(364, 94);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 13);
-            this.label16.TabIndex = 13;
-            this.label16.Text = "Exp Month:";
-            // 
-            // expMonthBox
-            // 
-            this.expMonthBox.Location = new System.Drawing.Point(469, 91);
-            this.expMonthBox.Name = "expMonthBox";
-            this.expMonthBox.Size = new System.Drawing.Size(100, 21);
-            this.expMonthBox.TabIndex = 12;
-            this.expMonthBox.Text = "4";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(364, 124);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(54, 13);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "Exp Year:";
-            // 
-            // expYearBox
-            // 
-            this.expYearBox.Location = new System.Drawing.Point(469, 121);
-            this.expYearBox.Name = "expYearBox";
-            this.expYearBox.Size = new System.Drawing.Size(100, 21);
-            this.expYearBox.TabIndex = 14;
-            this.expYearBox.Text = "2019";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(364, 151);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(38, 13);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "Strike:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(364, 178);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(24, 13);
-            this.label19.TabIndex = 19;
-            this.label19.Text = "C/P";
-            // 
-            // strikeBox
-            // 
-            this.strikeBox.DecimalPlaces = 1;
-            this.strikeBox.Increment = new decimal(new int[] {
-            25,
-            0,
-            0,
-            65536});
-            this.strikeBox.Location = new System.Drawing.Point(469, 148);
-            this.strikeBox.Maximum = new decimal(new int[] {
-            190,
-            0,
-            0,
-            0});
-            this.strikeBox.Minimum = new decimal(new int[] {
-            160,
-            0,
-            0,
-            0});
-            this.strikeBox.Name = "strikeBox";
-            this.strikeBox.Size = new System.Drawing.Size(120, 21);
-            this.strikeBox.TabIndex = 20;
-            this.strikeBox.Value = new decimal(new int[] {
-            170,
-            0,
-            0,
-            0});
-            // 
-            // pcBox
-            // 
-            this.pcBox.FormattingEnabled = true;
-            this.pcBox.Location = new System.Drawing.Point(468, 175);
-            this.pcBox.Name = "pcBox";
-            this.pcBox.Size = new System.Drawing.Size(66, 21);
-            this.pcBox.TabIndex = 21;
-            this.pcBox.Text = "CALL";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(419, 202);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 23);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Populate Instrument";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmMain
             // 

@@ -713,3 +713,17 @@ C:\Users\Scalp\Desktop\scalpel-repo\mdt\mdt\obj\Debug\mdt.csproj.GenerateResourc
 C:\Users\Scalp\Desktop\scalpel-repo\mdt\mdt\obj\Debug\mdt.exe.licenses
 C:\Users\Scalp\Desktop\scalpel-repo\mdt\mdt\obj\Debug\mdt.exe.manifest
 C:\Users\Scalp\Desktop\scalpel-repo\mdt\mdt\obj\Debug\mdt.application
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\grpc_csharp_ext.x86.dll
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\grpc_csharp_ext.x64.dll
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\libgrpc_csharp_ext.x86.so
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\libgrpc_csharp_ext.x64.so
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\libgrpc_csharp_ext.x86.dylib
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\libgrpc_csharp_ext.x64.dylib
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.Api.dll
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.dll
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\System.Interactive.Async.dll
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.pdb
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.xml
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.Api.pdb
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.Api.xml
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\System.Interactive.Async.xml
