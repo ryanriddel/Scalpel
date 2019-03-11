@@ -762,6 +762,37 @@ namespace mdt
             string response = nats.RequestString(subj, textBox2.Text);
             textBox3.Text += response + Environment.NewLine;
         }
+
+        private void textBox2_DragDrop(object sender, DragEventArgs e)
+        {
+            string dragDropText = e.Data.GetData(DataFormats.Text).ToString();
+            textBox2.Text = dragDropText;
+            Debug.WriteLine("textbox drop");
+        }
+
+        private void tbControlMain_DragDrop(object sender, DragEventArgs e)
+        {
+            string dragDropText = e.Data.GetData(DataFormats.Text).ToString();
+            Debug.WriteLine("tab drop");
+        }
+
+        private void frmMain_DragDrop(object sender, DragEventArgs e)
+        {
+            string dragDropText = e.Data.GetData(DataFormats.Text).ToString();
+            Debug.WriteLine("form drop");
+        }
+
+        private void textBox2_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+                e.Effect = DragDropEffects.Copy;
+            else
+                e.Effect = DragDropEffects.None;
+
+            string dragDropText = e.Data.GetData(DataFormats.Text).ToString();
+            Debug.WriteLine("enter");
+            textBox2.Text = dragDropText;
+        }
     }
 
     public enum ProtobufMessageType

@@ -650,6 +650,7 @@
             this.tbpageData,
             this.xtraTabPage1,
             this.xtraTabPage2});
+            this.tbControlMain.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbControlMain_DragDrop);
             // 
             // tbpageNATS
             // 
@@ -943,6 +944,7 @@
             // 
             // messageBox
             // 
+            this.messageBox.AllowDrop = true;
             this.messageBox.Font = new System.Drawing.Font("Tahoma", 10F);
             this.messageBox.Location = new System.Drawing.Point(112, 82);
             this.messageBox.Name = "messageBox";
@@ -963,6 +965,7 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.AllowDrop = true;
             this.xtraTabPage2.Controls.Add(this.button2);
             this.xtraTabPage2.Controls.Add(this.pcBox);
             this.xtraTabPage2.Controls.Add(this.strikeBox);
@@ -1019,10 +1022,13 @@
             // textBox2
             // 
             this.textBox2.AllowDrop = true;
-            this.textBox2.Location = new System.Drawing.Point(73, 41);
+            this.textBox2.Location = new System.Drawing.Point(73, 31);
+            this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 21);
+            this.textBox2.Size = new System.Drawing.Size(187, 41);
             this.textBox2.TabIndex = 3;
+            this.textBox2.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBox2_DragDrop);
+            this.textBox2.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBox2_DragEnter);
             // 
             // button1
             // 
@@ -1189,6 +1195,7 @@
             // 
             // frmMain
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 274);
@@ -1198,6 +1205,7 @@
             this.Text = "Scalpel Tester";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmMain_DragDrop);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
