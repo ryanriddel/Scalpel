@@ -11,7 +11,7 @@ using System.Net;
 using System.Net.Sockets;
 using NATS.Client;
 using System.Collections.Concurrent;
-
+using Google.Protobuf;
 
 using System.Diagnostics;
 
@@ -104,7 +104,7 @@ namespace mdt
 
         private void btnConnect_Click(object sndr, EventArgs e)
         {
-            closeConnections();
+             closeConnections();
 
             connectionDetailsChanged(this, null);
 
@@ -792,6 +792,22 @@ namespace mdt
             string dragDropText = e.Data.GetData(DataFormats.Text).ToString();
             Debug.WriteLine("enter");
             textBox2.Text = dragDropText;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Mktdatamessage.Instrument instr = new Mktdatamessage.Instrument();
+            instr.ExpirationDay = Convert.ToInt16(expDayBox.Text);
+            instr.ExpirationMonth = Convert.ToInt16(expMonthBox.Text);
+            instr.ExpirationYear = Convert.ToInt16(expYearBox.Text);
+            if (pcBox.Text == "CALL")
+                instr.IsCallOption = true;
+            else
+                instr.IsCallOption = false;
+            instr.Strike = (float) strikeBox.Value;
+            instr.UnderlyingSymbol = underlyingBox.Text;
+            nats.SendInstrProtobuf("SUBMGR.TEST.PROTOBUF", instr);
+            
         }
     }
 

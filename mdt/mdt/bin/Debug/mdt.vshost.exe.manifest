@@ -1590,14 +1590,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google.Protobuf.dll" size="294400">
-      <assemblyIdentity name="Google.Protobuf" version="3.5.1.0" publicKeyToken="A7D26565BAC4D604" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google.Protobuf.dll" size="332272">
+      <assemblyIdentity name="Google.Protobuf" version="3.7.0.0" publicKeyToken="A7D26565BAC4D604" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kmmLSyM9YCkmP+X33YMDTg/6sJlFHUuInLwRv1o/LXM=</dsig:DigestValue>
+        <dsig:DigestValue>f1yKKI9AgxV1r7Eul4eoXRyQEbiyIv4XKaLSp4UTeZk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1626,14 +1626,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="mdt.exe" size="166344">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="mdt.exe" size="166856">
       <assemblyIdentity name="mdt" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Z9bMS52mvEN9fh/dhpmTmEXCv0BZ4NenSG4Y6zj6wEM=</dsig:DigestValue>
+        <dsig:DigestValue>zgsz8WGvYD1gl5SqxOkDTLSJ6lQ8MiM2VMwdUdnR4yU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1650,14 +1650,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NATS.Client.DLL" size="83968">
-      <assemblyIdentity name="NATS.Client" version="0.8.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NATS.Client.dll" size="86016">
+      <assemblyIdentity name="NATS.Client" version="0.8.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xYqSwrkMP39sr9UFfQizNuSTrxiJsbFDym1BzvQPiAw=</dsig:DigestValue>
+        <dsig:DigestValue>iGZ/etR+QAfQzjYVIF1LH4ddZHYsEcT169L1ZP5Wock=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="protobuf-net.dll" size="275456">
+      <assemblyIdentity name="protobuf-net" version="2.4.0.0" publicKeyToken="257B51D87D2E4D67" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>BCuMHB4Ot2SLFk7kjJUWjEgyTx+0Ocq9Xy5B2wk42Ac=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

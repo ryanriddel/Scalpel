@@ -4,20 +4,10 @@
         <name>NATS.Client</name>
     </assembly>
     <members>
-        <member name="T:NATS.Client.AsyncSubscription">
+        <member name="T:NATS.Client.ISyncSubscription">
             <summary>
-            <see cref="T:NATS.Client.AsyncSubscription"/> asynchronously delivers messages to listeners of the <see cref="E:NATS.Client.AsyncSubscription.MessageHandler"/>
-            event. This class should not be used directly.
-            </summary>
-            <remarks>
-            If the <see cref="T:NATS.Client.AsyncSubscription"/> is created without listening to the <see cref="E:NATS.Client.AsyncSubscription.MessageHandler"/>
-            event, no messages will be received until <see cref="M:NATS.Client.AsyncSubscription.Start"/> has been called.
-            </remarks>
-        </member>
-        <member name="T:NATS.Client.Subscription">
-            <summary>
-            Represents interest in a NATS topic. This class should
-            not be used directly.
+            <see cref="T:NATS.Client.ISyncSubscription"/> provides messages for a subject through calls
+            to <see cref="M:NATS.Client.ISyncSubscription.NextMessage"/> and <see cref="M:NATS.Client.ISyncSubscription.NextMessage(System.Int32)"/>.
             </summary>
         </member>
         <member name="T:NATS.Client.ISubscription">
@@ -177,6 +167,164 @@
             If the NATS server declares the connection a slow consumer, the count
             may not be accurate.
             </remarks>
+        </member>
+        <member name="M:NATS.Client.ISyncSubscription.NextMessage">
+            <summary>
+            Returns the next <see cref="T:NATS.Client.Msg"/> available to a synchronous
+            subscriber, blocking until one is available.
+            </summary>
+            <returns>The next <see cref="T:NATS.Client.Msg"/> available to a subscriber.</returns>
+        </member>
+        <member name="M:NATS.Client.ISyncSubscription.NextMessage(System.Int32)">
+            <summary>
+            Returns the next <see cref="T:NATS.Client.Msg"/> available to a synchronous
+            subscriber, or block up to a given timeout until the next one is available.
+            </summary>
+            <param name="timeout">The amount of time, in milliseconds, to wait for
+            the next message.</param>
+            <returns>The next <see cref="T:NATS.Client.Msg"/> available to a subscriber.</returns>
+        </member>
+        <member name="T:NATS.Client.Defaults">
+            <summary>
+            This class contains default values for fields used throughout NATS.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.Version">
+            <summary>
+            Client version
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.Url">
+            <summary>
+            The default NATS connect url ("nats://localhost:4222")
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.Port">
+            <summary>
+            The default NATS connect port. (4222)
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.MaxReconnect">
+            <summary>
+            Default number of times to attempt a reconnect. (60)
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.ReconnectWait">
+            <summary>
+            Default ReconnectWait time (2 seconds)
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.Timeout">
+            <summary>
+            Default timeout  (2 seconds).
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.PingInterval">
+            <summary>
+             Default ping interval (2 minutes);
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.MaxPingOut">
+            <summary>
+            Default MaxPingOut value (2);
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.MaxChanLen">
+            <summary>
+            Default MaxChanLen (65536)
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.RequestChanLen">
+            <summary>
+            Default Request Channel Length
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.LangString">
+            <summary>
+            Language string of this client, ".NET"
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.SubPendingMsgsLimit">
+            <summary>
+            Default subscriber pending messages limit.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Defaults.SubPendingBytesLimit">
+            <summary>
+            Default subscriber pending bytes limit.
+            </summary>
+        </member>
+        <member name="T:NATS.Client.ConnEventArgs">
+            <summary>
+            Provides the details when the state of a <see cref="T:NATS.Client.Connection"/>
+            changes.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.ConnEventArgs.Conn">
+            <summary>
+            Gets the <see cref="T:NATS.Client.Connection"/> associated with the event.
+            </summary>
+        </member>
+        <member name="T:NATS.Client.ErrEventArgs">
+            <summary>
+            Provides details for an error encountered asynchronously
+            by an <see cref="T:NATS.Client.IConnection"/>.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.ErrEventArgs.Conn">
+            <summary>
+            Gets the <see cref="T:NATS.Client.Connection"/> associated with the event.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.ErrEventArgs.Subscription">
+            <summary>
+            Gets the <see cref="T:NATS.Client.Subscription"/> associated with the event.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.ErrEventArgs.Error">
+            <summary>
+            Gets the error message associated with the event.
+            </summary>
+        </member>
+        <member name="T:NATS.Client.IC">
+            Internal Constants
+        </member>
+        <member name="T:NATS.Client.MsgHandlerEventArgs">
+            <summary>
+            Provides the message received by an <see cref="T:NATS.Client.IAsyncSubscription"/>.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.MsgHandlerEventArgs.Message">
+            <summary>
+            Retrieves the message.
+            </summary>
+        </member>
+        <member name="T:NATS.Client.AsyncSubscription">
+            <summary>
+            <see cref="T:NATS.Client.AsyncSubscription"/> asynchronously delivers messages to listeners of the <see cref="E:NATS.Client.AsyncSubscription.MessageHandler"/>
+            event. This class should not be used directly.
+            </summary>
+            <remarks>
+            If the <see cref="T:NATS.Client.AsyncSubscription"/> is created without listening to the <see cref="E:NATS.Client.AsyncSubscription.MessageHandler"/>
+            event, no messages will be received until <see cref="M:NATS.Client.AsyncSubscription.Start"/> has been called.
+            </remarks>
+        </member>
+        <member name="T:NATS.Client.Subscription">
+            <summary>
+            Represents interest in a NATS topic. This class should
+            not be used directly.
+            </summary>
+        </member>
+        <member name="M:NATS.Client.Subscription.processMsg(NATS.Client.Msg)">
+            <summary>
+            Called by <see cref="T:NATS.Client.Connection"/> when a <see cref="T:NATS.Client.Msg"/> is received, returning
+            a value indicating if the <see cref="T:NATS.Client.Connection"/> should keep the subscription
+            after processing.
+            </summary>
+            <param name="msg">A <see cref="T:NATS.Client.Msg"/> received by the <see cref="T:NATS.Client.Subscription"/>.</param>
+            <returns><c>true</c> if-and-only-if the <see cref="T:NATS.Client.Subscription"/> should remain active;
+            otherwise <c>false</c> if the <see cref="T:NATS.Client.Connection"/> should remove this
+            instance.</returns>
         </member>
         <member name="M:NATS.Client.Subscription.tallyDeliveredMessage(NATS.Client.Msg)">
             <summary>
@@ -404,6 +552,356 @@
             underlying <see cref="T:NATS.Client.Subscription"/>.
             </summary>
         </member>
+        <member name="T:NATS.Client.Options">
+            <summary>
+            This class is used to setup all NATs client options.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Options.ClosedEventHandler">
+            <summary>
+            Represents the method that will handle an event raised 
+            when a connection is closed.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Options.ServerDiscoveredEventHandler">
+            <summary>
+            Represents the method that will handle an event raised
+            whenever a new server has joined the cluster.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Options.DisconnectedEventHandler">
+            <summary>
+            Represents the method that will handle an event raised 
+            when a connection has been disconnected from a server.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Options.ReconnectedEventHandler">
+            <summary>
+            Represents the method that will handle an event raised 
+            when a connection has reconnected to a server.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Options.AsyncErrorEventHandler">
+            <summary>
+            Represents the method that will handle an event raised 
+            when an error occurs out of band.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.Options.ReconnectForever">
+            <summary>
+            Set <see cref="P:NATS.Client.Options.MaxReconnect"/> to this value for the client to attempt to
+            connect indefinitely. 
+            </summary>
+        </member>
+        <member name="M:NATS.Client.Options.AddCertificate(System.String)">
+            <summary>
+            Adds an X.509 certifcate from a file for use with a secure connection.
+            </summary>
+            <param name="fileName">Path to the certificate file to add.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="fileName"/> is <c>null</c>.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException">An error with the certificate
+            ocurred. For example:
+            <list>
+            <item>The certificate file does not exist.</item>
+            <item>The certificate is invalid.</item>
+            <item>The certificate's password is incorrect.</item></list></exception>
+        </member>
+        <member name="M:NATS.Client.Options.AddCertificate(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Adds an X.509 certifcate for use with a secure connection.
+            </summary>
+            <param name="certificate">An X.509 certificate represented as an <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/> object.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="certificate"/> is <c>null</c>.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException">An error with the certificate
+            ocurred. For example:
+            <list>
+            <item>The certificate file does not exist.</item>
+            <item>The certificate is invalid.</item>
+            <item>The certificate's password is incorrect.</item></list></exception>
+        </member>
+        <member name="F:NATS.Client.Options.TLSRemoteCertificationValidationCallback">
+            <summary>
+            Overrides the default NATS RemoteCertificationValidationCallback.
+            </summary>
+            <remarks>
+            The default callback simply checks if there were any protocol
+            errors. Overriding this callback is useful during testing, or accepting self
+            signed certificates.
+            </remarks>
+        </member>
+        <member name="M:NATS.Client.Options.ToString">
+            <summary>
+            Returns a string representation of the
+            value of this Options instance.
+            </summary>
+            <returns>String value of this instance.</returns>
+        </member>
+        <member name="P:NATS.Client.Options.Url">
+            <summary>
+            Gets or sets the url used to connect to the NATs server.
+            </summary>
+            <remarks>
+            This may contain username/password information.
+            </remarks>
+        </member>
+        <member name="P:NATS.Client.Options.Servers">
+            <summary>
+            Gets or sets the array of servers that the NATs client will connect to.
+            </summary>
+            <remarks>
+            The individual URLs may contain username/password information.
+            </remarks>
+        </member>
+        <member name="P:NATS.Client.Options.NoRandomize">
+            <summary>
+            Gets or sets a value indicating whether or not the server chosen for connection
+            should not be selected randomly.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.Name">
+            <summary>
+            Gets or sets the name of this client.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.Verbose">
+            <summary>
+            Gets or sets a value indicating whether or not logging information should be verbose.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.Pedantic">
+            <summary>
+            This option is not used by the NATS Client.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.UseOldRequestStyle">
+            <summary>
+            Gets or sets a value indicating whether or not the old
+            request pattern should be used.
+            </summary>
+            <remarks>
+            The old request pattern involved a separate subscription
+            per request inbox. The new style (default) involves creating
+            a single inbox subscription per connection, upon the first
+            request, and mapping outbound requests over that one
+            subscription.
+            </remarks>
+        </member>
+        <member name="P:NATS.Client.Options.Secure">
+            <summary>
+            Get or sets a value indicating whether or not a secure connection (TLS)
+            should be made to NATS servers.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.AllowReconnect">
+            <summary>
+            Gets or sets a value indicating whether or not an <see cref="T:NATS.Client.IConnection"/> will attempt
+            to reconnect to the NATS server if a connection has been lost.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.MaxReconnect">
+            <summary>
+            Gets or sets the maxmimum number of times a connection will
+            attempt to reconnect.  To reconnect indefinitely set this value to
+            <see cref="F:NATS.Client.Options.ReconnectForever"/>
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.ReconnectWait">
+            <summary>
+            Gets or sets the amount of time, in milliseconds, the client will 
+            wait before attempting a reconnection.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.PingInterval">
+            <summary>
+            Gets or sets the interval, in milliseconds, pings will be sent to the server.
+            </summary>
+            <remarks>
+            Take care to coordinate this value with the server's interval.
+            </remarks>
+        </member>
+        <member name="P:NATS.Client.Options.Timeout">
+            <summary>
+            Gets or sets the timeout, in milliseconds, when connecting to a NATS server.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.MaxPingsOut">
+            <summary>
+            Gets or sets the maximum number of outstanding pings before
+            terminating a connection.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.SubChannelLength">
+            <summary>
+            Gets or sets the size of the subscriber channel, or number
+            of messages the subscriber will buffer internally.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.User">
+            <summary>
+            Gets or sets the user name used when connecting to the NATs server,
+            when not included directly in the URLs.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.Password">
+            <summary>
+            Sets the user password used when connecting to the NATs server,
+            when not included directly in the URLs.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.Token">
+            <summary>
+            Gets or sets the token used when connecting to the NATs server
+            when not included directly in the URLs.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Options.SubscriberDeliveryTaskCount">
+            <summary>
+            Gets or sets the number of long running tasks to deliver messages
+            to asynchronous subscribers. The default is zero (<c>0</c>) indicating each
+            asynchronous subscriber has its own channel and task created to 
+            deliver messages.
+            </summary>
+            <remarks>
+            The default where each subscriber has a delivery task is very 
+            performant, but does not scale well when large numbers of
+            subscribers are required in an application.  Setting this value
+            will limit the number of subscriber channels to the specified number
+            of long running tasks.  These tasks will process messages for ALL
+            asynchronous subscribers rather than one task for each subscriber.  
+            Delivery order by subscriber is still guaranteed.  The shared message
+            processing channels are still each bounded by the SubChannelLength 
+            option.  Note, slow subscriber errors will flag the last subscriber 
+            processed in the tasks, which may not actually be the slowest subscriber.
+            </remarks>
+        </member>
+        <member name="P:NATS.Client.Options.SubscriptionBatchSize">
+            <summary>
+            Gets or sets the batch size for calling subscription handlers.
+            </summary>
+            <remarks>
+            When delivering messages to the subscriber, the batch size determines
+            how many messages could be retrieved from the internal subscription
+            queue at one time. This can allow higher performance from a single
+            subscriber by avoiding the locking overhead of one-at-a-time
+            retrieval from the queue.
+            </remarks>
+        </member>
+        <member name="T:NATS.Client.ConnectionFactory">
+            <summary>
+            Provides factory methods to create connections to NATS Servers.
+            </summary>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NATS.Client.ConnectionFactory"/> class,
+            providing factory methods to create connections to NATS Servers.
+            </summary>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.CreateConnection(System.String)">
+            <summary>
+            Attempt to connect to the NATS server referenced by <paramref name="url"/>.
+            </summary>
+            <remarks>
+            <para><paramref name="url"/> can contain username/password semantics.
+            Comma seperated arrays are also supported, e.g. <c>"urlA, urlB"</c>.</para>
+            </remarks>
+            <param name="url">A string containing the URL (or URLs) to the NATS Server. See the Remarks
+            section for more information.</param>
+            <returns>An <see cref="T:NATS.Client.IConnection"/> object connected to the NATS server.</returns>
+            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
+            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
+            <para>-or-</para>
+            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
+            details.</para></exception>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.GetDefaultOptions">
+            <summary>
+            Retrieves the default set of client options.
+            </summary>
+            <returns>The default <see cref="T:NATS.Client.Options"/> object for the NATS client.</returns>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.CreateSecureConnection(System.String)">
+            <summary>
+            Attempt to connect to the NATS server using TLS referenced by <paramref name="url"/>.
+            </summary>
+            <remarks>
+            <para><paramref name="url"/> can contain username/password semantics.
+            Comma seperated arrays are also supported, e.g. urlA, urlB.</para>
+            </remarks>
+            <param name="url">A string containing the URL (or URLs) to the NATS Server. See the Remarks
+            section for more information.</param>
+            <returns>An <see cref="T:NATS.Client.IConnection"/> object connected to the NATS server.</returns>
+            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
+            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
+            <para>-or-</para>
+            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
+            details.</para></exception>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.CreateConnection">
+            <summary>
+            Create a connection to the NATs server using the default options.
+            </summary>
+            <returns>An <see cref="T:NATS.Client.IConnection"/> object connected to the NATS server.</returns>
+            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
+            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
+            <para>-or-</para>
+            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
+            details.</para></exception>
+            <seealso cref="M:NATS.Client.ConnectionFactory.GetDefaultOptions"/>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.CreateConnection(NATS.Client.Options)">
+            <summary>
+            Create a connection to a NATS Server defined by the given options.
+            </summary>
+            <param name="opts">The NATS client options to use for this connection.</param>
+            <returns>An <see cref="T:NATS.Client.IConnection"/> object connected to the NATS server.</returns>
+            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
+            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
+            <para>-or-</para>
+            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
+            details.</para></exception>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.CreateEncodedConnection">
+            <summary>
+            Attempt to connect to the NATS server, with an encoded connection, using the default options.
+            </summary>
+            <returns>An <see cref="T:NATS.Client.IEncodedConnection"/> object connected to the NATS server.</returns>
+            <seealso cref="M:NATS.Client.ConnectionFactory.GetDefaultOptions"/>
+            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
+            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
+            <para>-or-</para>
+            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
+            details.</para></exception>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.CreateEncodedConnection(System.String)">
+            <summary>
+            Attempt to connect to the NATS server, with an encoded connection, referenced by <paramref name="url"/>.
+            </summary>
+            <remarks>
+            <para><paramref name="url"/> can contain username/password semantics.
+            Comma seperated arrays are also supported, e.g. urlA, urlB.</para>
+            </remarks>
+            <param name="url">A string containing the URL (or URLs) to the NATS Server. See the Remarks
+            section for more information.</param>
+            <returns>An <see cref="T:NATS.Client.IEncodedConnection"/> object connected to the NATS server.</returns>
+            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
+            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
+            <para>-or-</para>
+            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
+            details.</para></exception>
+        </member>
+        <member name="M:NATS.Client.ConnectionFactory.CreateEncodedConnection(NATS.Client.Options)">
+            <summary>
+            Attempt to connect to the NATS server, with an encoded connection, using the given options.
+            </summary>
+            <param name="opts">The NATS client options to use for this connection.</param>
+            <returns>An <see cref="T:NATS.Client.IEncodedConnection"/> object connected to the NATS server.</returns>
+            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
+            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
+            <para>-or-</para>
+            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
+            details.</para></exception>
+        </member>
         <member name="T:NATS.Client.ConnState">
             <summary>
             State of the <see cref="T:NATS.Client.IConnection"/>.
@@ -466,6 +964,19 @@
             <param name="data">An array of type <see cref="T:System.Byte"/> that contains the data to publish
             to the connected NATS server.</param>
         </member>
+        <member name="M:NATS.Client.IConnection.Publish(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Publishes a sequence of bytes from <paramref name="data"/> to the given <paramref name="subject"/>.
+            </summary>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <seealso cref="M:NATS.Client.IConnection.Publish(System.String,System.Byte[])"/>
+        </member>
         <member name="M:NATS.Client.IConnection.Publish(NATS.Client.Msg)">
             <summary>
             Publishes a <see cref="T:NATS.Client.Msg"/> instance, which includes the subject, an optional reply, and an
@@ -486,6 +997,20 @@
             to the connected NATS server.</param>
             <seealso cref="M:NATS.Client.IConnection.Publish(System.String,System.Byte[])"/>
         </member>
+        <member name="M:NATS.Client.IConnection.Publish(System.String,System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Publishes a sequence of bytes from <paramref name="data"/> to the given <paramref name="subject"/>.
+            </summary>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="reply">An optional reply subject.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <seealso cref="M:NATS.Client.IConnection.Publish(System.String,System.Byte[])"/>
+        </member>
         <member name="M:NATS.Client.IConnection.Request(System.String,System.Byte[],System.Int32)">
             <summary>
             Sends a request payload and returns the response <see cref="T:NATS.Client.Msg"/>, or throws
@@ -501,6 +1026,28 @@
             the current connection.</param>
             <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
             to the connected NATS server.</param>
+            <param name="timeout">The number of milliseconds to wait.</param>
+            <returns>A <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
+            <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
+        </member>
+        <member name="M:NATS.Client.IConnection.Request(System.String,System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>, or throws
+            <see cref="T:NATS.Client.NATSTimeoutException"/> if the <paramref name="timeout"/> expires.
+            </summary>
+            <remarks>
+            <see cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[],System.Int32,System.Int32,System.Int32)"/> will create an unique inbox for this request, sharing a single
+            subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if 
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription. 
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
             <param name="timeout">The number of milliseconds to wait.</param>
             <returns>A <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
             <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
@@ -526,6 +1073,30 @@
             to the connected NATS server.</param>
             <returns>A <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
         </member>
+        <member name="M:NATS.Client.IConnection.Request(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>.
+            </summary>
+            <remarks>
+            <para>NATS supports two flavors of request-reply messaging: point-to-point or one-to-many. Point-to-point
+            involves the fastest or first to respond. In a one-to-many exchange, you set a limit on the number of 
+            responses the requestor may receive and instead must use a subscription (<see cref="M:NATS.Client.ISubscription.AutoUnsubscribe(System.Int32)"/>).
+            In a request-response exchange, publish request operation publishes a message with a reply subject expecting
+            a response on that reply subject.</para>
+            <para><see cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[],System.Int32,System.Int32)"/> will create an unique inbox for this request, sharing a single
+            subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if 
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription. 
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.</para>
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <returns>A <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
+        </member>
         <member name="M:NATS.Client.IConnection.RequestAsync(System.String,System.Byte[],System.Int32)">
             <summary>
             Asynchronously sends a request payload and returns the response <see cref="T:NATS.Client.Msg"/>, or throws 
@@ -546,6 +1117,29 @@
             parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
             <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
         </member>
+        <member name="M:NATS.Client.IConnection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Asynchronously sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>, or throws 
+            <see cref="T:NATS.Client.NATSTimeoutException"/> if the <paramref name="timeout"/> expires.
+            </summary>
+            <remarks>
+            <see cref="M:NATS.Client.IConnection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32,System.Int32)"/> will create an unique inbox for this request, sharing a
+            single subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription.
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <param name="timeout">The number of milliseconds to wait.</param>
+            <returns>A task that represents the asynchronous read operation. The value of the <see cref="P:System.Threading.Tasks.Task`1.Result"/>
+            parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
+            <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
+        </member>
         <member name="M:NATS.Client.IConnection.RequestAsync(System.String,System.Byte[])">
             <summary>
             Asynchronously sends a request payload and returns the response <see cref="T:NATS.Client.Msg"/>.
@@ -560,6 +1154,28 @@
             the current connection.</param>
             <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
             to the connected NATS server.</param>
+            <returns>A task that represents the asynchronous read operation. The value of the 
+            <see cref="P:System.Threading.Tasks.Task`1.Result"/> parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS
+            server.</returns>
+            <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
+        </member>
+        <member name="M:NATS.Client.IConnection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Asynchronously sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>.
+            </summary>
+            <remarks>
+            <see cref="M:NATS.Client.IConnection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32)"/> will create an unique inbox for this request, sharing a single
+            subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription. 
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
             <returns>A task that represents the asynchronous read operation. The value of the 
             <see cref="P:System.Threading.Tasks.Task`1.Result"/> parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS
             server.</returns>
@@ -603,6 +1219,30 @@
             the current connection.</param>
             <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
             to the connected NATS server.</param>
+            <param name="token">The token to monitor for cancellation requests.</param>
+            <returns>A task that represents the asynchronous read operation. The value of the
+            <see cref="P:System.Threading.Tasks.Task`1.Result"/> parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS 
+            server.</returns>
+            <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
+        </member>
+        <member name="M:NATS.Client.IConnection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>,
+            while monitoring for cancellation requests.
+            </summary>
+            <remarks>
+            <see cref="M:NATS.Client.IConnection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"/> will create an unique inbox for this request,
+            sharing a single subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if 
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription.
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
             <param name="token">The token to monitor for cancellation requests.</param>
             <returns>A task that represents the asynchronous read operation. The value of the
             <see cref="P:System.Threading.Tasks.Task`1.Result"/> parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS 
@@ -863,6 +1503,19 @@
             while publishing. See <see cref="P:System.Exception.InnerException"/> for more details.</exception>
             <exception cref="T:System.IO.IOException">There was a failure while writing to the network.</exception>
         </member>
+        <member name="M:NATS.Client.Connection.Publish(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Publishes a sequence of bytes from <paramref name="data"/> to the given <paramref name="subject"/>.
+            </summary>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <seealso cref="M:NATS.Client.IConnection.Publish(System.String,System.Byte[])"/>
+        </member>
         <member name="M:NATS.Client.Connection.Publish(NATS.Client.Msg)">
             <summary>
             Publishes a <see cref="T:NATS.Client.Msg"/> instance, which includes the subject, an optional reply, and an
@@ -898,6 +1551,20 @@
             while publishing. See <see cref="P:System.Exception.InnerException"/> for more details.</exception>
             <exception cref="T:System.IO.IOException">There was a failure while writing to the network.</exception>
         </member>
+        <member name="M:NATS.Client.Connection.Publish(System.String,System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Publishes a sequence of bytes from <paramref name="data"/> to the given <paramref name="subject"/>.
+            </summary>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="reply">An optional reply subject.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <seealso cref="M:NATS.Client.IConnection.Publish(System.String,System.Byte[])"/>
+        </member>
         <member name="M:NATS.Client.Connection.Request(System.String,System.Byte[],System.Int32)">
             <summary>
             Sends a request payload and returns the response <see cref="T:NATS.Client.Msg"/>, or throws
@@ -928,6 +1595,28 @@
             while executing the request. See <see cref="P:System.Exception.InnerException"/> for more details.</exception>
             <exception cref="T:System.IO.IOException">There was a failure while writing to the network.</exception>
         </member>
+        <member name="M:NATS.Client.Connection.Request(System.String,System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>, or throws
+            <see cref="T:NATS.Client.NATSTimeoutException"/> if the <paramref name="timeout"/> expires.
+            </summary>
+            <remarks>
+            <see cref="M:NATS.Client.Connection.Request(System.String,System.Byte[],System.Int32,System.Int32,System.Int32)"/> will create an unique inbox for this request, sharing a single
+            subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if 
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription. 
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <param name="timeout">The number of milliseconds to wait.</param>
+            <returns>A <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
+            <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
+        </member>
         <member name="M:NATS.Client.Connection.Request(System.String,System.Byte[])">
             <summary>
             Sends a request payload and returns the response <see cref="T:NATS.Client.Msg"/>.
@@ -953,6 +1642,30 @@
             <exception cref="T:NATS.Client.NATSException">There was an unexpected exception performing an internal NATS call while
             executing the request. See <see cref="P:System.Exception.InnerException"/> for more details.</exception>
             <exception cref="T:System.IO.IOException">There was a failure while writing to the network.</exception>
+        </member>
+        <member name="M:NATS.Client.Connection.Request(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>.
+            </summary>
+            <remarks>
+            <para>NATS supports two flavors of request-reply messaging: point-to-point or one-to-many. Point-to-point
+            involves the fastest or first to respond. In a one-to-many exchange, you set a limit on the number of 
+            responses the requestor may receive and instead must use a subscription (<see cref="M:NATS.Client.ISubscription.AutoUnsubscribe(System.Int32)"/>).
+            In a request-response exchange, publish request operation publishes a message with a reply subject expecting
+            a response on that reply subject.</para>
+            <para><see cref="M:NATS.Client.Connection.Request(System.String,System.Byte[],System.Int32,System.Int32)"/> will create an unique inbox for this request, sharing a single
+            subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if 
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription. 
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.</para>
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <returns>A <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
         </member>
         <member name="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[],System.Int32)">
             <summary>
@@ -987,6 +1700,29 @@
             it could be completed.</exception>
             <exception cref="T:System.IO.IOException">There was a failure while writing to the network.</exception>
         </member>
+        <member name="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Asynchronously sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>, or throws 
+            <see cref="T:NATS.Client.NATSTimeoutException"/> if the <paramref name="timeout"/> expires.
+            </summary>
+            <remarks>
+            <see cref="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32,System.Int32)"/> will create an unique inbox for this request, sharing a
+            single subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription.
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <param name="timeout">The number of milliseconds to wait.</param>
+            <returns>A task that represents the asynchronous read operation. The value of the <see cref="P:System.Threading.Tasks.Task`1.Result"/>
+            parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS server.</returns>
+            <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
+        </member>
         <member name="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[])">
             <summary>
             Asynchronously sends a request payload and returns the response <see cref="T:NATS.Client.Msg"/>.
@@ -1016,6 +1752,28 @@
             <exception cref="T:System.OperationCanceledException">The asynchronous operation was cancelled or timed out before
             it could be completed.</exception>
             <exception cref="T:System.IO.IOException">There was a failure while writing to the network.</exception>
+        </member>
+        <member name="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Asynchronously sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>.
+            </summary>
+            <remarks>
+            <see cref="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32)"/> will create an unique inbox for this request, sharing a single
+            subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription. 
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <returns>A task that represents the asynchronous read operation. The value of the 
+            <see cref="P:System.Threading.Tasks.Task`1.Result"/> parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS
+            server.</returns>
+            <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
         </member>
         <member name="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[],System.Int32,System.Threading.CancellationToken)">
             <summary>
@@ -1084,6 +1842,30 @@
             <exception cref="T:System.OperationCanceledException">The asynchronous operation was cancelled or timed out before it
             could be completed.</exception>
             <exception cref="T:System.IO.IOException">There was a failure while writing to the network.</exception>
+        </member>
+        <member name="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously sends a sequence of bytes as the request payload and returns the response <see cref="T:NATS.Client.Msg"/>,
+            while monitoring for cancellation requests.
+            </summary>
+            <remarks>
+            <see cref="M:NATS.Client.Connection.RequestAsync(System.String,System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)"/> will create an unique inbox for this request,
+            sharing a single subscription for all replies to this <see cref="T:NATS.Client.Connection"/> instance. However, if 
+            <see cref="P:NATS.Client.Options.UseOldRequestStyle"/> is set, each request will have its own underlying subscription.
+            The old behavior is not recommended as it may cause unnecessary overhead on connected NATS servers.
+            </remarks>
+            <param name="subject">The subject to publish <paramref name="data"/> to over
+            the current connection.</param>
+            <param name="data">An array of type <see cref="T:System.Byte"/> that contains the request data to publish
+            to the connected NATS server.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="data"/> at which to begin publishing
+            bytes to the subject.</param>
+            <param name="count">The number of bytes to be published to the subject.</param>
+            <param name="token">The token to monitor for cancellation requests.</param>
+            <returns>A task that represents the asynchronous read operation. The value of the
+            <see cref="P:System.Threading.Tasks.Task`1.Result"/> parameter contains a <see cref="T:NATS.Client.Msg"/> with the response from the NATS 
+            server.</returns>
+            <seealso cref="M:NATS.Client.IConnection.Request(System.String,System.Byte[])"/>
         </member>
         <member name="M:NATS.Client.Connection.NewInbox">
             <summary>
@@ -1392,121 +2174,253 @@
             messages on that channel.
             </summary>
         </member>
-        <member name="T:NATS.Client.ConnectionFactory">
+        <member name="T:NATS.Client.Statistics">
             <summary>
-            Provides factory methods to create connections to NATS Servers.
+            Tracks various statistics received and sent on an <see cref="T:NATS.Client.IConnection"/>.
             </summary>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.#ctor">
+        <member name="T:NATS.Client.IStatistics">
             <summary>
-            Initializes a new instance of the <see cref="T:NATS.Client.ConnectionFactory"/> class,
-            providing factory methods to create connections to NATS Servers.
+            Tracks various statistics received and sent on an <see cref="T:NATS.Client.IConnection"/>.
             </summary>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.CreateConnection(System.String)">
+        <member name="P:NATS.Client.IStatistics.InMsgs">
             <summary>
-            Attempt to connect to the NATS server referenced by <paramref name="url"/>.
+            Gets the number of inbound messages received.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.IStatistics.OutMsgs">
+            <summary>
+            Gets the number of messages sent.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.IStatistics.InBytes">
+            <summary>
+            Gets the number of incoming bytes.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.IStatistics.OutBytes">
+            <summary>
+            Gets the outgoing number of bytes.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.IStatistics.Reconnects">
+            <summary>
+            Gets the number of reconnections.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Statistics.InMsgs">
+            <summary>
+            Gets the number of inbound messages received.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Statistics.OutMsgs">
+            <summary>
+            Gets the number of messages sent.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Statistics.InBytes">
+            <summary>
+            Gets the number of incoming bytes.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Statistics.OutBytes">
+            <summary>
+            Gets the outgoing number of bytes.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Statistics.Reconnects">
+            <summary>
+            Gets the number of reconnections.
+            </summary>
+        </member>
+        <member name="T:NATS.Client.Msg">
+            <summary>
+            A NATS message is an object encapsulating a subject, optional reply
+            payload, and subscription information, sent or received by the client
+            application.
+            </summary>
+        </member>
+        <member name="M:NATS.Client.Msg.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NATS.Client.Msg"/> class without any
+            subject, reply, or data.
+            </summary>
+        </member>
+        <member name="M:NATS.Client.Msg.#ctor(System.String,System.String,System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:NATS.Client.Msg"/> class with a subject, reply, and data.
+            </summary>
+            <param name="subject">Subject of the message.</param>
+            <param name="reply">A reply subject, or <c>null</c>.</param>
+            <param name="data">A byte array containing the message payload.</param>
+        </member>
+        <member name="M:NATS.Client.Msg.#ctor(System.String,System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:NATS.Client.Msg"/> class with a subject and data.
+            </summary>
+            <param name="subject">Subject of the message.</param>
+            <param name="data">A byte array containing the message payload.</param>
+        </member>
+        <member name="M:NATS.Client.Msg.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NATS.Client.Msg"/> class with a subject and no data.
+            </summary>
+            <param name="subject">Subject of the message.</param>
+        </member>
+        <member name="M:NATS.Client.Msg.AssignData(System.Byte[])">
+            <summary>
+            Assigns the data of the message.
             </summary>
             <remarks>
-            <para><paramref name="url"/> can contain username/password semantics.
-            Comma seperated arrays are also supported, e.g. <c>"urlA, urlB"</c>.</para>
+            <para>This is a direct assignment,
+            to avoid expensive copy operations.  A change to the passed
+            byte array will be changed in the message.</para>
+            <para>The calling application is responsible for the data integrity in the message.</para>
             </remarks>
-            <param name="url">A string containing the URL (or URLs) to the NATS Server. See the Remarks
-            section for more information.</param>
-            <returns>An <see cref="T:NATS.Client.IConnection"/> object connected to the NATS server.</returns>
-            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
-            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
-            <para>-or-</para>
-            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
-            details.</para></exception>
+            <param name="data">a bytes buffer of data.</param>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.GetDefaultOptions">
+        <member name="M:NATS.Client.Msg.ToString">
             <summary>
-            Retrieves the default set of client options.
+            Generates a string representation of the messages.
             </summary>
-            <returns>The default <see cref="T:NATS.Client.Options"/> object for the NATS client.</returns>
+            <returns>A string representation of the messages.</returns>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.CreateSecureConnection(System.String)">
+        <member name="P:NATS.Client.Msg.Subject">
             <summary>
-            Attempt to connect to the NATS server using TLS referenced by <paramref name="url"/>.
+            Gets or sets the subject.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Msg.Reply">
+            <summary>
+            Gets or sets the reply subject.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.Msg.Data">
+            <summary>
+            Gets or sets the payload of the message.
             </summary>
             <remarks>
-            <para><paramref name="url"/> can contain username/password semantics.
-            Comma seperated arrays are also supported, e.g. urlA, urlB.</para>
+            This copies application data into the message. See <see cref="M:NATS.Client.Msg.AssignData(System.Byte[])"/> to directly pass the bytes buffer.
             </remarks>
-            <param name="url">A string containing the URL (or URLs) to the NATS Server. See the Remarks
-            section for more information.</param>
-            <returns>An <see cref="T:NATS.Client.IConnection"/> object connected to the NATS server.</returns>
-            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
-            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
-            <para>-or-</para>
-            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
-            details.</para></exception>
+            <seealso cref="M:NATS.Client.Msg.AssignData(System.Byte[])"/>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.CreateConnection">
+        <member name="P:NATS.Client.Msg.ArrivalSubcription">
             <summary>
-            Create a connection to the NATs server using the default options.
+            Gets the <see cref="T:NATS.Client.ISubscription"/> which received the message.
             </summary>
-            <returns>An <see cref="T:NATS.Client.IConnection"/> object connected to the NATS server.</returns>
-            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
-            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
-            <para>-or-</para>
-            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
-            details.</para></exception>
-            <seealso cref="M:NATS.Client.ConnectionFactory.GetDefaultOptions"/>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.CreateConnection(NATS.Client.Options)">
+        <member name="T:NATS.Client.NUID">
             <summary>
-            Create a connection to a NATS Server defined by the given options.
+            NUID needs to be very fast to generate and truly unique, all while being entropy pool friendly.
+            We will use 12 bytes of crypto generated data (entropy draining), and 10 bytes of sequential data
+            that is started at a pseudo random number and increments with a pseudo-random increment.
+            Total is 22 bytes of base 36 ascii text.
             </summary>
-            <param name="opts">The NATS client options to use for this connection.</param>
-            <returns>An <see cref="T:NATS.Client.IConnection"/> object connected to the NATS server.</returns>
-            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
-            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
-            <para>-or-</para>
-            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
-            details.</para></exception>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.CreateEncodedConnection">
+        <member name="F:NATS.Client.NUID.LENGTH">
             <summary>
-            Attempt to connect to the NATS server, with an encoded connection, using the default options.
+            Length of the NUID.
             </summary>
-            <returns>An <see cref="T:NATS.Client.IEncodedConnection"/> object connected to the NATS server.</returns>
-            <seealso cref="M:NATS.Client.ConnectionFactory.GetDefaultOptions"/>
-            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
-            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
-            <para>-or-</para>
-            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
-            details.</para></exception>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.CreateEncodedConnection(System.String)">
+        <member name="F:NATS.Client.NUID.MAXPRE">
             <summary>
-            Attempt to connect to the NATS server, with an encoded connection, referenced by <paramref name="url"/>.
+            Maximum value of the prefix.
+            </summary>
+        </member>
+        <member name="F:NATS.Client.NUID.MAXSEQ">
+            <summary>
+            Maximum value of the sequence.
+            </summary>
+        </member>
+        <member name="M:NATS.Client.NUID.RandomizePrefix">
+            <summary>
+            Generates a new crypto/rand seeded prefix.
             </summary>
             <remarks>
-            <para><paramref name="url"/> can contain username/password semantics.
-            Comma seperated arrays are also supported, e.g. urlA, urlB.</para>
+            Generally not needed, this happens automatically.
             </remarks>
-            <param name="url">A string containing the URL (or URLs) to the NATS Server. See the Remarks
-            section for more information.</param>
-            <returns>An <see cref="T:NATS.Client.IEncodedConnection"/> object connected to the NATS server.</returns>
-            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
-            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
-            <para>-or-</para>
-            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
-            details.</para></exception>
         </member>
-        <member name="M:NATS.Client.ConnectionFactory.CreateEncodedConnection(NATS.Client.Options)">
+        <member name="M:NATS.Client.NUID.#ctor">
             <summary>
-            Attempt to connect to the NATS server, with an encoded connection, using the given options.
+            Creates a new NUID object.
             </summary>
-            <param name="opts">The NATS client options to use for this connection.</param>
-            <returns>An <see cref="T:NATS.Client.IEncodedConnection"/> object connected to the NATS server.</returns>
-            <exception cref="T:NATS.Client.NATSNoServersException">No connection to a NATS Server could be established.</exception>
-            <exception cref="T:NATS.Client.NATSConnectionException"><para>A timeout occurred connecting to a NATS Server.</para>
-            <para>-or-</para>
-            <para>An exception was encountered while connecting to a NATS Server. See <see cref="P:System.Exception.InnerException"/> for more
-            details.</para></exception>
+        </member>
+        <member name="P:NATS.Client.NUID.Instance">
+            <summary>
+            Gets the global instance of a NUID object
+            </summary>
+        </member>
+        <member name="P:NATS.Client.NUID.NextGlobal">
+            <summary>
+            Returns the next NUID from the global instance.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.NUID.Next">
+            <summary>
+            Returns the next nuid string value from the NUID object.
+            </summary>
+        </member>
+        <member name="P:NATS.Client.NUID.Pre">
+            <summary>
+            Gets or sets the prefix.
+            </summary>
+            <remarks>
+            Not normally used outside of testing.
+            </remarks>
+        </member>
+        <member name="P:NATS.Client.NUID.Seq">
+            <summary>
+            Gets or sets the sequence.  Not normally used outside of testing.
+            </summary>
+            <remarks>
+            Not normally used outside of testing.
+            </remarks>
+        </member>
+        <member name="P:NATS.Client.NUID.Length">
+            <summary>
+            Gets the Length of the nuid.
+            </summary>
+            <remarks>
+            Not normally used outside of testing.
+            </remarks>
+        </member>
+        <member name="T:NATS.Client.SyncSubscription">
+            <summary>
+            <see cref="T:NATS.Client.SyncSubscription"/> provides messages for a subject through calls
+            to <see cref="M:NATS.Client.SyncSubscription.NextMessage"/> and <see cref="M:NATS.Client.SyncSubscription.NextMessage(System.Int32)"/>. This class should
+            not be used directly.
+            </summary>
+        </member>
+        <member name="M:NATS.Client.SyncSubscription.NextMessage">
+            <summary>
+            Returns the next <see cref="T:NATS.Client.Msg"/> available to a synchronous
+            subscriber, blocking until one is available.
+            </summary>
+            <returns>The next <see cref="T:NATS.Client.Msg"/> available to a subscriber.</returns>
+            <exception cref="T:NATS.Client.NATSConnectionClosedException">The connection to the NATS Server
+            is closed.</exception>
+            <exception cref="T:NATS.Client.NATSMaxMessagesException">The maximum number of messages have been
+            delivered to this <see cref="T:NATS.Client.ISyncSubscription"/>.</exception>
+            <exception cref="T:NATS.Client.NATSBadSubscriptionException">The subscription is closed.</exception>
+            <exception cref="T:NATS.Client.NATSSlowConsumerException">The subscription has been marked as a slow consumer.</exception>
+        </member>
+        <member name="M:NATS.Client.SyncSubscription.NextMessage(System.Int32)">
+            <summary>
+            Returns the next <see cref="T:NATS.Client.Msg"/> available to a synchronous
+            subscriber, or block up to a given timeout until the next one is available.
+            </summary>
+            <param name="timeout">The amount of time, in milliseconds, to wait for
+            the next message.</param>
+            <returns>The next <see cref="T:NATS.Client.Msg"/> available to a subscriber.</returns>
+            <exception cref="T:NATS.Client.NATSConnectionClosedException">The connection to the NATS Server
+            is closed.</exception>
+            <exception cref="T:NATS.Client.NATSMaxMessagesException">The maximum number of messages have been
+            delivered to this <see cref="T:NATS.Client.ISyncSubscription"/>.</exception>
+            <exception cref="T:NATS.Client.NATSBadSubscriptionException">The subscription is closed.</exception>
+            <exception cref="T:NATS.Client.NATSSlowConsumerException">The subscription has been marked as a slow consumer.</exception>
+            <exception cref="T:NATS.Client.NATSTimeoutException">A timeout occurred while waiting for the next available
+            <see cref="T:NATS.Client.Msg"/>.</exception>
         </member>
         <member name="T:NATS.Client.Serializer">
             <summary>
@@ -2010,618 +2924,6 @@
             <summary>
             The exception that is thrown when a NATS operation times out.
             </summary>
-        </member>
-        <member name="T:NATS.Client.IStatistics">
-            <summary>
-            Tracks various statistics received and sent on an <see cref="T:NATS.Client.IConnection"/>.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.IStatistics.InMsgs">
-            <summary>
-            Gets the number of inbound messages received.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.IStatistics.OutMsgs">
-            <summary>
-            Gets the number of messages sent.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.IStatistics.InBytes">
-            <summary>
-            Gets the number of incoming bytes.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.IStatistics.OutBytes">
-            <summary>
-            Gets the outgoing number of bytes.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.IStatistics.Reconnects">
-            <summary>
-            Gets the number of reconnections.
-            </summary>
-        </member>
-        <member name="T:NATS.Client.ISyncSubscription">
-            <summary>
-            <see cref="T:NATS.Client.ISyncSubscription"/> provides messages for a subject through calls
-            to <see cref="M:NATS.Client.ISyncSubscription.NextMessage"/> and <see cref="M:NATS.Client.ISyncSubscription.NextMessage(System.Int32)"/>.
-            </summary>
-        </member>
-        <member name="M:NATS.Client.ISyncSubscription.NextMessage">
-            <summary>
-            Returns the next <see cref="T:NATS.Client.Msg"/> available to a synchronous
-            subscriber, blocking until one is available.
-            </summary>
-            <returns>The next <see cref="T:NATS.Client.Msg"/> available to a subscriber.</returns>
-        </member>
-        <member name="M:NATS.Client.ISyncSubscription.NextMessage(System.Int32)">
-            <summary>
-            Returns the next <see cref="T:NATS.Client.Msg"/> available to a synchronous
-            subscriber, or block up to a given timeout until the next one is available.
-            </summary>
-            <param name="timeout">The amount of time, in milliseconds, to wait for
-            the next message.</param>
-            <returns>The next <see cref="T:NATS.Client.Msg"/> available to a subscriber.</returns>
-        </member>
-        <member name="T:NATS.Client.Msg">
-            <summary>
-            A NATS message is an object encapsulating a subject, optional reply
-            payload, and subscription information, sent or received by the client
-            application.
-            </summary>
-        </member>
-        <member name="M:NATS.Client.Msg.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:NATS.Client.Msg"/> class without any
-            subject, reply, or data.
-            </summary>
-        </member>
-        <member name="M:NATS.Client.Msg.#ctor(System.String,System.String,System.Byte[])">
-            <summary>
-            Initializes a new instance of the <see cref="T:NATS.Client.Msg"/> class with a subject, reply, and data.
-            </summary>
-            <param name="subject">Subject of the message.</param>
-            <param name="reply">A reply subject, or <c>null</c>.</param>
-            <param name="data">A byte array containing the message payload.</param>
-        </member>
-        <member name="M:NATS.Client.Msg.#ctor(System.String,System.Byte[])">
-            <summary>
-            Initializes a new instance of the <see cref="T:NATS.Client.Msg"/> class with a subject and data.
-            </summary>
-            <param name="subject">Subject of the message.</param>
-            <param name="data">A byte array containing the message payload.</param>
-        </member>
-        <member name="M:NATS.Client.Msg.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:NATS.Client.Msg"/> class with a subject and no data.
-            </summary>
-            <param name="subject">Subject of the message.</param>
-        </member>
-        <member name="M:NATS.Client.Msg.AssignData(System.Byte[])">
-            <summary>
-            Assigns the data of the message.
-            </summary>
-            <remarks>
-            <para>This is a direct assignment,
-            to avoid expensive copy operations.  A change to the passed
-            byte array will be changed in the message.</para>
-            <para>The calling application is responsible for the data integrity in the message.</para>
-            </remarks>
-            <param name="data">a bytes buffer of data.</param>
-        </member>
-        <member name="M:NATS.Client.Msg.ToString">
-            <summary>
-            Generates a string representation of the messages.
-            </summary>
-            <returns>A string representation of the messages.</returns>
-        </member>
-        <member name="P:NATS.Client.Msg.Subject">
-            <summary>
-            Gets or sets the subject.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Msg.Reply">
-            <summary>
-            Gets or sets the reply subject.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Msg.Data">
-            <summary>
-            Gets or sets the payload of the message.
-            </summary>
-            <remarks>
-            This copies application data into the message. See <see cref="M:NATS.Client.Msg.AssignData(System.Byte[])"/> to directly pass the bytes buffer.
-            </remarks>
-            <seealso cref="M:NATS.Client.Msg.AssignData(System.Byte[])"/>
-        </member>
-        <member name="P:NATS.Client.Msg.ArrivalSubcription">
-            <summary>
-            Gets the <see cref="T:NATS.Client.ISubscription"/> which received the message.
-            </summary>
-        </member>
-        <member name="T:NATS.Client.Defaults">
-            <summary>
-            This class contains default values for fields used throughout NATS.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.Version">
-            <summary>
-            Client version
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.Url">
-            <summary>
-            The default NATS connect url ("nats://localhost:4222")
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.Port">
-            <summary>
-            The default NATS connect port. (4222)
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.MaxReconnect">
-            <summary>
-            Default number of times to attempt a reconnect. (60)
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.ReconnectWait">
-            <summary>
-            Default ReconnectWait time (2 seconds)
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.Timeout">
-            <summary>
-            Default timeout  (2 seconds).
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.PingInterval">
-            <summary>
-             Default ping interval (2 minutes);
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.MaxPingOut">
-            <summary>
-            Default MaxPingOut value (2);
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.MaxChanLen">
-            <summary>
-            Default MaxChanLen (65536)
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.RequestChanLen">
-            <summary>
-            Default Request Channel Length
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.LangString">
-            <summary>
-            Language string of this client, ".NET"
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.SubPendingMsgsLimit">
-            <summary>
-            Default subscriber pending messages limit.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Defaults.SubPendingBytesLimit">
-            <summary>
-            Default subscriber pending bytes limit.
-            </summary>
-        </member>
-        <member name="T:NATS.Client.ConnEventArgs">
-            <summary>
-            Provides the details when the state of a <see cref="T:NATS.Client.Connection"/>
-            changes.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.ConnEventArgs.Conn">
-            <summary>
-            Gets the <see cref="T:NATS.Client.Connection"/> associated with the event.
-            </summary>
-        </member>
-        <member name="T:NATS.Client.ErrEventArgs">
-            <summary>
-            Provides details for an error encountered asynchronously
-            by an <see cref="T:NATS.Client.IConnection"/>.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.ErrEventArgs.Conn">
-            <summary>
-            Gets the <see cref="T:NATS.Client.Connection"/> associated with the event.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.ErrEventArgs.Subscription">
-            <summary>
-            Gets the <see cref="T:NATS.Client.Subscription"/> associated with the event.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.ErrEventArgs.Error">
-            <summary>
-            Gets the error message associated with the event.
-            </summary>
-        </member>
-        <member name="T:NATS.Client.IC">
-            Internal Constants
-        </member>
-        <member name="T:NATS.Client.MsgHandlerEventArgs">
-            <summary>
-            Provides the message received by an <see cref="T:NATS.Client.IAsyncSubscription"/>.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.MsgHandlerEventArgs.Message">
-            <summary>
-            Retrieves the message.
-            </summary>
-        </member>
-        <member name="T:NATS.Client.NUID">
-            <summary>
-            NUID needs to be very fast to generate and truly unique, all while being entropy pool friendly.
-            We will use 12 bytes of crypto generated data (entropy draining), and 10 bytes of sequential data
-            that is started at a pseudo random number and increments with a pseudo-random increment.
-            Total is 22 bytes of base 36 ascii text.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.NUID.LENGTH">
-            <summary>
-            Length of the NUID.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.NUID.MAXPRE">
-            <summary>
-            Maximum value of the prefix.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.NUID.MAXSEQ">
-            <summary>
-            Maximum value of the sequence.
-            </summary>
-        </member>
-        <member name="M:NATS.Client.NUID.RandomizePrefix">
-            <summary>
-            Generates a new crypto/rand seeded prefix.
-            </summary>
-            <remarks>
-            Generally not needed, this happens automatically.
-            </remarks>
-        </member>
-        <member name="M:NATS.Client.NUID.#ctor">
-            <summary>
-            Creates a new NUID object.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.NUID.Instance">
-            <summary>
-            Gets the global instance of a NUID object
-            </summary>
-        </member>
-        <member name="P:NATS.Client.NUID.NextGlobal">
-            <summary>
-            Returns the next NUID from the global instance.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.NUID.Next">
-            <summary>
-            Returns the next nuid string value from the NUID object.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.NUID.Pre">
-            <summary>
-            Gets or sets the prefix.
-            </summary>
-            <remarks>
-            Not normally used outside of testing.
-            </remarks>
-        </member>
-        <member name="P:NATS.Client.NUID.Seq">
-            <summary>
-            Gets or sets the sequence.  Not normally used outside of testing.
-            </summary>
-            <remarks>
-            Not normally used outside of testing.
-            </remarks>
-        </member>
-        <member name="P:NATS.Client.NUID.Length">
-            <summary>
-            Gets the Length of the nuid.
-            </summary>
-            <remarks>
-            Not normally used outside of testing.
-            </remarks>
-        </member>
-        <member name="T:NATS.Client.Options">
-            <summary>
-            This class is used to setup all NATs client options.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Options.ClosedEventHandler">
-            <summary>
-            Represents the method that will handle an event raised 
-            when a connection is closed.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Options.ServerDiscoveredEventHandler">
-            <summary>
-            Represents the method that will handle an event raised
-            whenever a new server has joined the cluster.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Options.DisconnectedEventHandler">
-            <summary>
-            Represents the method that will handle an event raised 
-            when a connection has been disconnected from a server.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Options.ReconnectedEventHandler">
-            <summary>
-            Represents the method that will handle an event raised 
-            when a connection has reconnected to a server.
-            </summary>
-        </member>
-        <member name="F:NATS.Client.Options.AsyncErrorEventHandler">
-            <summary>
-            Represents the method that will handle an event raised 
-            when an error occurs out of band.
-            </summary>
-        </member>
-        <member name="M:NATS.Client.Options.AddCertificate(System.String)">
-            <summary>
-            Adds an X.509 certifcate from a file for use with a secure connection.
-            </summary>
-            <param name="fileName">Path to the certificate file to add.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="fileName"/> is <c>null</c>.</exception>
-            <exception cref="T:System.Security.Cryptography.CryptographicException">An error with the certificate
-            ocurred. For example:
-            <list>
-            <item>The certificate file does not exist.</item>
-            <item>The certificate is invalid.</item>
-            <item>The certificate's password is incorrect.</item></list></exception>
-        </member>
-        <member name="M:NATS.Client.Options.AddCertificate(System.Security.Cryptography.X509Certificates.X509Certificate2)">
-            <summary>
-            Adds an X.509 certifcate for use with a secure connection.
-            </summary>
-            <param name="certificate">An X.509 certificate represented as an <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/> object.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="certificate"/> is <c>null</c>.</exception>
-            <exception cref="T:System.Security.Cryptography.CryptographicException">An error with the certificate
-            ocurred. For example:
-            <list>
-            <item>The certificate file does not exist.</item>
-            <item>The certificate is invalid.</item>
-            <item>The certificate's password is incorrect.</item></list></exception>
-        </member>
-        <member name="F:NATS.Client.Options.TLSRemoteCertificationValidationCallback">
-            <summary>
-            Overrides the default NATS RemoteCertificationValidationCallback.
-            </summary>
-            <remarks>
-            The default callback simply checks if there were any protocol
-            errors. Overriding this callback is useful during testing, or accepting self
-            signed certificates.
-            </remarks>
-        </member>
-        <member name="M:NATS.Client.Options.ToString">
-            <summary>
-            Returns a string representation of the
-            value of this Options instance.
-            </summary>
-            <returns>String value of this instance.</returns>
-        </member>
-        <member name="P:NATS.Client.Options.Url">
-            <summary>
-            Gets or sets the url used to connect to the NATs server.
-            </summary>
-            <remarks>
-            This may contain username/password information.
-            </remarks>
-        </member>
-        <member name="P:NATS.Client.Options.Servers">
-            <summary>
-            Gets or sets the array of servers that the NATs client will connect to.
-            </summary>
-            <remarks>
-            The individual URLs may contain username/password information.
-            </remarks>
-        </member>
-        <member name="P:NATS.Client.Options.NoRandomize">
-            <summary>
-            Gets or sets a value indicating whether or not the server chosen for connection
-            should not be selected randomly.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.Name">
-            <summary>
-            Gets or sets the name of this client.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.Verbose">
-            <summary>
-            Gets or sets a value indicating whether or not logging information should be verbose.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.Pedantic">
-            <summary>
-            This option is not used by the NATS Client.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.UseOldRequestStyle">
-            <summary>
-            Gets or sets a value indicating whether or not the old
-            request pattern should be used.
-            </summary>
-            <remarks>
-            The old request pattern involved a separate subscription
-            per request inbox. The new style (default) involves creating
-            a single inbox subscription per connection, upon the first
-            request, and mapping outbound requests over that one
-            subscription.
-            </remarks>
-        </member>
-        <member name="P:NATS.Client.Options.Secure">
-            <summary>
-            Get or sets a value indicating whether or not a secure connection (TLS)
-            should be made to NATS servers.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.AllowReconnect">
-            <summary>
-            Gets or sets a value indicating whether or not an <see cref="T:NATS.Client.IConnection"/> will attempt
-            to reconnect to the NATS server if a connection has been lost.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.MaxReconnect">
-            <summary>
-            Gets or sets the maxmimum number of times a connection will
-            attempt to reconnect.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.ReconnectWait">
-            <summary>
-            Gets or sets the amount of time, in milliseconds, the client will 
-            wait before attempting a reconnection.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.PingInterval">
-            <summary>
-            Gets or sets the interval, in milliseconds, pings will be sent to the server.
-            </summary>
-            <remarks>
-            Take care to coordinate this value with the server's interval.
-            </remarks>
-        </member>
-        <member name="P:NATS.Client.Options.Timeout">
-            <summary>
-            Gets or sets the timeout, in milliseconds, when connecting to a NATS server.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.MaxPingsOut">
-            <summary>
-            Gets or sets the maximum number of outstanding pings before
-            terminating a connection.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.SubChannelLength">
-            <summary>
-            Gets or sets the size of the subscriber channel, or number
-            of messages the subscriber will buffer internally.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.User">
-            <summary>
-            Gets or sets the user name used when connecting to the NATs server,
-            when not included directly in the URLs.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.Password">
-            <summary>
-            Sets the user password used when connecting to the NATs server,
-            when not included directly in the URLs.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.Token">
-            <summary>
-            Gets or sets the token used when connecting to the NATs server
-            when not included directly in the URLs.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Options.SubscriberDeliveryTaskCount">
-            <summary>
-            Gets or sets the number of long running tasks to deliver messages
-            to asynchronous subscribers. The default is zero (<c>0</c>) indicating each
-            asynchronous subscriber has its own channel and task created to 
-            deliver messages.
-            </summary>
-            <remarks>
-            The default where each subscriber has a delivery task is very 
-            performant, but does not scale well when large numbers of
-            subscribers are required in an application.  Setting this value
-            will limit the number of subscriber channels to the specified number
-            of long running tasks.  These tasks will process messages for ALL
-            asynchronous subscribers rather than one task for each subscriber.  
-            Delivery order by subscriber is still guaranteed.  The shared message
-            processing channels are still each bounded by the SubChannelLength 
-            option.  Note, slow subscriber errors will flag the last subscriber 
-            processed in the tasks, which may not actually be the slowest subscriber.
-            </remarks>
-        </member>
-        <member name="P:NATS.Client.Options.SubscriptionBatchSize">
-            <summary>
-            Gets or sets the batch size for calling subscription handlers.
-            </summary>
-            <remarks>
-            When delivering messages to the subscriber, the batch size determines
-            how many messages could be retrieved from the internal subscription
-            queue at one time. This can allow higher performance from a single
-            subscriber by avoiding the locking overhead of one-at-a-time
-            retrieval from the queue.
-            </remarks>
-        </member>
-        <member name="T:NATS.Client.Statistics">
-            <summary>
-            Tracks various statistics received and sent on an <see cref="T:NATS.Client.IConnection"/>.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Statistics.InMsgs">
-            <summary>
-            Gets the number of inbound messages received.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Statistics.OutMsgs">
-            <summary>
-            Gets the number of messages sent.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Statistics.InBytes">
-            <summary>
-            Gets the number of incoming bytes.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Statistics.OutBytes">
-            <summary>
-            Gets the outgoing number of bytes.
-            </summary>
-        </member>
-        <member name="P:NATS.Client.Statistics.Reconnects">
-            <summary>
-            Gets the number of reconnections.
-            </summary>
-        </member>
-        <member name="T:NATS.Client.SyncSubscription">
-            <summary>
-            <see cref="T:NATS.Client.SyncSubscription"/> provides messages for a subject through calls
-            to <see cref="M:NATS.Client.SyncSubscription.NextMessage"/> and <see cref="M:NATS.Client.SyncSubscription.NextMessage(System.Int32)"/>. This class should
-            not be used directly.
-            </summary>
-        </member>
-        <member name="M:NATS.Client.SyncSubscription.NextMessage">
-            <summary>
-            Returns the next <see cref="T:NATS.Client.Msg"/> available to a synchronous
-            subscriber, blocking until one is available.
-            </summary>
-            <returns>The next <see cref="T:NATS.Client.Msg"/> available to a subscriber.</returns>
-            <exception cref="T:NATS.Client.NATSConnectionClosedException">The connection to the NATS Server
-            is closed.</exception>
-            <exception cref="T:NATS.Client.NATSMaxMessagesException">The maximum number of messages have been
-            delivered to this <see cref="T:NATS.Client.ISyncSubscription"/>.</exception>
-            <exception cref="T:NATS.Client.NATSBadSubscriptionException">The subscription is closed.</exception>
-            <exception cref="T:NATS.Client.NATSSlowConsumerException">The subscription has been marked as a slow consumer.</exception>
-        </member>
-        <member name="M:NATS.Client.SyncSubscription.NextMessage(System.Int32)">
-            <summary>
-            Returns the next <see cref="T:NATS.Client.Msg"/> available to a synchronous
-            subscriber, or block up to a given timeout until the next one is available.
-            </summary>
-            <param name="timeout">The amount of time, in milliseconds, to wait for
-            the next message.</param>
-            <returns>The next <see cref="T:NATS.Client.Msg"/> available to a subscriber.</returns>
-            <exception cref="T:NATS.Client.NATSConnectionClosedException">The connection to the NATS Server
-            is closed.</exception>
-            <exception cref="T:NATS.Client.NATSMaxMessagesException">The maximum number of messages have been
-            delivered to this <see cref="T:NATS.Client.ISyncSubscription"/>.</exception>
-            <exception cref="T:NATS.Client.NATSBadSubscriptionException">The subscription is closed.</exception>
-            <exception cref="T:NATS.Client.NATSSlowConsumerException">The subscription has been marked as a slow consumer.</exception>
-            <exception cref="T:NATS.Client.NATSTimeoutException">A timeout occurred while waiting for the next available
-            <see cref="T:NATS.Client.Msg"/>.</exception>
         </member>
     </members>
 </doc>

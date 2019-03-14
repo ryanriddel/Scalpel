@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using NATS.Client;
+using System.IO;
 
 namespace mdt
 {
@@ -86,7 +87,7 @@ namespace mdt
             try
             {
                 Msg a = natsConnection.Request(subject, bytes, 5000);
-
+                
                 response = System.Text.Encoding.Default.GetString(a.Data);
             }
             catch(Exception e)
@@ -94,6 +95,24 @@ namespace mdt
                 
             }
             return response;
+        }
+
+        public void SendInstrProtobuf(string subject, Mktdatamessage.Instrument instr)
+        {
+            byte[] bytes;
+            instr.Idx = 4;
+            instr.InstrumentType = Mktdatamessage.Instrument.Types.InstrType.Option;
+            
+            //bytes = Google.Protobuf.MessageExtensions.ToByteArray(instr);
+            //Google.Protobuf.MessageParser p;
+            //p.ParseFrom(bytes);
+            Google.Protobuf.ByteString bs = Google.Protobuf.MessageExtensions.ToByteString(instr);
+            bytes = bs.ToByteArray();
+            Console.WriteLine(Google.Protobuf.JsonFormatter.ToDiagnosticString(instr));
+            Console.WriteLine(System.Text.Encoding.Default.GetString(bytes));
+            natsConnection.Publish(subject, bytes);
+            
+
         }
 
         public void Unsubscribe(IAsyncSubscription subscription)

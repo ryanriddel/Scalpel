@@ -727,3 +727,6 @@ C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.xml
 C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.Api.pdb
 C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Grpc.Core.Api.xml
 C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\System.Interactive.Async.xml
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\Google.Protobuf.pdb
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\protobuf-net.dll
+C:\Users\Scalp\Desktop\scalpel\mdt\mdt\bin\Debug\protobuf-net.xml

@@ -118,6 +118,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
@@ -966,6 +967,7 @@
             // xtraTabPage2
             // 
             this.xtraTabPage2.AllowDrop = true;
+            this.xtraTabPage2.Controls.Add(this.button3);
             this.xtraTabPage2.Controls.Add(this.button2);
             this.xtraTabPage2.Controls.Add(this.pcBox);
             this.xtraTabPage2.Controls.Add(this.strikeBox);
@@ -1176,7 +1178,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(101, 82);
+            this.button1.Location = new System.Drawing.Point(51, 84);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -1193,6 +1195,16 @@
             this.label10.Size = new System.Drawing.Size(101, 18);
             this.label10.TabIndex = 1;
             this.label10.Text = "IDX Request";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(132, 84);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(119, 23);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "Send As Protobuf";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // frmMain
             // 
@@ -1349,6 +1361,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox underlyingBox;
+        private System.Windows.Forms.Button button3;
     }
 }
 
